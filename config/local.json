@@ -1,8 +1,0 @@
-{
-    "useStrict": "use strict",
-    "apiUrl": "http://api.local.dev",
-    "fbAppId": "TBD",
-    "googleClientId": "TBD",
-    "googleAnalyticsId": "UA-XXXXXXXX-1"
-}
-
