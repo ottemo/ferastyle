@@ -42,270 +42,295 @@
 {{ $dateFormat := "Monday, 2 Jan 2006, 3:04pm" }}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="css.css">
-  </head>
-  <body>
-    <!-- <inline-style-injection> -->
-    <table class="body">
-      <tr>
+</head>
+<body>
+<!-- <inline-style-injection> -->
+<table class="body">
+    <tr>
         <td class="center" align="center" valign="top">
-          <center>
+            <center>
 
-            <!-- container-primary -->
-            <table class="container container-primary">
-              <tr>
-                <td>
-                  <!-- branding -->
-                  <table class="row">
+                <!-- container-primary -->
+                <table class="container container-primary">
                     <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="text-pad center">
-                              <a href="{{ .Info.base_storefront_url }}">
-                                <img src="{{ .Info.base_storefront_url }}/images/logo_white.jpg"
-                                  class="center"
-                                  width="260"
-                                  height="95"
-                                  alt="Ultimo">
-                              </a>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end branding -->
+                        <td>
+                            <!-- branding -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="text-pad center">
+                                                    <a href="{{ .Info.base_storefront_url }}">
+                                                        <img src="{{ .Info.base_storefront_url }}/images/logo_white.jpg"
+                                                             class="center"
+                                                             width="260"
+                                                             height="95"
+                                                             alt="Ultimo">
+                                                    </a>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end branding -->
 
-                  <!-- information  -->
-                  <table class="row">
+                            <!-- information  -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="text-pad">
+                                                    <h1>Thanks for your order!</h1>
+
+                                                    <p>Get excited, your order is on its way.</p>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end information -->
+
+                            <!-- order blurb  -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="text-pad">
+                                                    <h5>Order #{{ .Order._id }}</h5>
+                                                    <h5>Placed On: {{ .Order.created_at.Format $dateFormat }}</h5>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end order blurb -->
+
+                            <!-- payments row -->
+                            <table class="row">
+                                <tr>
+                                    <!-- billing address -->
+                                    <td class="wrapper">
+                                        <table class="six columns">
+                                            <tr>
+                                                <td class="text-pad-left">
+                                                    <h4 class="section-header">Billing Information</h4>
+
+                                                    <div>{{ .Order.billing_address.first_name }} {{
+                                                        .Order.billing_address.last_name }}
+                                                    </div>
+                                                    <div>{{ .Order.billing_address.address_line1 }}</div>
+                                                    {{ if .Order.billing_address.address_line2 }}
+                                                    <div>{{ .Order.billing_address.address_line2 }}</div>
+                                                    {{ end }}
+                                                    <div>{{ .Order.billing_address.city }}, {{
+                                                        .Order.billing_address.state }} {{
+                                                        .Order.billing_address.zip_code }} {{
+                                                        .Order.billing_address.country }}
+                                                    </div>
+                                                    <div>{{ .Order.billing_address.phone }}</div>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <!-- payment method -->
+                                    <td class="wrapper last">
+                                        <table class="six columns">
+                                            <tr>
+                                                <td class="text-pad-right">
+                                                    <h4 class="section-header">Payment Method</h4>
+
+                                                    <div>{{ .Order.payment_info.payment_method_name }}</div>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end payments row -->
+
+                            <!-- shipping row -->
+                            <table class="row">
+                                <tr>
+                                    <!-- shipping information -->
+                                    <td class="wrapper">
+                                        <table class="six columns">
+                                            <tr>
+                                                <td class="text-pad-left">
+                                                    <h4 class="section-header">Shipping Information</h4>
+
+                                                    <div>{{ .Order.shipping_address.first_name }} {{
+                                                        .Order.shipping_address.last_name }}
+                                                    </div>
+                                                    <div>{{ .Order.shipping_address.address_line1 }}</div>
+                                                    {{ if .Order.shipping_address.address_line2 }}
+                                                    <div>{{ .Order.shipping_address.address_line2 }}</div>
+                                                    {{ end }}
+                                                    <div>{{ .Order.shipping_address.city }}, {{
+                                                        .Order.shipping_address.state }} {{
+                                                        .Order.shipping_address.zip_code }} {{
+                                                        .Order.shipping_address.country }}
+                                                    </div>
+                                                    <div>{{ .Order.shipping_address.phone }}</div>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                    <!-- shipping method -->
+                                    <td class="wrapper last">
+                                        <table class="six columns">
+                                            <tr>
+                                                <td class="text-pad-right">
+                                                    <h4 class="section-header">Shipping Method</h4>
+
+                                                    <div>{{ .Order.shipping_info.shipping_method_name }}</div>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end shipping row -->
+
+                            <!-- order items -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <!-- headers -->
+                                            <tr>
+                                                <td class="totals__header-left">
+                                                    <h4 class="section-header">Item</h4>
+                                                </td>
+                                                <td class="totals__header-right">
+                                                    <h4 class="section-header">Subtotal</h4>
+                                                </td>
+                                            </tr>
+
+                                            <!-- items -->
+                                            {{ range $item := .Order.items }}
+                                            <tr>
+                                                <td class="totals__item-left">
+                                                    <h5>{{ $item.name }}</h5>
+                                                    <ul>
+                                                        {{ range $label, $value := $item.options }}
+                                                        <li>{{ $label }}: {{ $value }}</li>
+                                                        {{ end }}
+                                                        <li>sku: {{ $item.sku }}</li>
+                                                        <li>qty: {{ $item.qty }}</li>
+                                                    </ul>
+                                                </td>
+                                                <td class="totals__item-right">
+                                                    {{ $item.price | printf "%.2f" }}
+                                                </td>
+                                            </tr>
+                                            {{ end }}
+
+                                            <!-- totals -->
+                                            <tr>
+                                                <td class="totals__footer-left">Subtotal</td>
+                                                <td class="totals__footer-right">{{ .Order.subtotal | printf "%.2f" }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="totals__footer-left">Shipping &amp; Handling</td>
+                                                <td class="totals__footer-right">{{ .Order.shipping_amount | printf
+                                                    "%.2f" }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="totals__footer-left">Tax</td>
+                                                <td class="totals__footer-right">{{ .Order.tax_amount | printf "%.2f"
+                                                    }}
+                                                </td>
+                                            </tr>
+                                            {{ if .Order.discount }}
+                                            <tr>
+                                                <td class="totals__footer-left">Discounts</td>
+                                                <td class="totals__footer-right">({{ .Order.discount | printf "%.2f"
+                                                    }})
+                                                </td>
+                                            </tr>
+                                            {{ end }}
+                                            <tr>
+                                                <td class="totals__footer-left"><strong>Grand Total</strong></td>
+                                                <td class="totals__footer-right"><strong>{{ .Order.grand_total | printf
+                                                    "%.2f" }}</strong></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end order items -->
+
+                            <!-- on-topic footer -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="center">
+                                                    <center>
+                                                        Thanks again for your business, Ultimo
+                                                    </center>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end on-topic footer -->
+                        </td>
+                    </tr>
+                </table>
+                <!-- /end container-primary -->
+
+                <!-- container-footer -->
+                <table class="container container-footer">
                     <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="text-pad">
-                              <h1>Thanks for your order!</h1>
-                              <p>Get excited, your order is on its way.</p>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
+                        <td>
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="center">
+                                                    <center>
+                                                        <div>©2016 Ultimo, All Rights Reserved.</div>
+                                                    </center>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
                     </tr>
-                  </table>
-                  <!-- /end information -->
-
-                  <!-- order blurb  -->
-                  <table class="row">
-                    <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="text-pad">
-                              <h5>Order #{{ .Order._id }}</h5>
-                              <h5>Placed On: {{ .Order.created_at.Format $dateFormat }}</h5>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end order blurb -->
-
-                  <!-- payments row -->
-                  <table class="row">
-                    <tr>
-                      <!-- billing address -->
-                      <td class="wrapper">
-                        <table class="six columns">
-                          <tr>
-                            <td class="text-pad-left">
-                              <h4 class="section-header">Billing Information</h4>
-                              <div>{{ .Order.billing_address.first_name }} {{ .Order.billing_address.last_name }}</div>
-                              <div>{{ .Order.billing_address.address_line1 }}</div>
-                              {{ if .Order.billing_address.address_line2 }}
-                              <div>{{ .Order.billing_address.address_line2 }}</div>
-                              {{ end }}
-                              <div>{{ .Order.billing_address.city }}, {{ .Order.billing_address.state }} {{ .Order.billing_address.zip_code }} {{ .Order.billing_address.country }}</div>
-                              <div>{{ .Order.billing_address.phone }}</div>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-
-                      <!-- payment method -->
-                      <td class="wrapper last">
-                        <table class="six columns">
-                          <tr>
-                            <td class="text-pad-right">
-                              <h4 class="section-header">Payment Method</h4>
-                              <div>{{ .Order.payment_info.payment_method_name }}</div>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end payments row -->
-
-                  <!-- shipping row -->
-                  <table class="row">
-                    <tr>
-                      <!-- shipping information -->
-                      <td class="wrapper">
-                        <table class="six columns">
-                          <tr>
-                            <td class="text-pad-left">
-                              <h4 class="section-header">Shipping Information</h4>
-                              <div>{{ .Order.shipping_address.first_name }} {{ .Order.shipping_address.last_name }}</div>
-                              <div>{{ .Order.shipping_address.address_line1 }}</div>
-                              {{ if .Order.shipping_address.address_line2 }}
-                              <div>{{ .Order.shipping_address.address_line2 }}</div>
-                              {{ end }}
-                              <div>{{ .Order.shipping_address.city }}, {{ .Order.shipping_address.state }} {{ .Order.shipping_address.zip_code }} {{ .Order.shipping_address.country }}</div>
-                              <div>{{ .Order.shipping_address.phone }}</div>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-
-                      <!-- shipping method -->
-                      <td class="wrapper last">
-                        <table class="six columns">
-                          <tr>
-                            <td class="text-pad-right">
-                              <h4 class="section-header">Shipping Method</h4>
-                              <div>{{ .Order.shipping_info.shipping_method_name }}</div>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end shipping row -->
-
-                  <!-- order items -->
-                  <table class="row">
-                    <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <!-- headers -->
-                          <tr>
-                            <td class="totals__header-left">
-                              <h4 class="section-header">Item</h4>
-                            </td>
-                            <td class="totals__header-right">
-                              <h4 class="section-header">Subtotal</h4>
-                            </td>
-                          </tr>
-
-                          <!-- items -->
-                          {{ range $item := .Order.items }}
-                          <tr>
-                              <td class="totals__item-left">
-                                <h5>{{ $item.name }}</h5>
-                                <ul>
-                                  {{ range $label, $value := $item.options }}
-                                    <li>{{ $label }}: {{ $value }}</li>
-                                  {{ end }}
-                                  <li>sku: {{ $item.sku }}</li>
-                                  <li>qty: {{ $item.qty }}</li>
-                                </ul>
-                              </td>
-                              <td class="totals__item-right">
-                                {{ $item.price | printf "%.2f" }}
-                              </td>
-                          </tr>
-                          {{ end }}
-
-                          <!-- totals -->
-                          <tr>
-                            <td class="totals__footer-left">Subtotal</td>
-                            <td class="totals__footer-right">{{ .Order.subtotal | printf "%.2f" }}</td>
-                          </tr>
-                          <tr>
-                            <td class="totals__footer-left">Shipping &amp; Handling</td>
-                            <td class="totals__footer-right">{{ .Order.shipping_amount | printf "%.2f" }}</td>
-                          </tr>
-                          <tr>
-                            <td class="totals__footer-left">Tax</td>
-                            <td class="totals__footer-right">{{ .Order.tax_amount | printf "%.2f" }}</td>
-                          </tr>
-                          {{ if .Order.discount }}
-                            <tr>
-                              <td class="totals__footer-left">Discounts</td>
-                              <td class="totals__footer-right">({{ .Order.discount | printf "%.2f" }})</td>
-                            </tr>
-                          {{ end }}
-                          <tr>
-                            <td class="totals__footer-left"><strong>Grand Total</strong></td>
-                            <td class="totals__footer-right"><strong>{{ .Order.grand_total | printf "%.2f" }}</strong></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end order items -->
-
-                  <!-- on-topic footer -->
-                  <table class="row">
-                    <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="center">
-                              <center>
-                                Thanks again for your business, Ultimo
-                              </center>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end on-topic footer -->
-                </td>
-              </tr>
-            </table>
-            <!-- /end container-primary -->
-
-            <!-- container-footer -->
-            <table class="container container-footer">
-              <tr>
-                <td>
-                  <table class="row">
-                    <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="center">
-                              <center>
-                                <div>©2016 Ultimo, All Rights Reserved.</div>
-                              </center>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-            <!-- /end container-footer -->
-          </center>
+                </table>
+                <!-- /end container-footer -->
+            </center>
         </td>
-      </tr>
-    </table>
-  </body>
+    </tr>
+</table>
+</body>
 </html>
