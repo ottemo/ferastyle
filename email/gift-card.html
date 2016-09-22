@@ -22,190 +22,192 @@
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="css.css">
-  </head>
-  <body>
-    <!-- <inline-style-injection> -->
-    <table class="body">
-      <tr>
+</head>
+<body>
+<!-- <inline-style-injection> -->
+<table class="body">
+    <tr>
         <td class="center" align="center" valign="top">
-          <center>
+            <center>
 
-            <!-- container-primary -->
-            <table class="container container-primary">
-              <tr>
-                <td>
-
-                  <!-- branding -->
-                  <table class="row">
+                <!-- container-primary -->
+                <table class="container container-primary">
                     <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="text-pad center">
-                              <a href="{{ .Site.Url }}">
-                                <img src="{{ .Site.Url }}images/logo_white.jpg"
-                                  class="center"
-                                  width="260"
-                                  height="95"
-                                  alt="Ultimo">
-                              </a>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end branding -->
+                        <td>
 
-                  <!-- header information  -->
-                  <table class="row">
-                    <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="text-pad">
-                              <h1>You just got the perfect gift!</h1>
-                              <p>
-                                Find something you love on our site, and apply the gift card during checkout.
-                              </p>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end header information -->
-
-                  <!-- gift card details -->
-                  <table class="row">
-                    <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="text-pad">
-                              <h5>Gift Amount: ${{ .GiftCard.Amount | printf "%2.f" }}</h5>
-                              <h5>Gift Code: {{ .GiftCard.Code }}</h5>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end gift card details -->
-
-                  <!-- gift card message -->
-                  <table class="row">
-                    <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="text-pad">
-                              <p>
-                                {{ if .GiftCard.Message }}
-                                  {{ .GiftCard.Message }}
-                                  <br />
-                                {{ end }}
-                                From, {{ .Buyer.Name }}
-                              </p>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end gift card message -->
-
-                  <!-- call to action -->
-                  <table class="row">
-                    <tr>
-                      <td class="wrapper hide-for-small">
-                        <table class="four columns">
-                          <tr>
-                            <td>&nbsp;</td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td class="wrapper last">
-                        <table class="four columns">
-                          <tr>
-                            <td class="text-pad">
-                              <table class="button">
+                            <!-- branding -->
+                            <table class="row">
                                 <tr>
-                                  <td>
-                                    <a href="{{ .Site.Url }}">Start Shopping</a>
-                                  </td>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="text-pad center">
+                                                    <a href="{{ .Site.Url }}">
+                                                        <img src="{{ .Site.Url }}images/logo_white.jpg"
+                                                             class="center"
+                                                             width="260"
+                                                             height="95"
+                                                             alt="Ultimo">
+                                                    </a>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
                                 </tr>
-                              </table>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                  <!-- /end call to action -->
+                            </table>
+                            <!-- /end branding -->
 
-                  <!-- salutation -->
-                  <table class="row">
+                            <!-- header information  -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="text-pad">
+                                                    <h1>You just got the perfect gift!</h1>
+
+                                                    <p>
+                                                        Find something you love on our site, and apply the gift card
+                                                        during checkout.
+                                                    </p>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end header information -->
+
+                            <!-- gift card details -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="text-pad">
+                                                    <h5>Gift Amount: ${{ .GiftCard.Amount | printf "%2.f" }}</h5>
+                                                    <h5>Gift Code: {{ .GiftCard.Code }}</h5>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end gift card details -->
+
+                            <!-- gift card message -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="text-pad">
+                                                    <p>
+                                                        {{ if .GiftCard.Message }}
+                                                        {{ .GiftCard.Message }}
+                                                        <br/>
+                                                        {{ end }}
+                                                        From, {{ .Buyer.Name }}
+                                                    </p>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end gift card message -->
+
+                            <!-- call to action -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper hide-for-small">
+                                        <table class="four columns">
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="wrapper last">
+                                        <table class="four columns">
+                                            <tr>
+                                                <td class="text-pad">
+                                                    <table class="button">
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{{ .Site.Url }}">Start Shopping</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end call to action -->
+
+                            <!-- salutation -->
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="center">
+                                                    <center>
+                                                        Thanks again for your business, Ultimo
+                                                    </center>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- /end salutation -->
+
+                        </td>
+                    </tr>
+                </table>
+                <!-- /end container-primary -->
+
+                <!-- container-footer -->
+                <table class="container container-footer">
                     <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="center">
-                              <center>
-                                Thanks again for your business, Ultimo
-                              </center>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
+                        <td>
+                            <table class="row">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="center">
+                                                    <center>
+                                                        <div>©2016 Ultimo, All Rights Reserved.</div>
+                                                    </center>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
                     </tr>
-                  </table>
-                  <!-- /end salutation -->
+                </table>
+                <!-- /end container-footer -->
 
-                </td>
-              </tr>
-            </table>
-            <!-- /end container-primary -->
-
-            <!-- container-footer -->
-            <table class="container container-footer">
-              <tr>
-                <td>
-                  <table class="row">
-                    <tr>
-                      <td class="wrapper last">
-                        <table class="twelve columns">
-                          <tr>
-                            <td class="center">
-                              <center>
-                                <div>©2016 Ultimo, All Rights Reserved.</div>
-                              </center>
-                            </td>
-                            <td class="expander"></td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-            <!-- /end container-footer -->
-
-          </center>
+            </center>
         </td>
-      </tr>
-    </table>
-  </body>
+    </tr>
+</table>
+</body>
 </html>
