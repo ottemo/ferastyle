@@ -1,0 +1,165 @@
+<div class="navbar navbar-default navbar-fixed-top"
+    role="navigation"
+    bs-navbar>
+
+    <div class="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 hidden-xs hidden-sm">
+                    <ot-cms-block name="header-promo-block"></ot-cms-block>
+                </div>
+                <div class="col-sm-7 visible-sm">
+                    <ot-cms-block name="header-promo-block-mobile"></ot-cms-block>
+                </div>
+                <div class="col-sm-5 col-md-5">
+                    <ul class="nav navbar-nav navbar-util hidden-xs">
+                        <li class="social-link">
+                            <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li class="social-link">
+                            <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                        </li>
+                        <li class="social-link">
+                            <a href="https://pinterest.com"><i class="fa fa-pinterest"></i></a>
+                        </li>
+
+                        <li uib-dropdown="" class="dropdown">
+                            <a uib-dropdown-toggle="" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                Help <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href>CALL: 800 828 FERA</a></li>
+                                <li><a title="EMAIL" href="mailto:info@ferastyle.com" target="_blank">EMAIL: info@ferastyle.com</a></li>
+                                <li><a title="RETURNS" href="/returns">RETURNS</a></li>
+                                <li><a title="SIZE CHART" href="/size-chart">SIZE CHART</a></li>
+                                <li><a title="SHIPPING" href="/shipping">SHIPPING</a></li>
+                            </ul>
+                        </li>
+                        <li ng-if="!visitorProps.isLoggedIn"
+                            data-match-route="^/login">
+                            <a href="/login">Login / Register</a>
+                        </li>
+                        <li ng-if="visitorProps.isLoggedIn"
+                            data-match-route="^/account">
+                            <a href="/account">My Account</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 visible-xs text-center">
+                    <ot-cms-block name="header-promo-block-mobile"></ot-cms-block>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-toggle"
+                ng-click="mobileNav.isOpen = !mobileNav.isOpen">
+                <i class="fa fa-fw fa-bars"></i>
+            </a>
+            <a href="/cart"
+                class="navbar-toggle">
+                <i class="fa fa-fw fa-shopping-cart"></i>
+            </a>
+            <a class="navbar-brand"
+                href="/">
+                <img alt="Ferastyle"
+                    src="/images/logo.png">
+                <span class="sr-only">Ferastyle</span>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse"
+            ng-class="{in: mobileNav.isOpen}">
+
+            <!-- Utility Navigation -->
+            <ul class="nav navbar-nav navbar-util hidden-xs">
+                <li class="search-field">
+                    <input ng-click="searchProducts(searchText)" type="image" src="/images/icon-search.png" alt="Go" id="go">
+                    <input type="text" ng-model="searchText" ng-enter="searchProducts(searchText)" class="form-control search_box" placeholder="Search" value="">
+                </li>
+                <li data-match-route="^/cart">
+                    <i class="fa fa-shopping-cart"></i>
+                    <a href="/cart">
+                        Cart ({{getItemsInCart()}})
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Main Navigation -->
+            <ul class="nav navbar-nav navbar-main">
+                <li uib-dropdown
+                    data-match-route="^/womens">
+                    <a href="/womens">
+                        Women <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/womens">All Women's</a></li>
+                        <li><a href="/womens/tops">Tops</a></li>
+                        <li><a href="/womens/bottoms">Bottoms</a></li>
+                        <li><a href="/womens/shoes">Shoes</a></li>
+                    </ul>
+                </li>
+                <li uib-dropdown
+                    data-match-route="^/mens">
+                    <a href="/mens">
+                        Men <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/mens">All Men's</a></li>
+                        <li><a href="/mens/tops">Tops</a></li>
+                        <li><a href="/mens/bottoms">Bottoms</a></li>
+                        <li><a href="/mens/shoes">Shoes</a></li>
+                    </ul>
+                </li>
+                <li uib-dropdown
+                    data-match-route="^/kids">
+                    <a href="/kids">
+                        Kids <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/footwear">All Footwear</a></li>
+                        <li><a href="/footwear/youth">Youth</a></li>
+                        <li><a href="/footwear/womens">Women's</a></li>
+                        <li><a href="/footwear/mens">Men's</a></li>
+                    </ul>
+                </li>
+                <li uib-dropdown
+                    data-match-route="^/meister">
+                    <a href="/meister">
+                        Meister <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/accessories">All Accessories</a></li>
+                        <li><a href="/accessories/headwear">Headwear</a></li>
+                        <li><a href="/accessories/jewelry">Jewelry</a></li>
+                        <li><a href="/accessories/bags-wallets">Bags / Wallets</a></li>
+                        <li><a href="/accessories/socks">Socks</a></li>
+                    </ul>
+                </li>
+                <li data-match-route="^/contact">
+                    <a href="/pant-guide">Pant Guide</a>
+                </li>
+                <li data-match-route="^/about-us">
+                    <a href="/blog">Blog</a>
+                </li>
+                <li data-match-route="^/about-us">
+                    <a href="/sale">Sale</a>
+                </li>
+
+                <!-- Additional mobile menu items, since the util nav is hidden -->
+                <li class="visible-xs"
+                    ng-show="!visitorProps.isLoggedIn">
+                    <a href="/login">Login</a>
+                </li>
+
+                <li class="visible-xs"
+                    ng-show="visitorProps.isLoggedIn">
+                    <a href="/account">My Account</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+

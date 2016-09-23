@@ -23,7 +23,7 @@ $brand-info: #9954BB;
 $brand-warning: #FF7518;
 $brand-danger: #FF0039;
 
-$dark-red: #9f2014;
+$red-dark: #9f2014;
 
 //== Scaffolding
 //
@@ -35,7 +35,7 @@ $body-bg: #fff !default;
 $text-color: $gray-dark !default;
 
 //** Global textual link color.
-$link-color: $dark-red;
+$link-color: $red-dark;
 //** Link hover color set via `darken()` function.
 $link-hover-color: darken($link-color, 15%) !default;
 //** Link hover decoration.
@@ -157,8 +157,8 @@ $btn-default-bg: #000;
 $btn-default-border: #000;
 
 $btn-primary-color: #fff;
-$btn-primary-bg: $dark-red;
-$btn-primary-border: $dark-red;
+$btn-primary-bg: $red-dark;
+$btn-primary-border: $red-dark;
 
 $btn-success-color: #fff !default;
 $btn-success-bg: $brand-success !default;
