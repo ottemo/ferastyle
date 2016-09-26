@@ -1,99 +1,65 @@
 <div class="home">
 
-    <div class="">
-        <div ot-cms-slider name="cms-slider" config="{dots: true}"></div>
-    </div>
+    <ot-cms-block name="home-blocks"></ot-cms-block>
 
-    <div class="home-tagline">
-        <div class="container">
-            <h2>Seattle's Premiere Streetwear Boutique</h2>
-            <p>Exclusive finds for men and women</p>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <a class="r-container r-container-square home-tile" href="/mens">
-                    <span class="home-tile__overlay">For Men</span>
-                    <img class="r-target" src="/images/common/home/suit.jpg" alt="" />
-                </a>
+            <div class="col-xs-12 text-center instagram-block">
+                <h6>LATEST FROM FERA</h6>
+                <a href="https://www.instagram.com/ferastyle/">FOLLOW ALONG ON INSTAGRAM</a>
+                <ul ot-cms-slider
+                    class="responsive"
+                    name="cms-slider"
+                    config="{
+                                infinite: true,
+                                slidesToShow: 4,
+                                slidesToScroll: 4,
+                                responsive: [
+                                                {
+                                                  breakpoint: 1024,
+                                                  settings: {
+                                                    slidesToShow: 3,
+                                                    slidesToScroll: 3,
+                                                    infinite: true,
+                                                    dots: true
+                                                  }
+                                                },
+                                                {
+                                                  breakpoint: 600,
+                                                  settings: {
+                                                    slidesToShow: 2,
+                                                    slidesToScroll: 2
+                                                  }
+                                                },
+                                                {
+                                                  breakpoint: 480,
+                                                  settings: {
+                                                    slidesToShow: 1,
+                                                    slidesToScroll: 1
+                                                  }
+                                                }
+                                            ]
+                            }">
+                </ul>
             </div>
-            <div class="col-sm-4">
-                <a class="r-container r-container-square home-tile" href="/sale">
-                    <span class="home-tile__overlay">On Sale</span>
-                    <img class="r-target" src="/images/common/home/shirts_on_rack.jpg" alt="" />
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a class="r-container r-container-square home-tile" href="/new-arrivals">
-                    <span class="home-tile__overlay">New Arrivals</span>
-                    <img class="r-target" src="/images/common/home/bathing_suits.jpg" alt="" />
-                </a>
+            <div class="col-xs-12 text-center">
+                <form>
+                    <div class="block-newsletter">
+                        <div class="input-box">
+                            <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" placeholder="Enter your email for FERA special offers">
+                        </div>
+                        <div class="actions">
+                            <button type="submit" title="Subscribe">
+                                <span>
+                                    <img src="/images/next.png">
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- ultimo specific -->
-    <div class="container">
-        <h2 class="header-display">Featured Products</h2>
-        <div ot-category-products
-            category-id="56eace79fe01ce20c2249229"></div>
-    </div>
-
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-8">
-
-                <a class="r-container r-container-wide home-tile" href="/mens">
-                    <img class="r-target" src="/images/common/home/suit.jpg" />
-                    <div class="home-tile__overlay">
-                        Men's Apparel
-                    </div>
-                </a>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <a class="r-container r-container-wide home-tile" href="/womens">
-                            <img class="r-target" src="/images/common/home/woman_in_jeans.jpg" />
-                            <div class="home-tile__overlay">
-                                Women's Apparel
-                            </div>
-                        </a>
-                        <a class="r-container r-container-square home-tile" href="/sale">
-                            <img class="r-target" src="/images/common/home/shirts_on_rack.jpg" />
-                            <div class="home-tile__overlay">
-                                On Sale
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a class="r-container r-container-tall home-tile" href="/accessories">
-                            <img class="r-target" src="/images/common/home/purse.jpg" />
-                            <div class="home-tile__overlay">
-                                Accessories
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-
-                <a class="r-container r-container-taller home-tile" href="/winter-looks-2015">
-                    <img class="r-target" src="/images/common/home/woman_in_jacket.jpg" />
-                    <div class="home-tile__overlay">
-                        Winter Looks
-                    </div>
-                </a>
-
-                <a class="r-container r-container-square home-tile" href="/summer-looks-2015">
-                    <img class="r-target" src="/images/common/home/bathing_suits.jpg" />
-                    <div class="home-tile__overlay">
-                        Summer Favorites
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </div> -->
 </div>
 
