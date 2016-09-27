@@ -1,0 +1,110 @@
+<i class="init-controller" ng-init="activate()"></i>
+<div class="breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ot-breadcrumbs></ot-breadcrumbs>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="category container">
+    <div class="row">
+
+        <div class="hidden-xs hidden-sm col-md-3">
+            <div ng-include="category/sidebar.html"></div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- sorting block -->
+                    <div class="dropdown sort-block">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Sort By
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li>
+                                <a ng-click="sortByPrice('asc')">Price: low to high</a>
+                            </li>
+                            <li>
+                                <a ng-click="sortByPrice('desc')">Price: high to low</a>
+                            </li>
+                            <li>
+                                <a ng-click="sortByName('asc')">Name: a to z</a>
+                            </li>
+                            <li>
+                                <a ng-click="sortByName('desc')">Name: z to a</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-4 col-lg-4 product-box"
+                    ng-repeat="product in productsList track by product._id"
+                    itemscope
+                    itemtype="http://schema.org/Product">
+
+                    <div class="product-box-bg">
+                        <a class="btn btn-primary btn-quick-view"
+                           ng-click="openPopUp(product)">
+                            <i class="fa fa-search-plus"></i> Quick View
+                        </a>
+
+                        <a class="product-box-img r-container r-container-square"
+                           ng-href="{{::productService.getUrl(product._id)}}">
+                            <img class="r-target"
+                                 ng-src="{{::product.image.medium}}"
+                                 err-src="placeholder.png"
+                                 itemprop="image">
+                        </a>
+
+                        <div class="product-box-description">
+                            <h2 class="product-box-name"
+                                itemprop="name">
+                                <a ng-href="{{::productService.getUrl(product._id)}}"
+                                   itemprop="url">
+                                    {{::product.name}}
+                                </a>
+                            </h2>
+                            <a class="product-box-price"
+                               ng-href="{{::productService.getUrl(product._id)}}">
+                                {{::product.price | currency}}
+                            </a>
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="hover-block">
+                            <a ng-click="openPopUp(product)">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Add to Cart</span>
+                            </a>
+                            <div class="wishlist" >
+                                <a href="">
+                                    <span>&#43;</span>
+                                    <span>Add to Wishlist</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="text-center">
+                <ot-paginator object="this"
+                    ng-if="pages > 1"></ot-paginator>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- quick view modal -->
+<div ng-include="category/modal/quick-view.html"></div>
+<div ng-include="category/modal/quick-view-success.html"></div>
+
