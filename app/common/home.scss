@@ -67,6 +67,7 @@ $overlay-height: 60px;
     opacity: .7;
 }
 .home {
+    margin-top: -10px;
     .custom-block {
         .row {
             margin: 0;
@@ -236,7 +237,7 @@ $overlay-height: 60px;
         .actions {
             top: 0;
             position: absolute;
-            right: 0;
+            right: 2px;
             display: inline-block;
             margin: 0;
             padding: 0;

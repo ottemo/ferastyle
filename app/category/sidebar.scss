@@ -1,0 +1,33 @@
+.nav__header {
+    text-transform: uppercase;
+    font-family: 'AvenirNextLTPro-Bold';
+    color: #000;
+    font-size: 18px;
+    letter-spacing: 0.2px;
+}
+
+.nav--categories {
+    margin-bottom: 20px;
+
+    > li > a {
+        padding: 5px 10px;
+    }
+}
+
+.nav--cat-layers > li > .checkbox {
+    margin: 10px;
+    color: #555;
+}
+
+.filter-block {
+    padding: 15px;
+    border-radius: $border-radius-small;
+    @include box-shadow(0 0 6px 0 rgba(0, 0, 0, 0.10));
+    margin-bottom: 30px;
+
+    padding: 23px 20px;
+    border-top: 6px solid #9f2014;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}

@@ -1,0 +1,33 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+.breadcrumb-bg {
+    border-bottom: 1px solid rgba(227, 227, 227, 0.61);
+    margin-bottom: 30px;
+    .breadcrumb {
+        margin-bottom: 8px;
+        padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal $breadcrumb-padding-vertical 0;
+        list-style: none;
+        background-color: inherit;
+        border-radius: $border-radius-base;
+
+
+        > li {
+            display: inline-block;
+            + li:before {
+                content: "#{$breadcrumb-separator}";
+                padding: 0 5px;
+                color: $breadcrumb-color;
+            }
+            & > a {
+                color: $breadcrumb-color;
+            }
+        }
+
+        > .active {
+            color: $breadcrumb-active-color;
+        }
+    }
+}
+
