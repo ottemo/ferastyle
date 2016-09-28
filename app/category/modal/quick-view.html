@@ -1,0 +1,92 @@
+<div class="modal fade"
+     id="quick-view"
+     tabindex="-1"
+     role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <button type="button"
+                    class="close"
+                    data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- image -->
+                    <div class="col-sm-6">
+                        <div class="thumbnail thumbnail-quick-view">
+                            <img alt="{{popupProduct.name}}"
+                                 ng-src="{{ popupProduct.image.medium }}"
+                                 err-src="placeholder.png">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <!-- form of quick shop -->
+                        <form name="visitorForm"
+                              novalidate>
+
+                            <h3 class="text-left"><strong>{{popupProduct.name}}</strong></h3>
+
+                            <p class="text-left price">
+                                <s>{{popupProduct.strikethrough_price | currency}}</s>
+                                <strong>{{popupProduct.price | currency}}</strong>
+                            </p>
+                            <hr/>
+                            <!-- description -->
+                            <div ng-bind-html="popupProduct.description"
+                                 class="std"></div>
+                            <hr/>
+                            <!-- Custom options -->
+                            <ot-custom-options item="popupProduct"
+                                               object="this"></ot-custom-options>
+                            <div class="clearfix"></div>
+
+                            <div class="">
+                                <!-- error message -->
+                                <ot-message-manager item="message"></ot-message-manager>
+                            </div>
+
+                        </form>
+                        <!-- add to cart button -->
+                        <button type="submit"
+                                class="btn btn-primary btn-lg btn-add-to-cart"
+                                ng-class="{disabled: isAddingToCart}"
+                                ng-click="addToCart(popupProduct)">
+                            <i class="fa fa-shopping-cart">
+                            </i>
+                            <span class="separator"></span>
+                            Add to cart
+                            <i class="fa fa-circle-o-notch fa-spin"
+                               ng-show="isAddingToCart">
+                            </i>
+                        </button>
+                        <!-- view details -->
+                        <a id="details_pdp"
+                           class="btn btn-default btn-lg"
+                           ng-click="viewDetails(popupProduct)">
+                            Details
+                        </a>
+
+                        <ul class="nav navbar-nav">
+                            <li class="social-link">
+                                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li class="social-link">
+                                <a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li class="social-link">
+                                <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li class="social-link">
+                                <a href="https://pinterest.com"><i class="fa fa-pinterest"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

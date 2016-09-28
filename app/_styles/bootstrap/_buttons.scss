@@ -162,3 +162,23 @@ input[type="button"] {
         width: 100%;
     }
 }
+
+.btn-lg.btn-add-to-cart {
+    position: relative;
+    padding-left: 68px;
+    .fa-shopping-cart {
+        font-size: 22px;
+        position: absolute;
+        top: 14px;
+        left: 16px;
+        z-index: 0;
+    }
+    & > span {
+        position: absolute;
+        top: 16px;
+        left: 54px;
+        border-left: 1px solid rgba(255,255,255,.1);
+        width: 1px;
+        height: 18px;
+    }
+}
