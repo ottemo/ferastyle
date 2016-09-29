@@ -159,3 +159,54 @@ hr {
 [role="button"] {
   cursor: pointer;
 }
+
+.custom-option {
+    label {
+        width: 100%;
+    }
+    .checkbox {
+        margin: 0px 3px 10px 0;
+        display: inline-block;
+        label {
+            padding: 0;
+            margin: 0;
+            input {
+                position: absolute;
+                margin: 0;
+                z-index: -9999;
+                &:checked + span {
+                    border-color: $red-dark;
+                }
+            }
+            & > span {
+                height: 32px;
+                min-width: 34px;
+                span {
+                    border-color: #fff;
+                    white-space: nowrap;
+                    background: #f4f4f4;
+                    padding: 9px;
+                    text-transform: uppercase;
+                    font-size: 10px;
+                }
+            }
+            span  {
+                border: 1px solid #cccccc;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                display: block;
+                text-align: center;
+                color: #636363;
+                text-decoration: none;
+                box-sizing: content-box;
+            }
+        }
+    }
+    a {
+        display: inline-block;
+        padding: 2px 0;
+        margin-bottom: 10px;
+    }
+
+}
