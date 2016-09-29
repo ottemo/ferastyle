@@ -182,3 +182,12 @@ input[type="button"] {
         height: 18px;
     }
 }
+
+.btn {
+    .seporator {
+        border-left: 1px solid rgba(255,255,255,.4);
+        width: 1px;
+        height: 18px;
+        margin: 0 5px 0 10px;
+    }
+}
