@@ -124,17 +124,15 @@
                 </div>
             </div>
             <!-- social links -->
-            <ul class="list-social">
-                <li>
-                    <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-                </li>
-            </ul>
+            <ot-social-links class="text-center"
+                             title="Share:"
+                             image="{{product.images[0].small}}"
+                             text="{{product.name}}"
+                             googleplus
+                             twitter
+                             pinterest
+                             facebook>
+            </ot-social-links>
             <hr/>
 
             <!-- error message -->
@@ -179,7 +177,6 @@
 <!-- TODO: move out -->
 <script>
     $('.pdp-tabs a').click(function (e) {
-        console.log(111);
         e.preventDefault()
         $(this).tab('show')
     })
