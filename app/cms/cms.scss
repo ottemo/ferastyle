@@ -1,0 +1,152 @@
+.std {
+    margin-bottom: 30px;
+    p  {
+        padding: 10px 0;
+        font-size: 14px;
+        font-family: 'AvenirNextLTPro';
+        color: #000;
+        line-height: 24px;
+        margin: 0;
+    }
+
+    a {
+        color: #c01100;
+    }
+    ul {
+        padding: 0;
+        li {
+            list-style: none;
+            padding: 0;
+        }
+    }
+    ul.disc li {
+        line-height: 22px;
+        padding: 0 10px 0 20px;
+        background: url(../images/arrow_item.gif) 10px 8px no-repeat;
+        background-size: 3px 5px;
+        display: list-item;
+        text-align: -webkit-match-parent;
+        list-style: none;
+    }
+
+    img {
+        max-width: 100%;
+    }
+    h1, h2, h3 {
+        font-family: AvenirNextLTPro-Bold;
+        font-size: $font-size-middle;
+        line-height: 16px;
+        margin-bottom: 30px;
+    }
+    .cms-shipping {
+        p {
+            &:not(:first-child) {
+                padding-left: 40px;
+                &.extra-padding {
+                    padding-left: 80px;
+                }
+            }
+        }
+    }
+    .customer_care, .product_info, .product-care, .about_us {
+        h1 {
+            margin: 0 0 10px;
+        }
+        h3 {
+            font-family: 'AvenirNextLTPro';
+            margin-bottom: 10px;
+        }
+        .call_us {
+            margin: 10px 0 20px;
+            p {
+                margin: 0;
+                padding: 0;
+                a {
+                    color: #110b79;
+                }
+            }
+        }
+        ul {
+            padding: 0;
+            margin-bottom: 24px;
+            li {
+                list-style: none;
+                padding: 0;
+                line-height: 25px;
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .domestic, .internation, .waterpro, .fit, .mation  {
+            color: $red;
+        }
+        .ferain {
+            padding-left: 60px;
+        }
+    }
+    .product_info {
+        h2{
+            margin: 0 0 20px;
+        }
+        h3 {
+            font-family: AvenirNextLTPro-Bold;
+            margin-bottom: 12px;
+        }
+        ul {
+            li {
+                line-height: 23px;
+            }
+        }
+    }
+    .about_us {
+        h2 {
+            margin: 0 0 20px;
+        }
+        h3 {
+            font-family: AvenirNextLTPro-Bold;
+            font-size: $font-size-middle;
+            line-height: 16px;
+            margin: 15px 0;
+        }
+        img {
+            margin-bottom: 15px;
+        }
+    }
+    .terms-conditions {
+        h3 {
+            font-family: AvenirNextLTPro-Bold;
+            font-size: $font-size-middle;
+            line-height: 16px;
+        }
+    }
+    .product-care {
+        h2 {
+            margin: 0 0 20px;
+        }
+        .block-links {
+            margin-bottom: 10px;
+            p {
+                padding: 0;
+                a {
+                    font-size: $font-size-base;
+                    font-family: AvenirNextLTPro-Bold;
+                }
+            }
+        }
+        p {
+            padding: 0;
+        }
+        h5 {
+            font-weight: normal;
+            font-size: $font-size-h5;
+            font-family: AvenirNextLTPro-Bold;
+            margin: 40px 0 20px;
+        }
+        br {
+            display: block;
+            margin: 10px 0;
+        }
+    }
+}
+
