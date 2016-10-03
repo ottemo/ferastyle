@@ -1,0 +1,36 @@
+<i class="init-controller" ng-init="activate()"></i>
+
+<div class="container blog">
+
+    <!-- Article -->
+
+    <h1 class="text-center text-uppercase"> {{article.title}} </h1>
+
+    <div class="col-sm-12 article-image" ng-if="article.image" >
+        <img class="img-responsive center-block" ng-src={{article.image}} >
+    </div>
+
+    <div class="text-justify">
+        {{article.content}}
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="article-navigation">
+        <div ng-if="previous" class="pull-left">
+            <a ng-href={{getUrl(previous.URL)}}>
+                <i class="fa fa-long-arrow-left"></i>
+                Previoous Post
+            </a>
+        </div>
+
+        <div ng-if="next" class="pull-right">
+            <a ng-href={{getUrl(next.URL)}}>
+                Next Post
+                <i class="fa fa-long-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Discuss implementation -->
+    <div id="discuss"></div>
+</div>
