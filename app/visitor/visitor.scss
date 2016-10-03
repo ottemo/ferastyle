@@ -1,0 +1,60 @@
+// Login screen
+@media (min-width: $screen-sm-min) {
+    .social-login .btn {
+        margin-top: 25px;
+        + .btn {
+            margin-top: 40px;
+        }
+    }
+}
+
+.page-header {
+    h1 {
+        margin: 10px 0 ;
+    }
+}
+
+.my-account {
+    .list-group {
+        background: #fff;
+        border: none;
+        border-top: 6px solid $red-dark;
+        border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        @include box-shadow(0px 0px 6px 0px rgba(0, 0, 0, 0.10));
+        .list-group-item {
+
+            &.active {
+                background-color: #fff;
+                color: #000;
+                font-size: 16px;
+                padding: 20px 15px;
+                text-transform: uppercase;
+                font-family: AvenirNextLTPro-Bold;
+                letter-spacing: 0.2px;
+                border-color: #ddd;
+                background-color: #f5f5f5;
+            }
+        }
+    }
+    .panel {
+        border-top: 6px solid $red-dark;
+        @include box-shadow(0px 0px 6px 0px rgba(0, 0, 0, 0.10));
+    }
+    .panel > .panel-body + .table {
+        border-top: none;
+    }
+    strong, label, .modal-header h4 {
+        font-family: AvenirNextLTPro-Bold;
+        font-weight: normal;
+    }
+}
+.modal-content {
+    .modal-header, .modal-body, .modal-footer {
+        padding: 15px $modal-title-padding;
+    }
+    .modal-title {
+        padding: 0;
+    }
+}
