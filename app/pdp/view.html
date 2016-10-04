@@ -1,0 +1,230 @@
+<i class="init-controller" ng-init="activate()"></i>
+<div class="breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ot-breadcrumbs></ot-breadcrumbs>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pdp"
+    itemscope
+    itemtype="http://schema.org/Product">
+
+    <!-- disabled message -->
+    <div ng-if="product && !product.enabled"
+        class="ng-cloak">
+        <div class="alert alert-warning alert-dismissible"
+            role="alert">
+            <button type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+
+            <h4>Disabled Product!</h4>
+            <p>
+                This product is currently disabled. Customers trying to reach this product will be redirected back to the homepage.
+            </p>
+        </div>
+    </div>
+
+    <!-- product -->
+    <div class="row">
+
+        <!-- images -->
+        <div class="col-xs-12 col-sm-6 pdp-img-container m-t-30">
+            <div class="row">
+                <div class="col-xs-12">
+                    <a class="active-img"
+                       data-href-lg="{{activeImg}}">
+                        <img ng-src="{{activeImg}}"/>
+                    </a>
+                </div>
+                <div class="col-xs-12">
+                    <ul>
+                        <li class="img-small" ng-repeat="img in product.images">
+                            <img ng-src="{{img.small}}"
+                                 itemprop="image"
+                                 ng-click="selectImage(img.large)"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- details -->
+        <div class="col-xs-12 col-sm-6 m-t-30">
+            <div class="page-header">
+                <h1 itemprop="name">{{product.name}}</h1>
+            </div>
+
+            <!-- price -->
+            <div class="form-group">
+
+                <span itemprop="offers"
+                    itemscope
+                    itemtype="http://schema.org/Offer">
+
+                    <meta itemprop="priceCurrency" content="USD" />
+                    <meta itemprop="price" content="{{ product.price.toFixed(2) }}" />
+                </span>
+                <span class="form-control-static pdp-price">
+                    {{product.price | currency}}
+                </span>
+                <a class="btn btn-primary btn-md disabled pull-right"
+                   ng-show="product.qty === 0">
+                    Sold Out
+                </a>
+                <a class="btn btn-success btn-md disabled pull-right"
+                   ng-show="product.qty > 0">
+                    In Stock
+                </a>
+            </div>
+            <!-- description 1/2 -->
+            <div ng-show="product.short_description !== ''">
+                <hr/>
+                <meta itemprop="short_description" content="{{ product.short_description | htmlToText }}"/>
+                <div ng-bind-html="product.short_description"></div>
+                <hr/>
+            </div>
+
+            <div ng-show="product.qty !== 0">
+                <!-- custom options -->
+                <ot-custom-options item="product"
+                    object="this"></ot-custom-options>
+
+                <!-- Quantity -->
+                <div class="form-group pdp-qty">
+                    <label for="qty"
+                        class="control-label">Quantity</label>
+                    <input type="number"
+                        id="qty"
+                        class="form-control"
+                        placeholder="1"
+                        value="{{qty}}"
+                        ng-model="qty"
+                        ng-change="update(idx, qty)">
+                </div>
+
+                <!-- add to cart button -->
+                <div class="form-group">
+                    <a class="btn btn-primary btn-lg btn-add-to-cart"
+                        ng-class="{disabled: isAddingToCart}"
+                        ng-click="addToCart($event)">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="separator"></span>
+                        Add to cart
+                        <i class="fa fa-circle-o-notch fa-spin"
+                        ng-show="isAddingToCart"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- social links -->
+            <ul class="list-social">
+                <li>
+                    <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                </li>
+            </ul>
+            <hr/>
+
+            <!-- error message -->
+            <ot-message-manager item="messageOptions"></ot-message-manager>
+
+            <!-- add to cart success message -->
+            <div class="alert alert-success text-center"
+                ng-show="isAddToCartSuccessful">
+                <p>{{product.name}} was added to your cart</p>
+                <p>
+                    <a href="/cart"
+                        class="btn btn-default">view my cart</a>
+                </p>
+            </div>
+
+            <div class="pdp-tabs">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <!-- description 2/2 -->
+                        <div class="std" ng-bind-html="product.description"></div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">Reviews Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid architecto, autem cum cumque cupiditate deserunt distinctio dolore eos illo iste iure nostrum, officia omnis, repudiandae sed suscipit voluptatibus voluptatum!</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- related products -->
+    <div ot-related-products product-id="{{product._id}}"></div>
+</div>
+<hr/>
+<!-- TODO: move out -->
+<script>
+    $('.pdp-tabs a').click(function (e) {
+        console.log(111);
+        e.preventDefault()
+        $(this).tab('show')
+    })
+$(function() {
+
+    // click to zoom on images
+    monitorZoomImage();
+
+    // Scale images so they don't extend too far vertically
+    scaleImages();
+    scaleImagesOnResize();
+
+    ////////////////////////
+
+    function monitorZoomImage() {
+        $(document).on('click', '.active-img', function(e) {
+            // Toss it in a data attribute because the event
+            // doesn't always get prevented
+            var href = $(this).data('href-lg');
+
+            $.fancybox({href: href});
+
+        });
+    }
+
+    function scaleImagesOnResize() {
+        $(window).resize(function() {
+            if (typeof _ === "undefined") {
+                scaleImages();
+            } else {
+                _.debounce(scaleImages, 200);
+            }
+        });
+    }
+
+    function scaleImages() {
+        // product image ratio 143%;
+        var maxHeight = ($(window).height() - 200) * (100 / 143);
+        maxHeight = Math.round(maxHeight);
+        $('.active-img').css({
+            'max-width': maxHeight
+        });
+    }
+
+});
+
+</script>
+

@@ -24,6 +24,7 @@ $brand-warning: #FF7518;
 $brand-danger: #FF0039;
 
 $red-dark: #9f2014;
+$red: #c01100;
 
 //== Scaffolding
 //
@@ -98,8 +99,8 @@ $icon-font-svg-id: "glyphicons_halflingsregular" !default;
 $padding-base-vertical: 6px !default;
 $padding-base-horizontal: 12px !default;
 
-$padding-large-vertical: 10px !default;
-$padding-large-horizontal: 16px !default;
+$padding-large-vertical: 16px !default;
+$padding-large-horizontal: 20px !default;
 
 $padding-small-vertical: 5px !default;
 $padding-small-horizontal: 10px !default;
@@ -569,10 +570,10 @@ $label-link-hover-color: #fff !default;
 //##
 
 //** Padding applied to the modal body
-$modal-inner-padding: 15px !default;
+$modal-inner-padding: 30px !default;
 
 //** Padding applied to the modal title
-$modal-title-padding: 15px !default;
+$modal-title-padding: 30px !default;
 //** Modal title line-height
 $modal-title-line-height: $line-height-base !default;
 
