@@ -51,6 +51,9 @@
             background-color: $red-dark;
             color: white;
             border-radius: 50%;
+            &:hover {
+                background-color: #72170e;
+            }
         }
     }
     .product-box-name,

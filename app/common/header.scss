@@ -56,7 +56,6 @@ body {
             padding: 13px 3px 0 0px;
             color: white;
             border-radius: 50%;
-
             &+a {
                 padding-left: 52px;
                 padding-botton: 10px;
@@ -88,6 +87,14 @@ body {
         }
         & > .dropdown {
             margin-left: 10px;
+        }
+        a.shopping-cart {
+            padding: 15px 0 15px 50px;
+            &:hover {
+                i {
+                    background-color: #72170e;
+                }
+            }
         }
     }
 

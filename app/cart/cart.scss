@@ -1,0 +1,184 @@
+/**
+ * cart item
+ */
+.cart-item__img {
+    display: block;
+}
+.cart-item__product-subtotal {
+    text-align: center;
+    font-size: 16px;
+    line-height: 34px;
+}
+.cart-item__product-qty input {
+    text-align: center;
+
+    // remove the spinner
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+.cart-item__divider {
+    margin: ($grid-gutter-width / 2) 0;
+    border-bottom: 1px solid $gray-lighter;
+}
+
+// Make the remove look more like a link than a button on xs
+@media (max-width: $screen-xs-max) {
+    .cart-item__product-remove .btn{
+        text-align: left;
+        padding-left: 0;
+    }
+}
+
+// Align with the product title
+@media (min-width: $screen-sm-min) {
+    .cart-item__product-remove,
+    .cart-item__product-qty,
+    .cart-item__product-subtotal {
+        margin-top: ($line-height-computed / 2);
+    }
+}
+
+// not enough room for remove text as well
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .cart-item__product-remove-text {
+        display: none;
+    }
+}
+
+/**
+ * cart footer
+ */
+.cart-footer__items,
+.cart-footer__subtotal {
+    font-weight: bold;
+}
+
+.btn-custom, .cart-footer {
+    .btn {
+        padding: 10px 36px 10px 15px;
+        margin: 2px 0 10px 0;
+        position: relative;
+        .seporator {
+            margin: 0;
+            position: absolute;
+            right: 36px;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .arrow-right {
+            background: url(../images/arrow_button.png) 100% 50% no-repeat;
+            font-size: 30px;
+            position: absolute;
+            right: 12px;
+            top: 9px;
+            width: 30px;
+            height: 20px;
+
+        }
+        &:hover {
+            .arrow-right {
+                background-position: 80% 50%;
+            }
+        }
+    }
+}
+
+.cart-table {
+    border-top: 6px solid #575757;
+    @include box-shadow(0px 0px 6px 0px rgba(0, 0, 0, 0.10));
+    padding: 0 15px 20px;
+    & > div:first-child {
+        background: #fafafa;
+        .row {
+            div {
+                padding: 20px 15px;
+            }
+        }
+    }
+    h4 {
+        a {
+            color: #d12d1e;
+            text-transform: uppercase;
+            font-family: AvenirNextLTPro-Demi, sans-serif;
+            letter-spacing: -1.5px;
+        }
+        & + ul {
+            li {
+                margin-bottom: 10px;
+            }
+        }
+    }
+    & > div:last-child {
+        .cart-item__divider {
+            display: none;
+        }
+    }
+}
+
+.cart-item__product-remove {
+    @media (min-width: $screen-sm-min) {
+        padding: 0;
+    }
+    a {
+        @media (min-width: $screen-sm-min) {
+            padding: 0;
+        }
+        .trash-o {
+            .fa-trash-o {
+                font-size: 22px;
+                padding: 9px 0 0 0px;
+                font-size: 22px;
+                padding: 10px 1px 0 0px;
+                color: white;
+            }
+            &:hover {
+                background-color: #72170e;
+                .fa-trash-o {
+                    -webkit-transform: rotateY(180deg);
+                    -moz-transform: rotateY(180deg);
+                    -o-transform: rotateY(180deg);
+                    -ms-transform: rotateY(180deg);
+                    transform: rotateY(180deg);
+                 }
+            }
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #9f2014;
+            border-radius: 50%;
+        }
+
+        .visible-xs.fa-close, .cart-item__product-remove-text.visible-xs {
+            @media (max-width: $screen-xs-max) {
+                display: inline-block !important;
+            }
+        }
+    }
+}
+
+.cart-footer {
+    margin: 20px 0 40px;
+    border-top: 6px solid $red-dark;
+    @include box-shadow(0px 0px 6px 0px rgba(0, 0, 0, 0.10));
+    padding: 20px 15px 20px;
+    div {
+        font-size: 22px;
+        font-weight: normal;
+    }
+    .text-right {
+        @media (max-width: $screen-xs-max) {
+            float: none;
+        }
+    }
+}
+
+.page-header {
+    .btn-custom {
+        margin-top: 3px;
+        a {
+            margin: 0;
+        }
+    }
+}
