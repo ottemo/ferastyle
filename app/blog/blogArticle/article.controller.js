@@ -18,16 +18,16 @@ angular.module('blogModule')
             blogApiService.getBlogArticle().$promise
                 .then(function(response){
                     var articles = response.result || {};
-
                     $scope.article = articles.article || {};
-                    $scope.previous = articles.previous || "";
-                    $scope.next = articles.next || "";
+
+                    $scope.previousArticle = articles.previousArticle || "";
+                    $scope.nextArticle = articles.nextArticle || "";
 
                     $scope.$emit('add-breadcrumbs', {
                         'label': $scope.article.title,
-                        'url': $scope.article.URL
+                        'url': '/blog' + $scope.article.URL
                     });
-                })
 
+                });
         }
 }])

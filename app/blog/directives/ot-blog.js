@@ -8,7 +8,7 @@ angular.module('blogModule')
         },
         templateUrl: '/views/blog/directives/ot-blog.html',
         controller: function($scope) {
-
+            // logic for <!-- More --> functionality
         }
     }
 })

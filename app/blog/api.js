@@ -14,23 +14,16 @@ angular.module('blogModule')
                     identifier: '~blog'
                 }
             },
+            'getBlogArticle': {
+                method: 'GET',
+                url: REST_SERVER_URI + '/blog/:id'
+            },
             'getCount': {
                 method: 'GET',
                 url: REST_SERVER_URI + '/blog/posts',
                 params: {
                     action: 'count'
                 }
-            },
-            'getBlogArticle': {
-                method: 'GET',
-                url: REST_SERVER_URI + '/blog/:id'
-            },
-            'getCountPosts': {
-                method: 'GET',
-                params: {
-                    action: 'count'
-                },
-                url: REST_SERVER_URI + '/cms/pages'
             }
         });
 }]);
