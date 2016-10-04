@@ -7,15 +7,19 @@
 </div>
 
 <div class="container m-b-30">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="checkout-penel">
+                <p ng-if="order._id">
+                    Your order number is: <strong>{{order._id}}</strong>.
+                </p>
 
-    <p ng-if="order._id">
-        Your order number is: <strong>{{order._id}}</strong>.
-    </p>
+                <p>You will receive an order confirmation email with details of your order. <span ng-if="visitorProps.isLoggedIn">You can also view past orders from the <a ng-href="/account/orders">my account page</a></span></p>
 
-    <p>You will receive an order confirmation email with details of your order. <span ng-if="visitorProps.isLoggedIn">You can also view past orders from the <a ng-href="/account/orders">my account page</a></span></p>
-
-    <a class="btn btn-primary"
-        href="/">Continue shopping</a>
-
+                <a class="btn btn-primary"
+                   href="/">Continue shopping</a>
+            </div>
+        </div>
+    </div>
 </div>
 

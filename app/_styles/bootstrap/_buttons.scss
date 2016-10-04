@@ -59,6 +59,9 @@ a.btn {
 
 .btn-default {
     @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+    &:hover {
+        background: #323232;
+    }
 }
 
 .btn-primary {
@@ -194,4 +197,8 @@ input[type="button"] {
         height: 18px;
         margin: 0 5px 0 10px;
     }
+}
+
+a, .btn, i {
+    transition: ease 0.4s;
 }

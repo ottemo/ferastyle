@@ -78,8 +78,8 @@
                     <input type="text" ng-model="searchText" ng-enter="searchProducts(searchText)" class="form-control search_box" placeholder="Search" value="">
                 </li>
                 <li data-match-route="^/cart">
-                    <i class="fa fa-shopping-cart"></i>
-                    <a href="/cart">
+                    <a href="/cart" class="shopping-cart">
+                        <i class="fa fa-shopping-cart"></i>
                         Cart ({{getItemsInCart()}})
                     </a>
                 </li>

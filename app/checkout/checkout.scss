@@ -166,7 +166,12 @@ $panel-checkout-step-heading-bg: $panel-default-heading-bg;
     h1 {
         text-transform: uppercase;
         font-family: AvenirNextLTPro-Bold, sans-serif;
-        font-weight: bold;
         letter-spacing: -1.5px;
     }
+}
+
+.checkout-penel {
+    border-top: 6px solid $red-dark;
+    @include box-shadow(0px 0px 6px 0px rgba(0, 0, 0, 0.10));
+    padding: 20px;
 }
