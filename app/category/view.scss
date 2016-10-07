@@ -1,5 +1,7 @@
-.category .form-group--search {
-    margin: 6px 0 20px 0;
+.category {
+    .form-group--search {
+        margin: 6px 0 20px 0;
+    }
 }
 
 //col-xs-6 col-sm-4 col-lg-3
@@ -11,6 +13,9 @@
         padding: 15px;
         border-radius: $border-radius-small;
         @include box-shadow(0 0 6px 0 rgba(0, 0, 0, 0.15));
+    }
+    @media (max-width: 480px) {
+        width: 100%;
     }
     // col-xs-6
     @media (max-width: $screen-xs-max) {
@@ -135,7 +140,6 @@
         z-index: 100;
         background-color: white;
 
-
         a:first-child {
             display: inline-block;
             font-family: 'AvenirNextLTPro-Bold';
@@ -219,7 +223,8 @@
                 text-align: center;
                 width: 100%;
                 a {
-                    padding-right: 0;
+                   padding: 0 24px;
+                    margin-bottom: 20px;
                 }
             }
             .product-box-price {
@@ -238,5 +243,26 @@
     .btn {
         font-family: robotoregular, sans-serif;
         font-size: 14px;
+    }
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    .product-box {
+        display: flex;
+        .product-box-bg {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+.search-result {
+    .product-box:nth-child(3n+1) {
+        clear: none;
+        //float: none;
+        //display: inline-block;
     }
 }

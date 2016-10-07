@@ -37,11 +37,11 @@
                         </li>
                         <li ng-if="!visitorProps.isLoggedIn"
                             data-match-route="^/login">
-                            <a href="/login">Login / Register</a>
+                            <a class="nav-login" href="/login">Login / Register</a>
                         </li>
                         <li ng-if="visitorProps.isLoggedIn"
                             data-match-route="^/account">
-                            <a href="/account">My Account</a>
+                            <a class="nav-login" href="/account">My Account</a>
                         </li>
                     </ul>
                 </div>
@@ -86,81 +86,10 @@
             </ul>
 
             <!-- Main Navigation -->
-            <ul class="nav navbar-nav navbar-main">
-                <li uib-dropdown
-                    data-match-route="^/womens">
-                    <a href="/womens">
-                        Women <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/womens">All Women's</a></li>
-                        <li><a href="/womens/tops">Tops</a></li>
-                        <li><a href="/womens/bottoms">Bottoms</a></li>
-                        <li><a href="/womens/shoes">Shoes</a></li>
-                    </ul>
-                </li>
-                <li uib-dropdown
-                    data-match-route="^/mens">
-                    <a href="/mens">
-                        Men <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/mens">All Men's</a></li>
-                        <li><a href="/mens/tops">Tops</a></li>
-                        <li><a href="/mens/bottoms">Bottoms</a></li>
-                        <li><a href="/mens/shoes">Shoes</a></li>
-                    </ul>
-                </li>
-                <li uib-dropdown
-                    data-match-route="^/kids">
-                    <a href="/kids">
-                        Kids <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/footwear">All Footwear</a></li>
-                        <li><a href="/footwear/youth">Youth</a></li>
-                        <li><a href="/footwear/womens">Women's</a></li>
-                        <li><a href="/footwear/mens">Men's</a></li>
-                    </ul>
-                </li>
-                <li uib-dropdown
-                    data-match-route="^/meister">
-                    <a href="/meister">
-                        Meister <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/accessories">All Accessories</a></li>
-                        <li><a href="/accessories/headwear">Headwear</a></li>
-                        <li><a href="/accessories/jewelry">Jewelry</a></li>
-                        <li><a href="/accessories/bags-wallets">Bags / Wallets</a></li>
-                        <li><a href="/accessories/socks">Socks</a></li>
-                    </ul>
-                </li>
-                <li data-match-route="^/contact">
-                    <a href="/pant-guide">Pant Guide</a>
-                </li>
-                <li data-match-route="^/blog">
-                    <a href="/blog">Blog</a>
-                </li>
-                <li data-match-route="^/sale">
-                    <a href="/sale">Sale</a>
-                </li>
-
-                <!-- Additional mobile menu items, since the util nav is hidden -->
-                <li class="visible-xs"
-                    ng-show="!visitorProps.isLoggedIn">
-                    <a href="/login">Login</a>
-                </li>
-
-                <li class="visible-xs"
-                    ng-show="visitorProps.isLoggedIn">
-                    <a href="/account">My Account</a>
-                </li>
-            </ul>
+            <ot-cms-block name="main-menu"></ot-cms-block>
 
         </div>
-
     </div>
 </div>
-<div class="header-bottom"></div>
+
 

@@ -45,7 +45,8 @@
                     </a>
                 </div>
                 <div class="col-xs-12">
-                    <ul>
+                    <ul class="bg-block" ot-slider config="{dots: true}">
+
                         <li class="img-small" ng-repeat="img in product.images">
                             <img ng-src="{{img.small}}"
                                  itemprop="image"
@@ -179,7 +180,6 @@
 <!-- TODO: move out -->
 <script>
     $('.pdp-tabs a').click(function (e) {
-        console.log(111);
         e.preventDefault()
         $(this).tab('show')
     })

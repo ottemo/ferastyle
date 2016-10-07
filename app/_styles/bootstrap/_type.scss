@@ -384,3 +384,13 @@ address {
     font-style: normal;
     line-height: $line-height-base;
 }
+
+.page-header{
+    &.h1 {
+        @media(max-width: $screen-xs-max){
+            h1 {
+                font-size: 20px;
+            }
+        }
+    }
+}
