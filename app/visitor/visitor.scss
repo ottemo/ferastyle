@@ -1,9 +1,17 @@
 // Login screen
 @media (min-width: $screen-sm-min) {
     .social-login .btn {
-        margin-top: 25px;
+        margin-top: 22px;
         + .btn {
-            margin-top: 40px;
+            margin-top: 37px;
+        }
+    }
+    .social-reg {
+        .btn {
+            margin-top: 37px;
+            + .btn {
+                margin-top: 37px;
+            }
         }
     }
 }
@@ -56,5 +64,20 @@
     }
     .modal-title {
         padding: 0;
+    }
+}
+
+.bg-block {
+    margin: 20px 0 40px;
+    border-top: 6px solid $red-dark;
+    @include box-shadow(0px 0px 6px 0px rgba(0, 0, 0, 0.10));
+    padding: 20px 15px 20px;
+}
+
+.table-responsive {
+    table {
+        tr:first-child {
+            background-color: #f9f9f9;
+        }
     }
 }

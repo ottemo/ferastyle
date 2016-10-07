@@ -22,12 +22,14 @@
 <div class="container">
 
     <!-- we do *not* have items in cart -->
-    <div ng-hide="cart.getCountItems()">
-        <p class="text-center">No items are currently in your cart.</p>
-        <p class="text-center">
-            <a class="btn btn-lg btn-primary"
+    <div class="bg-block" ng-hide="cart.getCountItems()">
+        <h4 class="text-center">No items are currently in your cart.</h4>
+        <p class="text-center btn-custom">
+            <a class="btn btn-md btn-primary"
                 href="/">
                 Continue Shopping
+                <span class="seporator"></span>
+                <i class="arrow-right"></i>
             </a>
         </p>
     </div>
@@ -54,7 +56,7 @@
                         <div class="col-sm-5 text-left">Product Name</div>
                         <div class="col-sm-2 text-center">Unit Price</div>
                         <div class="col-sm-2 text-center">Quantity</div>
-                        <div class="col-sm-2 text-center">Quantity</div>
+                        <div class="col-sm-2 text-center">Subtotal</div>
                         <div class="col-sm-1 text-center"> </div>
                     </div>
                 </div>
@@ -93,8 +95,9 @@
                             </div>
 
                             <!-- Unit Price -->
-                            <div class="hidden-xs col-sm-2 cart-item__product-subtotal">
-                               {{item.product.price | number: 2 | currency}}
+                            <div class="col-sm-2 cart-item__product-subtotal">
+                                <span class="visible-xs">Price:</span>
+                                <span>{{item.product.price | number: 2 | currency}}</span>
                             </div>
                             <!-- qty -->
                             <div class="col-sm-2 cart-item__product-qty">
@@ -122,8 +125,9 @@
                             </div>
 
                             <!-- price desktop -->
-                            <div class="hidden-xs col-sm-2 cart-item__product-subtotal">
-                                {{item.product.price * item.qty | currency}}
+                            <div class="col-sm-2 cart-item__product-subtotal">
+                                <span class="visible-xs">Subtotal:</span>
+                                <span>{{item.product.price * item.qty | currency}}</span>
                             </div>
 
                             <!-- sm/md/lg product removal -->
@@ -153,12 +157,16 @@
                 <div class="cart-footer">
                     <div class="row cart-footer__items">
                         <div class="col-xs-6">Items in Cart:</div>
-                        <div class="col-xs-6 text-right">{{cart.getTotalQuantity()}}</div>
+                        <div class="col-xs-6">
+                            <span class="pull-right">{{cart.getTotalQuantity()}}</span>
+                        </div>
                     </div>
 
                     <div class="row m-b cart-footer__subtotal">
                         <div class="col-xs-6">Subtotal:</div>
-                        <div class="col-xs-6 text-right">{{cart.getSubtotal() | currency}}</div>
+                        <div class="col-xs-6">
+                            <span class="pull-right">{{cart.getSubtotal() | currency}}</span>
+                        </div>
                     </div>
 
                     <!-- actions -->

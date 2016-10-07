@@ -41,14 +41,18 @@
                 opacity: .8;
             }
         }
+        .bg-block {
+            border: none;
+            width: 95%;
+            padding: 0 0 10px 6%;
+        }
         .img-small {
-            max-width: 70px;
+            width: 30%;
             display: inline-block;
-            margin: 10px 10px 0 0;
+            margin: 10px 2% 0 0;
 
             img {
                 width: 100%;
-                @include box-shadow(0px 0px 6px 0px rgba(0, 0, 0, 0.15));
                 &:hover {
                     border-color: $red-dark;
                 }
@@ -122,7 +126,7 @@
         span {
             color: $red-dark;
             line-height: 18px;
-            font-size: 12px;
+            font-size: 16px;
 
         }
         @media (max-width: 360px) {

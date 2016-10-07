@@ -1,8 +1,8 @@
 // Navigation is fixed so we have to pad the body
 body {
-    padding-top: 159px;
+    padding-top: 169px;
     @media (max-width: $screen-xs-max) {
-        padding-top: 106px;
+        padding-top: 116px;
     }
 }
 
@@ -199,11 +199,21 @@ body {
     .navbar-nav > li > a {
         padding: 4px 10px;
         cursor: pointer;
-
+        &.nav-login {
+            padding-right: 0;
+        }
     }
     .dropdown-menu {
         font-size: $font-size-middle;
     }
+    transition: ease .4s;
+    &.scroll {
+
+        margin-top: -34px;
+    }
+}
+.navbar {
+
 }
 
 // Search field
@@ -238,7 +248,40 @@ body {
     left: 16px;
 }
 
-.header-bottom {
-    @include box-shadow(inset 0 8px 10px -6px rgba(0, 0, 0, 0.15));
-    height: 10px;
+.navbar-fixed-top {
+    @include box-shadow(0px 0px 10px 0px rgba(0, 0, 0, 0.15));
 }
+
+.navbar-collapse {
+    .navbar-main {
+        @media (max-width: $screen-xs-max) {
+            margin: 10px 0 0;
+            width: 100%;
+        }
+        .dropdown-menu {
+            @media (max-width: $screen-xs-max) {
+                > li > a {
+                    padding: 5px 15px 5px 40px;
+                }
+            }
+
+            .dropdown-submenu.open {
+                position: relative;
+                & > .dropdown-menu {
+                    top: -7px;
+                    left: 100%;
+                    @media (max-width: $screen-xs-max) {
+                        a {
+                            padding: 5px 15px 5px 65px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        padding: 0;
+    }
+}
+

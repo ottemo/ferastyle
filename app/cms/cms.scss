@@ -48,7 +48,7 @@
             }
         }
     }
-    .customer_care, .product_info, .product-care, .about_us {
+    .customer_care, .product_info, .product-care, .about_us, .pain_gui {
         h1 {
             margin: 0 0 10px;
         }
@@ -146,6 +146,28 @@
         br {
             display: block;
             margin: 10px 0;
+        }
+    }
+    .pain_gui {
+        p {
+            padding: 0;
+        }
+       .which, .moutain, .check_out {
+           font-style: italic;
+           font-family: AvenirNextLTPro-Bold;
+       }
+        .check_out {
+            font-style: normal;
+            a {
+                color: $red;
+                text-decoration: underline;
+            }
+        }
+        .an_all {
+            padding: 12px 0;
+        }
+        .whitch {
+            padding: 14px 0 12px;
         }
     }
 }

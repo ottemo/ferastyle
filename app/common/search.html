@@ -1,0 +1,55 @@
+<div class="page-header h1">
+    <div class="container">
+        <h1>Search Results</h1>
+    </div>
+</div>
+<div ng-init="activate()" class="category container search-result">
+    <div class="row">
+
+        <div class="col-xs-12" ng-show="products.length">
+            <div class="row product-grid">
+                <div class="col-xs-6 col-sm-4 col-lg-3 product-box"
+                     ng-repeat="product in products"
+                     itemscope
+                     itemtype="http://schema.org/Product">
+
+                    <div class="product-box-bg">
+                        <a class="product-box-img"
+                           ng-href="{{::getUrl(product.ID)}}">
+                            <img class="img-responsive"
+                                 ng-src="{{::product.Images[0].medium}}"
+                                 err-src="placeholder.png"
+                                 itemprop="image">
+                        </a>
+
+                        <div class="product-box-description">
+                            <h2 class="product-box-name"
+                                itemprop="name">
+                                <a ng-href="{{::getUrl(product.ID)}}"
+                                   itemprop="url">
+                                    {{::product.Extra.name}}
+                                </a>
+                            </h2>
+                            <a class="product-box-price"
+                               ng-href="{{::getUrl(product.ID)}}">
+                                {{::product.Extra.price | currency}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <ot-paginator object="this"
+                              ng-if="pages > 1"></ot-paginator>
+            </div>
+
+        </div>
+        <div class="col-xs-12 m-b-50" ng-hide="products.length">
+            <div class="page-header">
+                <h1>No Search Results</h1>
+            </div>
+            <h3 class="m-b-50">Your search for "<strong>{{searchText}}</strong>" did not yield any results. Try searching for something else.</h3>
+        </div>
+    </div>
+</div>

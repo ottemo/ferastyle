@@ -8,6 +8,16 @@
     text-align: center;
     font-size: 16px;
     line-height: 34px;
+    @media (max-width: $screen-xs-max) {
+        text-align: left;
+        padding-bottom: 10px;
+        span {
+            display: inline-block !important;
+            &:first-child {
+                font-size: $font-size-middle;
+            }
+        }
+    }
 }
 .cart-item__product-qty input {
     text-align: center;
@@ -58,7 +68,7 @@
 
 .btn-custom, .cart-footer {
     .btn {
-        padding: 10px 36px 10px 15px;
+        padding: 10px 52px 10px 15px;
         margin: 2px 0 10px 0;
         position: relative;
         .seporator {
@@ -98,6 +108,7 @@
         }
     }
     h4 {
+        padding-top: 9px;
         a {
             color: #d12d1e;
             text-transform: uppercase;

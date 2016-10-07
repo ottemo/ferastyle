@@ -6,7 +6,7 @@
             ng-repeat="_item in related"
             itemscope
             itemtype="http://schema.org/Product">
-            <div>
+            <div class="product-box">
                 <a ng-href="{{getUrl(_item._id)}}"
                     itemprop="url">
                     <img class="img-responsive"
@@ -17,7 +17,9 @@
                 <a ng-href="{{getUrl(_item._id)}}"
                     itemprop="url">
                     <h5 itemprop="name">{{_item.name}}</h5>
-                    <span>{{_item.price}}</span>
+                    <span>
+                        {{_item.price | currency}}
+                    </span>
                 </a>
             </div>
         </div>

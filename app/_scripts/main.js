@@ -15,19 +15,31 @@ $(document).ready(function () {
     if($(window).width() > 767){
         // Main menu for desctop and tablet
 
-        $(document).on('mouseenter','.navbar-main > li',function() {
+        $(document).on('mouseenter','.navbar-main li',function() {
             $(this).addClass('open');
         });
-        $(document).on('mouseleave','.navbar-main > li',function() {
+        $(document).on('mouseleave','.navbar-main li',function() {
             $(this).removeClass('open');
         });
     } else {
         // Mobile main menu
-        $(document).on('touchend','.navbar-main > li i',function(event) {
+        $(document).on('touchend','.navbar-main li i',function(event) {
             event.preventDefault();
             $(this).closest("li").siblings().removeClass('open');
             $(this).closest("li").toggleClass('open');
         });
     }
+
+    // Sticky header
+    var scrollStart = 40;
+    $(document).on('scroll', function () {
+        var scroll = $("body").scrollTop();
+        if (scroll > scrollStart) {
+            $('.top-header').addClass("scroll");
+        }
+        else {
+            $('.top-header').removeClass("scroll");
+        }
+    });
 
 });
