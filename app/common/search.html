@@ -7,6 +7,44 @@
     <div class="row">
 
         <div class="col-xs-12" ng-show="products.length">
+            <!--<div class="row product-grid">-->
+                <!--<div class="col-xs-6 col-sm-4 col-lg-3 product-box"-->
+                     <!--ng-repeat="product in products"-->
+                     <!--itemscope-->
+                     <!--itemtype="http://schema.org/Product">-->
+
+                    <!--<div class="product-box-bg">-->
+                        <!--<a class="product-box-img"-->
+                           <!--ng-href="{{::getUrl(product.ID)}}">-->
+                            <!--<img class="img-responsive"-->
+                                 <!--ng-src="{{::product.Images[0].medium}}"-->
+                                 <!--err-src="placeholder.png"-->
+                                 <!--itemprop="image">-->
+                        <!--</a>-->
+
+                        <!--<div class="product-box-description">-->
+                            <!--<h2 class="product-box-name"-->
+                                <!--itemprop="name">-->
+                                <!--<a ng-href="{{::getUrl(product.ID)}}"-->
+                                   <!--itemprop="url">-->
+                                    <!--{{::product.Extra.name}}-->
+                                <!--</a>-->
+                            <!--</h2>-->
+                            <!--<a class="product-box-price"-->
+                               <!--ng-href="{{::getUrl(product.ID)}}">-->
+                                <!--{{::product.Extra.price | currency}}-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="text-center">-->
+                <!--<ot-paginator object="this"-->
+                              <!--ng-if="pages > 1"></ot-paginator>-->
+            <!--</div>-->
+
+
             <div class="row product-grid">
                 <div class="col-xs-6 col-sm-4 col-lg-3 product-box"
                      ng-repeat="product in products"
@@ -14,9 +52,10 @@
                      itemtype="http://schema.org/Product">
 
                     <div class="product-box-bg">
-                        <a class="product-box-img"
+
+                        <a class="product-box-img r-container r-container-square"
                            ng-href="{{::getUrl(product.ID)}}">
-                            <img class="img-responsive"
+                            <img class="r-target"
                                  ng-src="{{::product.Images[0].medium}}"
                                  err-src="placeholder.png"
                                  itemprop="image">
@@ -34,8 +73,11 @@
                                ng-href="{{::getUrl(product.ID)}}">
                                 {{::product.Extra.price | currency}}
                             </a>
+                            <i class="fa fa-shopping-cart"></i>
                         </div>
                     </div>
+
+
                 </div>
             </div>
 
@@ -43,7 +85,6 @@
                 <ot-paginator object="this"
                               ng-if="pages > 1"></ot-paginator>
             </div>
-
         </div>
         <div class="col-xs-12 m-b-50" ng-hide="products.length">
             <div class="page-header">
