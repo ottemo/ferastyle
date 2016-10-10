@@ -262,7 +262,18 @@
 .search-result {
     .product-box:nth-child(3n+1) {
         clear: none;
-        //float: none;
-        //display: inline-block;
+    }
+    @media (min-width: $screen-md-min) {
+        &:hover {
+            .product-box-name {
+                a {
+                    margin-bottom: 0;
+                }
+            }
+            .product-box-price {
+                display: block;
+                text-align: center;
+            }
+        }
     }
 }
