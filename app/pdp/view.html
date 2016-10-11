@@ -10,18 +10,18 @@
 </div>
 
 <div class="container pdp"
-    itemscope
-    itemtype="http://schema.org/Product">
+     itemscope
+     itemtype="http://schema.org/Product">
 
     <!-- disabled message -->
     <div ng-if="product && !product.enabled"
-        class="ng-cloak">
+         class="ng-cloak">
         <div class="alert alert-warning alert-dismissible"
-            role="alert">
+             role="alert">
             <button type="button"
-                class="close"
-                data-dismiss="alert"
-                aria-label="Close">
+                    class="close"
+                    data-dismiss="alert"
+                    aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
 
@@ -42,6 +42,7 @@
                     <a class="active-img"
                        data-href-lg="{{activeImg}}">
                         <img ng-src="{{activeImg}}"/>
+                        <span ng-show="product.sale_prices || product.strikethrough_price" class="sale-image"></span>
                     </a>
                 </div>
                 <div class="col-xs-12">
@@ -66,14 +67,28 @@
             <div class="form-group">
 
                 <span itemprop="offers"
-                    itemscope
-                    itemtype="http://schema.org/Offer">
+                      itemscope
+                      itemtype="http://schema.org/Offer">
 
                     <meta itemprop="priceCurrency" content="USD" />
-                    <meta itemprop="price" content="{{ product.price.toFixed(2) }}" />
+                    <meta ng-if="product.sale_prices"
+                          class="pdp-price-value"
+                          itemprop="price"
+                          content="{{ product.price.toFixed(2) }}"/>
                 </span>
-                <span class="form-control-static pdp-price">
+                <span ng-if="!product.sale_prices" class="strikethrough form-control-static pdp-price"
+                      ng-show="product.strikethrough_price">
+                     {{product.strikethrough_price | currency}}
+                </span>
+                <span ng-class="{'strikethrough' : product.sale_prices}" class="form-control-static pdp-price"
+                      itemprop="price"
+                      content="{{ product.price.toFixed(2) }}">
                     {{product.price | currency}}
+                </span>
+                <span ng-if="product.sale_prices" class="form-control-static pdp-price"
+                      itemprop="price"
+                      content="{{ product.price.toFixed(2) }}">
+                    {{product.sale_prices[0].amount | currency}}
                 </span>
                 <a class="btn btn-primary btn-md disabled pull-right"
                    ng-show="product.qty === 0">
@@ -95,31 +110,31 @@
             <div ng-show="product.qty !== 0">
                 <!-- custom options -->
                 <ot-custom-options item="product"
-                    object="this"></ot-custom-options>
+                                   object="this"></ot-custom-options>
 
                 <!-- Quantity -->
                 <div class="form-group pdp-qty">
                     <label for="qty"
-                        class="control-label">Quantity</label>
+                           class="control-label">Quantity</label>
                     <input type="number"
-                        id="qty"
-                        class="form-control"
-                        placeholder="1"
-                        value="{{qty}}"
-                        ng-model="qty"
-                        ng-change="update(idx, qty)">
+                           id="qty"
+                           class="form-control"
+                           placeholder="1"
+                           value="{{qty}}"
+                           ng-model="qty"
+                           ng-change="update(idx, qty)">
                 </div>
 
                 <!-- add to cart button -->
                 <div class="form-group">
                     <a class="btn btn-primary btn-lg btn-add-to-cart"
-                        ng-class="{disabled: isAddingToCart}"
-                        ng-click="addToCart($event)">
+                       ng-class="{disabled: isAddingToCart}"
+                       ng-click="addToCart($event)">
                         <i class="fa fa-shopping-cart"></i>
                         <span class="separator"></span>
                         Add to cart
                         <i class="fa fa-circle-o-notch fa-spin"
-                        ng-show="isAddingToCart"></i>
+                           ng-show="isAddingToCart"></i>
                     </a>
                 </div>
             </div>
@@ -141,11 +156,11 @@
 
             <!-- add to cart success message -->
             <div class="alert alert-success text-center"
-                ng-show="isAddToCartSuccessful">
+                 ng-show="isAddToCartSuccessful">
                 <p>{{product.name}} was added to your cart</p>
                 <p>
                     <a href="/cart"
-                        class="btn btn-default">view my cart</a>
+                       class="btn btn-default">view my cart</a>
                 </p>
             </div>
         </div>
@@ -184,48 +199,48 @@
         e.preventDefault()
         $(this).tab('show')
     })
-$(function() {
+    $(function() {
 
-    // click to zoom on images
-    monitorZoomImage();
+        // click to zoom on images
+        monitorZoomImage();
 
-    // Scale images so they don't extend too far vertically
-    scaleImages();
-    scaleImagesOnResize();
+        // Scale images so they don't extend too far vertically
+        scaleImages();
+        scaleImagesOnResize();
 
-    ////////////////////////
+        ////////////////////////
 
-    function monitorZoomImage() {
-        $(document).on('click', '.active-img', function(e) {
-            // Toss it in a data attribute because the event
-            // doesn't always get prevented
-            var href = $(this).data('href-lg');
+        function monitorZoomImage() {
+            $(document).on('click', '.active-img', function(e) {
+                // Toss it in a data attribute because the event
+                // doesn't always get prevented
+                var href = $(this).data('href-lg');
 
-            $.fancybox({href: href});
+                $.fancybox({href: href});
 
-        });
-    }
+            });
+        }
 
-    function scaleImagesOnResize() {
-        $(window).resize(function() {
-            if (typeof _ === "undefined") {
-                scaleImages();
-            } else {
-                _.debounce(scaleImages, 200);
-            }
-        });
-    }
+        function scaleImagesOnResize() {
+            $(window).resize(function() {
+                if (typeof _ === "undefined") {
+                    scaleImages();
+                } else {
+                    _.debounce(scaleImages, 200);
+                }
+            });
+        }
 
-    function scaleImages() {
-        // product image ratio 143%;
-        var maxHeight = ($(window).height() - 200) * (100 / 143);
-        maxHeight = Math.round(maxHeight);
-        $('.active-img').css({
-            'max-width': maxHeight
-        });
-    }
+        function scaleImages() {
+            // product image ratio 143%;
+            var maxHeight = ($(window).height() - 200) * (100 / 143);
+            maxHeight = Math.round(maxHeight);
+            $('.active-img').css({
+                'max-width': maxHeight
+            });
+        }
 
-});
+    });
 
 </script>
 

@@ -19,12 +19,17 @@
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
             border-radius: 3px;
+            position: relative;
             @media (max-width: $screen-xs-max) {
                 max-width: 100% !important;
             }
             img {
                 width: 100%;
                 border: none;
+            }
+            .sale-image {
+                top: -13px;
+                right: -14px;
             }
         }
         ul {

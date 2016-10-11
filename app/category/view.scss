@@ -255,6 +255,15 @@
             width: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            .product-box-img {
+                position: inherit;
+                overflow: inherit;
+                .sale-image {
+                    top: -19px;
+                    right: -19px;
+                }
+            }
         }
     }
 }
@@ -276,4 +285,13 @@
             }
         }
     }
+}
+
+.sale-image {
+    background: url(../images/labels.png) no-repeat;
+    width: 92px;
+    height: 91px;
+    display: block;
+    background-position: -272px 0px;
+    position: absolute;
 }

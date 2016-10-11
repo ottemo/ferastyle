@@ -18,6 +18,7 @@
                             <img alt="{{popupProduct.name}}"
                                  ng-src="{{ popupProduct.image.medium }}"
                                  err-src="placeholder.png">
+                            <span ng-show="popupProduct.sale_prices || popupProduct.strikethrough_price" class="sale-image"></span>
                         </div>
                     </div>
 
@@ -29,8 +30,14 @@
                             <h3 class="text-left"><strong>{{popupProduct.name}}</strong></h3>
 
                             <p class="text-left price pull-left">
-                                <s>{{popupProduct.strikethrough_price | currency}}</s>
-                                <strong>{{popupProduct.price | currency}}</strong>
+                                <span ng-if="!popupProduct.sale_prices" class="strikethrough"
+                                      ng-show="popupProduct.strikethrough_price">
+                                    {{popupProduct.strikethrough_price | currency}}
+                                </span>
+                                <span ng-class="{'strikethrough' : popupProduct.sale_prices}">{{popupProduct.price | currency}}</span>
+                                <span ng-if="popupProduct.sale_prices">
+                                    {{popupProduct.sale_prices[0].amount | currency}}
+                                </span>
                             </p>
                             <a class="btn btn-primary btn-md disabled pull-right"
                                ng-show="popupProduct.qty === 0">

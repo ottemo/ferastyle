@@ -162,6 +162,12 @@ hr {
     cursor: pointer;
 }
 
+.strikethrough,
+.pdp .pdp-price.strikethrough {
+    text-decoration: line-through;
+    color: #322c29;
+}
+
 .custom-option {
     label {
         width: 100%;

@@ -44,9 +44,9 @@
             </div>
             <div class="row product-grid">
                 <div class="col-xs-6 col-sm-4 col-lg-4 product-box"
-                    ng-repeat="product in productsList track by product._id"
-                    itemscope
-                    itemtype="http://schema.org/Product">
+                     ng-repeat="product in productsList track by product._id"
+                     itemscope
+                     itemtype="http://schema.org/Product">
 
                     <div class="product-box-bg">
                         <a class="btn btn-primary btn-quick-view"
@@ -60,6 +60,7 @@
                                  ng-src="{{::product.image.medium}}"
                                  err-src="placeholder.png"
                                  itemprop="image">
+                            <span ng-show="product.sale_prices || product.strikethrough_price" class="sale-image"></span>
                         </a>
 
                         <div class="product-box-description">
@@ -72,7 +73,14 @@
                             </h2>
                             <a class="product-box-price"
                                ng-href="{{::productService.getUrl(product._id)}}">
-                                {{::product.price | currency}}
+                                <span ng-if="!product.sale_prices" class="strikethrough"
+                                      ng-show="product.strikethrough_price">
+                                {{::product.strikethrough_price | currency}}
+                            </span>
+                                <span ng-class="{'strikethrough' : product.sale_prices}">{{::product.price | currency}}</span>
+                            <span ng-if="product.sale_prices">
+                                {{::product.sale_prices[0].amount | currency}}
+                            </span>
                             </a>
                             <i class="fa fa-shopping-cart"></i>
                         </div>
@@ -96,7 +104,7 @@
 
             <div class="text-center">
                 <ot-paginator object="this"
-                    ng-if="pages > 1"></ot-paginator>
+                              ng-if="pages > 1"></ot-paginator>
             </div>
 
         </div>
