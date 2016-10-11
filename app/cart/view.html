@@ -26,7 +26,7 @@
         <h4 class="text-center">No items are currently in your cart.</h4>
         <p class="text-center btn-custom">
             <a class="btn btn-md btn-primary"
-                href="/">
+               href="/">
                 Continue Shopping
                 <span class="seporator"></span>
                 <i class="arrow-right"></i>
@@ -39,7 +39,7 @@
         <!-- xs action -->
         <div class="visible-xs m-b btn-custom">
             <a class="btn btn-md btn-block btn-primary"
-                href="/checkout">
+               href="/checkout">
                 Proceed to Checkout
                 <span class="seporator"></span>
                 <i class="arrow-right"></i>
@@ -127,7 +127,12 @@
                             <!-- price desktop -->
                             <div class="col-sm-2 cart-item__product-subtotal">
                                 <span class="visible-xs">Subtotal:</span>
-                                <span>{{item.product.price * item.qty | currency}}</span>
+                                <span ng-class="{'strikethrough' : item.product.salePrice}">
+                                {{item.product.price * item.qty | currency}}
+                            </span>
+                            <span>
+                                {{item.product.salePrice * item.qty | currency}}
+                            </span>
                             </div>
 
                             <!-- sm/md/lg product removal -->
@@ -164,9 +169,8 @@
 
                     <div class="row m-b cart-footer__subtotal">
                         <div class="col-xs-6">Subtotal:</div>
-                        <div class="col-xs-6">
-                            <span class="pull-right">{{cart.getSubtotal() | currency}}</span>
-                        </div>
+                        <div class="col-xs-6 text-right" ng-class="{'strikethrough' : cart.hasSalePricesInItems()}">{{cart.getSubtotal() | currency}}</div>
+                        <div class="col-xs-6 text-right" ng-show="cart.hasSalePricesInItems()">{{cart.getSalePriceSubtotal() | currency}}</div>
                     </div>
 
                     <!-- actions -->
