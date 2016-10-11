@@ -28,10 +28,18 @@
 
                             <h3 class="text-left"><strong>{{popupProduct.name}}</strong></h3>
 
-                            <p class="text-left price">
+                            <p class="text-left price pull-left">
                                 <s>{{popupProduct.strikethrough_price | currency}}</s>
                                 <strong>{{popupProduct.price | currency}}</strong>
                             </p>
+                            <a class="btn btn-primary btn-md disabled pull-right"
+                               ng-show="popupProduct.qty === 0">
+                                Sold Out
+                            </a>
+                            <a class="btn btn-success btn-md disabled pull-right"
+                               ng-show="popupProduct.qty > 0">
+                                In Stock
+                            </a>
                             <hr/>
                             <!-- description -->
                             <div ng-bind-html="popupProduct.description"
@@ -68,22 +76,18 @@
                             Details
                         </a>
 
-                        <ul class="nav navbar-nav">
-                            <li class="social-link">
-                                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li class="social-link">
-                                <a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li class="social-link">
-                                <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
-                            </li>
-                            <li class="social-link">
-                                <a href="https://pinterest.com"><i class="fa fa-pinterest"></i></a>
-                            </li>
-                        </ul>
+                        <!-- social links desctop -->
+                        <ot-social-links class="text-left"
+                                         title="Share:"
+                                         image="{{popupProduct.image.medium}}"
+                                         text="{{popupProduct.name}}"
+                                         url="{{::productService.getUrl(product._id)}}"
+                                         googleplus
+                                         twitter
+                                         pinterest
+                                         facebook>
+                        </ot-social-links>
                     </div>
-
                 </div>
             </div>
         </div>

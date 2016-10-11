@@ -135,6 +135,21 @@
                 margin-bottom: 10px;
             }
         }
+        .product-box {
+            padding-top: 10px;
+        }
+        .slick-next {
+            right: -12px;
+            @media (max-width: $screen-xs-max) {
+                right: 10px;
+            }
+        }
+        .slick-prev {
+            left: -9px;
+            @media (max-width: $screen-xs-max) {
+                left: 10px;
+            }
+        }
     }
 
     /**
