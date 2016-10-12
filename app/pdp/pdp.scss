@@ -185,3 +185,122 @@
 .pdp-tabs {
     margin: 20px 0 10px;
 }
+
+.reviews-ratings {
+    .first-review-message {
+        margin: 30px 0;
+    }
+    .review-block {
+        margin-bottom: 20px;
+    }
+    .unregistered-message,
+    .review-by {
+        font-weight: bold;
+    }
+    .ratings {
+        margin: 10px 0;
+    }
+    .rating-box,
+    .rating {
+        height: 10px;
+        background-image: url(../images/rating.png);
+        background-repeat: repeat-x;
+    }
+    .rating-box {
+        float: left;
+        width: 55px;
+        margin: 0;
+        background-position: 0 0;
+        font-size: 0;
+        line-height: 0;
+        text-indent: -999em;
+        overflow: hidden;
+    }
+    .rating {
+        background-position: 0 100%;
+    }
+    table {
+        margin: 0 0 15px;
+        border-collapse: separate;
+        border-top: 6px solid #575757;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        border-spacing: 0;
+
+        thead, tfoot {
+            background: #fafafa;
+        }
+        thead th {
+            -webkit-box-shadow: inset 0px -4px 6px -4px rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: inset 0px -4px 6px -4px rgba(0, 0, 0, 0.15);
+            box-shadow: inset 0px -4px 6px -4px rgba(0, 0, 0, 0.15);
+        }
+        th {
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 300;
+            white-space: nowrap;
+        }
+        th, td, td a {
+            color: rgba(0,0,0,0.67);
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #e9e9e9;
+            border-top: none;
+            border-left: none;
+        }
+        input[type="radio"] {
+            display: inline;
+            outline: none;
+        }
+    }
+    @media (max-width: 480px) {
+        table {
+            th, td {
+                display: table-cell;
+            }
+            th span {
+                display: block;
+            }
+        }
+    }
+    .add-review {
+        h2 {
+            margin-top: 0;
+        }
+        label {
+            font-weight: normal;
+        }
+        .btn-lg {
+            padding: 10px 20px;
+        }
+        .input-box {
+            margin-bottom: 10px;
+        }
+        input[type="text"], textarea {
+            width: 254px;
+            padding: 4px;
+            border: 1px solid #e0e0e0;
+            height: 34px;
+            -webkit-box-shadow: inset 0px 0px 5px 0px #eaeaea;
+            -moz-box-shadow: inset 0px 0px 5px 0px #eaeaea;
+            box-shadow: inset 0px 0px 5px 0px #eaeaea;
+            border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+        }
+        textarea {
+            height: 10em;
+        }
+    }
+}
