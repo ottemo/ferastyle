@@ -12,7 +12,7 @@ angular.module('pdpModule')
             $controller('_pdpViewController', { $scope: $scope });
 
             $scope.selectImage = function (newSrc) {
-                $scope.activeImg = newSrc;
+                $scope.activeImg = newSrc;git 
             };
 
             $scope._getProduct = function () {
