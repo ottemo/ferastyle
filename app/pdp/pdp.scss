@@ -49,12 +49,16 @@
         .bg-block {
             border: none;
             width: 95%;
-            padding: 0 0 10px 6%;
+            padding: 20px 35px;
+            @media (max-width: $screen-xs-max) {
+                width: 100%;
+                padding: 20px 35px;
+            }
         }
         .img-small {
             width: 30%;
             display: inline-block;
-            margin: 10px 2% 0 0;
+            margin-top: 10px;
 
             img {
                 width: 100%;
@@ -63,22 +67,11 @@
                 }
             }
         }
-        @media (max-width: 480px) {
-            .row > div {
-                width: 100%;
-                ul {
-                    li {
-                        float: left;
-                        margin: 12px 0 0 0;
-                        &:not(:first-child) {
-                            margin-left: 12px;
-                        }
-                        img {
-                            max-width: 60px;
-                        }
-                    }
-                }
-            }
+        .slick-slide {
+            margin: 0 10px;
+        }
+        .slick-list {
+            margin: 0 -10px;
         }
     }
 
