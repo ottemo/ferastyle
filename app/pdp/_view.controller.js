@@ -12,7 +12,7 @@ angular.module('pdpModule')
             $controller('_pdpViewController', { $scope: $scope });
 
             $scope.selectImage = function (newSrc) {
-                $scope.activeImg = newSrc;
+                $scope.activeImg = newSrc;git 
             };
 
             $scope._getProduct = function () {
@@ -22,6 +22,7 @@ angular.module('pdpModule')
 
                         pdpProductService.setProduct(result);
                         $scope.product = pdpProductService.getProduct();
+                        $scope.$broadcast('product.loaded');
 
                         // BREADCRUMBS
                         $scope.$emit('add-breadcrumbs', {
