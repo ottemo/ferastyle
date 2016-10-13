@@ -22,6 +22,7 @@ angular.module('pdpModule')
 
                         pdpProductService.setProduct(result);
                         $scope.product = pdpProductService.getProduct();
+                        $scope.$broadcast('product.loaded');
 
                         // BREADCRUMBS
                         $scope.$emit('add-breadcrumbs', {

@@ -241,6 +241,9 @@ hr {
     -moz-transition: all 400ms ease-in-out;
     -o-transition: all 400ms ease-in-out;
     transition: all 400ms ease-in-out;
+    @media (max-width: $screen-sm-max) {
+        display: none !important;
+    }
 }
 
 #toTop:hover {
