@@ -76,11 +76,13 @@
                                 <span ng-if="!product.sale_prices" class="strikethrough"
                                       ng-show="product.strikethrough_price">
                                 {{::product.strikethrough_price | currency}}
-                            </span>
-                                <span ng-class="{'strikethrough' : product.sale_prices}">{{::product.price | currency}}</span>
-                            <span ng-if="product.sale_prices">
-                                {{::product.sale_prices[0].amount | currency}}
-                            </span>
+                                </span>
+                                <span ng-class="{'strikethrough' : product.sale_prices}">
+                                    {{::product.price | currency}}
+                                </span>
+                                <span ng-if="product.sale_prices">
+                                    {{::product.sale_prices[0].amount | currency}}
+                                </span>
                             </a>
                             <i class="fa fa-shopping-cart"></i>
                         </div>

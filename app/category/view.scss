@@ -272,17 +272,24 @@
     .product-box:nth-child(3n+1) {
         clear: none;
     }
-    @media (min-width: $screen-md-min) {
-        &:hover {
-            .product-box-name {
-                a {
-                    margin-bottom: 0;
+    .product-box {
+        @media (min-width: $screen-md-min) {
+            &:hover {
+                .product-box-name {
+                    a {
+                        margin-bottom: 0;
+                    }
+                }
+                .product-box-price {
+                    display: block;
+                    text-align: center;
                 }
             }
-            .product-box-price {
-                display: block;
-                text-align: center;
-            }
+        }
+    }
+    .product-grid {
+        &:hover {
+            text-align: left;
         }
     }
 }
