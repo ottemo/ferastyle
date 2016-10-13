@@ -9,7 +9,7 @@ angular.module('commonModule')
                 method: 'GET',
                 url: REST_SERVER_URI + '/products/:params',
                 params: {
-                    extra: 'name,price'
+                    extra: 'name,price,strikethrough_price,sale_prices'
                 }
             }
         });

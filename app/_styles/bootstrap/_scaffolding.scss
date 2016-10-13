@@ -218,3 +218,37 @@ hr {
     }
 
 }
+
+/* to*/
+#toTop {
+    display: none;
+    text-decoration: none;
+    position: fixed;
+    z-index: 100;
+    bottom: 100px;
+    right: 10px;
+    overflow: hidden;
+    width: 56px;
+    height: 56px;
+    border: none;
+    text-indent: -999px;
+    background: #9f2014 url(../images/arrow_totop.png) 0 0 no-repeat;
+   // background-size: 56px 112px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+}
+
+#toTop:hover {
+    background-color: #fff;
+    background-position: 0 100%;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+}

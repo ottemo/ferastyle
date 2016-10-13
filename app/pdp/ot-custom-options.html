@@ -139,11 +139,9 @@
                                 </label>
 
                             </div>
-                            <a href>
+                            <a ng-show="option.key === 'size'" id="option-chart">
                                 <img src="images/size_chart.png" alt="size chart"/>
                             </a>
-
-
                             <div ng-show="parent.submitted && customOptionsFormIn[option.key].$error.required"
                                 class="help-block">
                                 This field is required.
@@ -157,3 +155,31 @@
     </form>
 </div>
 
+<!-- adult size charts modal -->
+<div class="modal fade"
+     id="modal_adult_chart"
+     tabindex="-1"
+     role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button data-dismiss="modal"
+                        class="close"
+                        type="button">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Adult size charts</h4>
+            </div>
+            <div class="modal-body">
+                <img src="/images/chart-mens-size-chart.jpeg" alt="adult size charts"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        data-dismiss="modal"
+                        class="btn btn-default">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

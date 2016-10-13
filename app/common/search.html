@@ -7,43 +7,6 @@
     <div class="row">
 
         <div class="col-xs-12" ng-show="products.length">
-            <!--<div class="row product-grid">-->
-                <!--<div class="col-xs-6 col-sm-4 col-lg-3 product-box"-->
-                     <!--ng-repeat="product in products"-->
-                     <!--itemscope-->
-                     <!--itemtype="http://schema.org/Product">-->
-
-                    <!--<div class="product-box-bg">-->
-                        <!--<a class="product-box-img"-->
-                           <!--ng-href="{{::getUrl(product.ID)}}">-->
-                            <!--<img class="img-responsive"-->
-                                 <!--ng-src="{{::product.Images[0].medium}}"-->
-                                 <!--err-src="placeholder.png"-->
-                                 <!--itemprop="image">-->
-                        <!--</a>-->
-
-                        <!--<div class="product-box-description">-->
-                            <!--<h2 class="product-box-name"-->
-                                <!--itemprop="name">-->
-                                <!--<a ng-href="{{::getUrl(product.ID)}}"-->
-                                   <!--itemprop="url">-->
-                                    <!--{{::product.Extra.name}}-->
-                                <!--</a>-->
-                            <!--</h2>-->
-                            <!--<a class="product-box-price"-->
-                               <!--ng-href="{{::getUrl(product.ID)}}">-->
-                                <!--{{::product.Extra.price | currency}}-->
-                            <!--</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="text-center">-->
-                <!--<ot-paginator object="this"-->
-                              <!--ng-if="pages > 1"></ot-paginator>-->
-            <!--</div>-->
-
 
             <div class="row product-grid">
                 <div class="col-xs-6 col-sm-4 col-lg-3 product-box"
@@ -52,15 +15,14 @@
                      itemtype="http://schema.org/Product">
 
                     <div class="product-box-bg">
-
                         <a class="product-box-img r-container r-container-square"
                            ng-href="{{::getUrl(product.ID)}}">
                             <img class="r-target"
                                  ng-src="{{::product.Images[0].medium}}"
                                  err-src="placeholder.png"
                                  itemprop="image">
+                            <span ng-show="product.Extra.sale_prices || product.Extra.strikethrough_price" class="sale-image"></span>
                         </a>
-
                         <div class="product-box-description">
                             <h2 class="product-box-name"
                                 itemprop="name">
@@ -69,14 +31,26 @@
                                     {{::product.Extra.name}}
                                 </a>
                             </h2>
+                            <!--<a class="product-box-price"-->
+                               <!--ng-href="{{::getUrl(product.ID)}}">-->
+                                <!--{{::product.Extra.price | currency}}-->
+                            <!--</a>-->
                             <a class="product-box-price"
-                               ng-href="{{::getUrl(product.ID)}}">
-                                {{::product.Extra.price | currency}}
+                               ng-href="{{::productService.getUrl(product.ID)}}">
+                                <span ng-if="!product.Extra.sale_prices" class="strikethrough"
+                                      ng-show="product.Extra.strikethrough_price">
+                                {{::product.Extra.strikethrough_price | currency}}
+                                </span>
+                                <span ng-class="{'strikethrough' : product.Extra.sale_prices}">
+                                    {{::product.Extra.price | currency}}
+                                </span>
+                                <span ng-if="product.Extra.sale_prices">
+                                    {{::product.Extra.sale_prices[0].amount | currency}}
+                                </span>
                             </a>
                             <i class="fa fa-shopping-cart"></i>
                         </div>
                     </div>
-
 
                 </div>
             </div>
