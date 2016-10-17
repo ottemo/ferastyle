@@ -10,6 +10,7 @@ angular.module('pdpModule')
             templateUrl: '/views/pdp/ot-custom-options.html',
             controller: function($scope) {
 
+                $scope.selectFirstOption = selectFirstOption;
                 $scope.selectFirstRadio = selectFirstRadio;
                 $scope.toggleCheckbox = toggleCheckbox;
                 $scope.todaysDate = new Date();
@@ -23,6 +24,12 @@ angular.module('pdpModule')
                 // select first option for radio
                 function selectFirstRadio(option) {
                     if (option.type === 'radio' && option.options[0]) {
+                        $scope.parent.options[option.key] = option.options[0].key;
+                    }
+                }
+
+                function selectFirstOption(option) {
+                    if (option.options.length) {
                         $scope.parent.options[option.key] = option.options[0].key;
                     }
                 }
