@@ -62,8 +62,9 @@
 
                         <!-- Select -->
                         <div ng-switch-when="select"
-                            class="form-group"
-                            ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
+                             ng-init="selectFirstOption(option)"
+                             class="form-group"
+                             ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
                             <label class="option-set-label">
                                 {{option.label}}
                                 <span class="asterisk"
@@ -88,9 +89,9 @@
 
                         <!-- Radio -->
                         <div ng-switch-when="radio"
-                            ng-init="selectFirstRadio(option)"
-                            class="form-group form-inline pdp-radio-group"
-                            ng-class="{'has-error':parent.submitted && customOptionsFormIn[option.key].$invalid}">
+                             ng-init="selectFirstRadio(option)"
+                             class="form-group form-inline pdp-radio-group"
+                             ng-class="{'has-error':parent.submitted && customOptionsFormIn[option.key].$invalid}">
 
                             <label class="option-set-label">
                                 {{option.label}}<span class="asterisk"
@@ -117,8 +118,8 @@
 
                         <!-- Multi-select -->
                         <div ng-switch-when="multi_select"
-                            class="form-group"
-                            ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
+                             class="form-group"
+                             ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
 
                             <label class="option-set-label">
                                 {{option.label}}
