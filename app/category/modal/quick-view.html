@@ -96,13 +96,12 @@
                            ng-click="viewDetails(popupProduct)">
                             Details
                         </a>
-
                         <!-- social links desctop -->
                         <ot-social-links class="text-left"
                                          title="Share:"
                                          image="{{popupProduct.image.medium}}"
                                          text="{{popupProduct.name}}"
-                                         url="{{::productService.getUrl(product._id)}}"
+                                         url="{{productService.getUrl(popupProduct._id)}}"
                                          googleplus
                                          twitter
                                          pinterest
