@@ -52,6 +52,9 @@ a.btn {
     fieldset[disabled] & {
         pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
     }
+    .fa-chevron-right, .fa-chevron-left {
+        font-size: 14px;
+    }
 }
 
 // Alternate buttons
