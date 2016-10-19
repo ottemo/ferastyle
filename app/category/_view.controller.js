@@ -6,12 +6,16 @@ angular.module('categoryModule')
     'cartService',
     'pdpProductService',
     'commonUtilService',
+    'categoryApiService',
+    '$rootScope',
     function(
         $controller,
         $scope,
         cartService,
         pdpProductService,
-        commonUtilService
+        commonUtilService,
+        categoryApiService,
+        $rootScope
     ) {
 
         $controller('_categoryViewController', { $scope: $scope });
@@ -21,6 +25,18 @@ angular.module('categoryModule')
         $scope.isAddToCartSuccess = false;
         $scope.customOptionsForm;
         $scope.qty = 1;
+
+        $scope._getProducts = function() {
+            var params = $scope._getParams();
+            params["categoryID"] = $scope.categoryId;
+            categoryApiService.getProductsByCategoryId(params).$promise.then(function(response) {
+                var result = response.result || [];
+                $scope.productsList = result;
+                // Save against the rootscope so that we can continue to shop the category
+                // from the PDP
+                $rootScope.productsListUpperLevel = result;
+            });
+        };
 
         $scope._addItem = function(product) {
             $scope.submitted = true

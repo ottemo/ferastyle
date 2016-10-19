@@ -87,6 +87,9 @@
             font-size: $font-size-h2;
             letter-spacing: -1px;
         }
+        & + .form-group {
+            clear: left;
+        }
     }
 
     .pdp-qty {
@@ -148,6 +151,10 @@
                 left: 10px;
             }
         }
+    }
+    img:hover {
+        cursor: pointer;
+        opacity: .8;
     }
 
     /**
