@@ -1,0 +1,62 @@
+<div ng-init="activate()" class="blog">
+    <div class="breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ot-breadcrumbs></ot-breadcrumbs>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12" ng-show="blogs.length">
+                <div class="row">
+                    <div class="col-xs-12 m-b-30"
+                         ng-repeat="blog in blogs">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <a ng-show="blog.featured_image" href="{{blog.url}}">
+                                    <img src="{{blog.featured_image}}" alt=""/>
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <h2>
+                                    <a href="{{blog.url}}">
+                                        {{blog.title}}
+                                    </a>
+                                </h2>
+                                <div ng-bind-html="blog.excerpt"></div>
+                                <a class="readmore" href="{{blog.url}}">read more</a>
+
+                                <!-- social links -->
+                                <ot-social-links class="text-left"
+                                                 title="Share:"
+                                                 image="{{blog.featured_image}}"
+                                                 text="{{blog.title}}"
+                                                 url="{{blog.seoUrl}}"
+                                                 googleplus
+                                                 twitter
+                                                 pinterest
+                                                 facebook>
+                                </ot-social-links>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <ot-paginator object="this"
+                                  ng-if="pages > 1"></ot-paginator>
+                </div>
+            </div>
+
+            <div class="col-xs-12 m-b-50" ng-hide="blogs.length">
+                <div class="page-header">
+                    <h1>No Blogs</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
