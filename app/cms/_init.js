@@ -5,11 +5,11 @@ angular.module("cmsModule")
     ) {
     $routeProvider
         .when("/blog", {
-            "templateUrl": "/views/cms/blog/list.html",
+            "templateUrl": "/views/blog/list.html",
             "controller": "listController"
         })
-        .when('/blog/:id', {
-            "templateUrl": "/views/cms/blog/view.html",
+        .when('/post/:id', {
+            "templateUrl": "/views/blog/view.html",
             "controller": "viewController"
         });
 }]);

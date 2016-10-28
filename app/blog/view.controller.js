@@ -12,7 +12,7 @@ angular.module('commonModule')
     ) {
 
         var blogID = $routeParams.id;
-        var url = getSeoUrl();
+        var url = blogService.getUrl(blogID);
 
         $scope.blog = {};
 
@@ -27,29 +27,29 @@ angular.module('commonModule')
                     $scope.blog = response.result || {};
 
                     if($scope.blog.extra.prev) {
-                        $scope.blog.prev = getSeoUrl($scope.blog.extra.prev._id);
+                        $scope.blog.prev = blogService.getUrl($scope.blog.extra.prev._id);
                     } else
                     {
                         $scope.blog.prev = undefined;
                     }
 
                     if($scope.blog.extra.next) {
-                        $scope.blog.next = getSeoUrl($scope.blog.extra.next._id);
+                        $scope.blog.next = blogService.getUrl($scope.blog.extra.next._id);
                     } else
                     {
                         $scope.blog.next = undefined;
                     }
 
                     // BREADCRUMBS
-                    $scope.$emit("add-breadcrumbs", {
-                        "label": $scope.blog.identifier,
-                        "url": url
+                    $scope.$emit('add-breadcrumbs', {
+                        label: 'Blog',
+                        url: '/blog'
+                    });
+                    $scope.$emit('add-breadcrumbs', {
+                        label: $scope.blog.identifier,
+                        url: url
                     });
                 });
         };
-
-         function getSeoUrl(id){
-            return blogService.getUrl(id);
-        }
     }
 ]);
