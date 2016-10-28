@@ -11,17 +11,14 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <img ng-show="blog.featured_image" src="{{blog.featured_image}}" alt=""/>
-                <h2>
-                    <a href="/blog/{{blog._id}}">
-                        {{blog.title}}
-                    </a>
-                </h2>
+                <h1 class="text-center">{{blog.title}}</h1>
+                <img ng-src="{{blog.featured_image}}" alt=""/>
+
                 <div ng-bind-html="blog.content"></div>
                 <p><a href="/blog">Blog</a> on {{blog.created_at | date:'MMMM d, yyyy' : 'UTC'}}</p>
             </div>
-            <a class="col-xs-6 text-left" ng-show="blog.prev" href="{{blog.prev}}">← Previous Post</a>
-            <a class="col-xs-6 text-right" ng-show="blog.next" href="{{blog.next}}">Next Post →</a>
+            <a class="col-xs-6 text-left pull-left" ng-show="blog.prev" href="{{blog.prev}}">← Previous Post</a>
+            <a class="col-xs-6 text-right pull-right" ng-show="blog.next" href="{{blog.next}}">Next Post →</a>
         </div>
     </div>
 </div>

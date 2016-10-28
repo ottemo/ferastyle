@@ -1,0 +1,84 @@
+.blog {
+    h1 {
+        margin: 0 0 28px;
+        font-family: AvenirNextLTPro;
+        font-size: $font-size-h1;
+        color: $gray-dark;
+        text-transform: uppercase;
+    }
+    h3 {
+        font-family: AvenirNextLTPro-Bold;
+        font-size: $font-size-h3;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 1.25;
+        margin: 0 0 14px;
+    }
+    img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    div, p {
+        font-family: AvenirNextLTPro;
+        text-align: justify;
+        line-height: 26px;
+        font-size: $font-size-base;
+        color: $brand-primary;
+    }
+    .row > a {
+        font-size: $font-size-middle;
+        margin-top: 14px;
+    }
+    .std {
+        margin: 0 0 20px;
+        img {
+            margin: 0;
+            border: 1px solid #ddd;
+            padding: 6px;
+            width: auto;
+        }
+    }
+    b, strong {
+        font-weight: normal;
+        font-family: AvenirNextLTPro-Demi;
+    }
+    .even > .row {
+        & > div:first-child {
+            float: right;
+        }
+        & > div:last-child {
+            float: left;
+        }
+    }
+    .even, .odd {
+        div, p, h2 {
+            text-align: center;
+        }
+        h2 {
+            padding: 0;
+            margin: 0 0 20px;
+            a {
+
+                font-family: AvenirNextLTPro-Bold;
+                font-size: 20px;
+                text-transform: uppercase;
+                color: #222;
+                letter-spacing: 0.5px;
+            }
+        }
+        .readmore {
+            display: inline-block;
+            margin: 15px 0 10px;
+            text-align: center;
+            padding: 12px 25px;
+            border: 1px solid #000;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #000;
+            font-family: AvenirNextLTPro-Demi;
+        }
+        .list-social {
+            text-align: center;
+        }
+    }
+}
