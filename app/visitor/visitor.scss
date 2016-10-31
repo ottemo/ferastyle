@@ -81,3 +81,20 @@
         }
     }
 }
+
+.reviews-account {
+    .table td.text-right {
+        @media (min-width: $screen-sm-min) {
+            min-width: 115px;
+        }
+    }
+    .not-approved-label {
+        margin: 15px 0;
+    }
+    .product-info {
+        width: 25%;
+        @media (min-width: $screen-sm-min) {
+            width: 20%;
+        }
+    }
+}
