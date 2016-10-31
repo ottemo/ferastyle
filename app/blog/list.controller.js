@@ -27,7 +27,8 @@ angular.module('cmsModule')
                     var i, blogLength = $scope.blogs.length;
                     for(i =0; i < blogLength; i++){
                         $scope.blogs[i].url = getBlogUrl($scope.blogs[i]._id);
-                        $scope.blogs[i].seoUrl = $location.host()+$scope.blogs[i].url;
+                        var port = ($location.port()) ? (':' + $location.port()) : '';
+                        $scope.blogs[i].seoUrl = $location.protocol() + '://' + $location.host() + port + $scope.blogs[i].url;
                     }
 
                     // BREADCRUMBS
