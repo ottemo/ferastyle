@@ -209,6 +209,90 @@ $overlay-height: 60px;
         & > ul {
             padding: 0;
         }
+        .slick-slider {
+            padding: 0;
+
+            li {
+                display: inline-block;
+                vertical-align: top;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+                margin: 0 2px 2px 0;
+            }
+            li:hover .neklo-instagram-over {
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                border-radius: 50%;
+                -moz-transform: scale(0);
+                -ms-transform: scale(0);
+                -webkit-transform: scale(0);
+                transform: scale(0);
+            }
+            li:hover img {
+                -moz-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+            a {
+                position: relative;
+                overflow: hidden;
+                display: block;
+            }
+            img {
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+
+            .neklo-instagram-over {
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto;
+                background: #000000;
+                filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+                opacity: 0.3;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+                z-index: 10;
+            }
+            .slick-slide {
+                margin: 0 9px;
+            }
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                margin-top: -16px;
+                outline: 0;
+                width: 50px;
+                height: 50px;
+                text-indent: -9999px;
+                z-index: 9999;
+                @media (max-width: $screen-sm-min) {
+                    margin-top: -22px;
+                }
+            }
+            .slick-next {
+                right: -18px;
+                background: url(../images/home-instgram-nexts.png) no-repeat;
+            }
+            .slick-prev {
+                left: -18px;
+                background: url(../images/home-instgram-prev.png) no-repeat;
+            }
+        }
     }
     .block-newsletter {
         max-width: 352px;
