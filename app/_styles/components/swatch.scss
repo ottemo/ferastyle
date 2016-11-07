@@ -1,0 +1,32 @@
+$swatch-border-color: #ccc;
+$swatch-border-radius: 3px;
+$swatch-border-color-selected: $red-dark;
+
+.category-product-swatch-set {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.swatch {
+    &.category-product-swatch {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        padding: 1px;
+        border-radius: $swatch-border-radius;
+        margin-right: 5px;
+        border: 1px solid $swatch-border-color;
+        text-align: center;
+        &.selected {
+            border-color: $swatch-border-color-selected;
+        }
+
+        img {
+            display: inline-block;
+            vertical-align: top;
+            width: 100%;
+            height: auto;
+            border-radius: $swatch-border-radius;
+        }
+    }
+}

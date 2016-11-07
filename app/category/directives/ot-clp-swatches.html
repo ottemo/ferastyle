@@ -1,0 +1,17 @@
+<a class="product-box-img r-container r-container-square"
+   ng-href="{{::productService.getUrl(product._id)}}">
+    <img class="r-target"
+         ng-src="{{imageUrl}}"
+         itemprop="image">
+    <span ng-show="product.sale_prices || product.strikethrough_price" class="sale-image"></span>
+</a>
+
+<div ng-repeat="swatchSet in swatches"
+     class="swatch-set category-product-swatch-set">
+    <span ng-repeat="swatch in swatchSet"
+          class="swatch category-product-swatch swatch__{{::swatch.key}}"
+          ng-click="swatchClick(swatch)"
+          ng-class="{selected: selectedSwatch === swatch.key + '_' + swatch.selection}">
+        <img ng-src="{{::swatch.swatchImageUrl}}" alt="{{swatch.key}}:{{swatch.selection}}">
+    </span>
+</div>
