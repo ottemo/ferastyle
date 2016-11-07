@@ -1,6 +1,6 @@
 angular.module('commonModule')
 
-    .service('imagesApiService', ['$resource', 'REST_SERVER_URI', function($resource, REST_SERVER_URI) {
+    .service('mediaApiService', ['$resource', 'REST_SERVER_URI', function($resource, REST_SERVER_URI) {
         return $resource(REST_SERVER_URI, {}, {
             'getSizes': {
                 method: 'GET',

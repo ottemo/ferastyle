@@ -8,8 +8,8 @@ angular.module('categoryModule')
  * product      - {Object} product
  * image-size   - {String} size of product images, e.g 'medium'
  */
-    .directive('otClpSwatches', ['_', 'pdpApiService', 'imagesService',
-        function(_, pdpApiService, imagesService) {
+    .directive('otClpSwatches', ['_', 'pdpProductService', 'mediaService',
+        function(_, pdpProductService, mediaService) {
 
         return {
             restrict: 'EA',
@@ -19,12 +19,13 @@ angular.module('categoryModule')
             templateUrl: '/views/category/directives/ot-clp-swatches.html',
             controller: function($scope, $element, $attrs) {
                 var size = $attrs.imageSize || 'medium';
-                $scope.productService = pdpApiService;
+                $scope.productService = pdpProductService;
+                console.log($scope.productService.getUrl($scope.product._id));
 
                 $scope.imageUrl = ($scope.product.image !== null) ?
-                    $scope.product.image[0][size] : imagesService.placeholder;
+                    $scope.product.image[0][size] : mediaService.placeholder;
 
-                imagesService.getMediaParams().then(function(mediaParams) {
+                mediaService.getMediaConfig().then(function(mediaParams) {
                     $scope.swatches = getSwatches(mediaParams);
                 });
 
@@ -46,9 +47,9 @@ angular.module('categoryModule')
                             _.forEach(subOptions, function(selection) {
                                 if (selection.image_name) {
                                     swatchSet.push({
-                                        imageUrl: imagesService
+                                        imageUrl: mediaService
                                             .getProductImage($scope.product._id, selection.image_name, size, mediaParams),
-                                        swatchImageUrl: imagesService
+                                        swatchImageUrl: mediaService
                                             .getSwatchImage(option.key, selection.key, mediaParams),
                                         key: option.key,
                                         selection: selection.key
