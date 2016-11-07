@@ -11,8 +11,8 @@ angular.module('commonModule')
         blogService
     ) {
 
-        var blogID = $routeParams.id;
-        var url = blogService.getUrl(blogID);
+        $scope.blogID = $routeParams.id;
+        $scope.url = blogService.getUrl($scope.blogID);
 
         $scope.blog = {};
 
@@ -22,7 +22,7 @@ angular.module('commonModule')
 
         $scope._getBlog = function() {
 
-            blogApiService.getBlog({'blogID': blogID
+            blogApiService.getBlog({'blogID': $scope.blogID
             }).$promise.then(function(response) {
                     $scope.blog = response.result || {};
 
@@ -47,7 +47,7 @@ angular.module('commonModule')
                     });
                     $scope.$emit('add-breadcrumbs', {
                         label: $scope.blog.identifier,
-                        url: url
+                        url: $scope.url
                     });
                 });
         };
