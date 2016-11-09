@@ -20,7 +20,6 @@ angular.module('categoryModule')
             controller: function($scope, $element, $attrs) {
                 var size = $attrs.imageSize || 'medium';
                 $scope.productService = pdpProductService;
-                console.log($scope.productService.getUrl($scope.product._id));
 
                 $scope.imageUrl = ($scope.product.image !== null) ?
                     $scope.product.image[0][size] : mediaService.placeholder;
@@ -34,7 +33,12 @@ angular.module('categoryModule')
                 ///////////////////////////////////
 
                 function swatchClick(swatch) {
-                    $scope.selectedSwatch = swatch.key + '_' + swatch.selection;
+                    _.forEach($scope.swatches, function(swatchSet) {
+                        _.forEach(swatchSet, function(swatch) {
+                            swatch.selected = false;
+                        });
+                    });
+                    swatch.selected = true;
                     $scope.imageUrl = swatch.imageUrl;
                 }
 
@@ -51,8 +55,8 @@ angular.module('categoryModule')
                                             .getProductImage($scope.product._id, selection.image_name, size, mediaParams),
                                         swatchImageUrl: mediaService
                                             .getSwatchImage(option.key, selection.key, mediaParams),
-                                        key: option.key,
-                                        selection: selection.key
+                                        label: selection.label,
+                                        selected: false
                                     });
                                 }
                             });
