@@ -36,17 +36,31 @@
                 <ul class="nav nav--cat-layers">
                     <li class="nav__header">{{filter}}</li>
                     <li class="nav-divider" role="separator" ng-show="categories.length">--</li>
-                    <li ng-repeat="item in items" >
-                        <span ng-if="layeredSwatches[filter]"
-                                   ot-swatch="layeredSwatches[filter][item]" ng-click="filterSwatchClick(filter, item)">
-                        </span>
-                        <div class="checkbox" ng-if="!layeredSwatches[filter]">
+
+                    <li ng-repeat="item in items" class="category-filter-swatch"
+                        ng-if="layeredSwatches[filter] !== undefined"
+                        ot-swatch="layeredSwatches[filter][item]"
+                        ng-click="filterSwatchClick(filter, item)">
+                    </li>
+                    <li ng-repeat="item in items"
+                        ng-if="layeredSwatches[filter] === undefined">
+                        <div class="checkbox">
                             <label>
                                 <input type="checkbox"
                                        ng-model="filters[filter][item]"> {{item}}
                             </label>
                         </div>
                     </li>
+                        <!--<span ng-if="layeredSwatches[filter]"-->
+                                   <!--ot-swatch="layeredSwatches[filter][item]" ng-click="filterSwatchClick(filter, item)">-->
+                        <!--</span>-->
+                        <!--<div class="checkbox" ng-if="!layeredSwatches[filter]">-->
+                            <!--<label>-->
+                                <!--<input type="checkbox"-->
+                                       <!--ng-model="filters[filter][item]"> {{item}}-->
+                            <!--</label>-->
+                        <!--</div>-->
+                    <!--</li>-->
                 </ul>
             </div>
         </div>

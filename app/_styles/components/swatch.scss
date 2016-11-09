@@ -30,6 +30,8 @@ $swatch-color: #636363;
         display: block;
         padding: 1px 5px;
         white-space: nowrap;
+        font-size: 10px;
+        font-weight: bold;
     }
 
     img {
@@ -55,12 +57,35 @@ $swatch-color: #636363;
         .swatch-label {
             height: 25px;
             line-height: 25px;
-            font-size: 9px;
         }
 
         img {
             width: 25px;
             height: 25px;
+        }
+    }
+}
+
+.nav .category-filter-swatch {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px 2px 0;
+
+    .swatch {
+        padding: 1px;
+        &.selected {
+            border-width: 2px;
+            border-color: #3FB618;
+        }
+
+        img {
+            width: 17px;
+            height: 17px;
+        }
+
+        .swatch-label {
+            height: 17px;
+            line-height: 17px;
         }
     }
 }

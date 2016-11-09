@@ -87,7 +87,7 @@ angular.module('categoryModule')
                     });
                     $scope._setFilters();
                     selectSwatches($scope.filters, $scope.layeredSwatches);
-                    console.log($scope.layeredSwatches);
+                    console.log($scope.filters);
                 });
         };
 
@@ -144,7 +144,7 @@ angular.module('categoryModule')
 
         $scope.filterSwatchClick = function(filterKey, filterValue) {
             var filter = $scope.filters[filterKey];
-            if (filter) {
+            if (filter !== undefined) {
                 filter[filterValue] = !filter[filterValue];
             } else {
                 $scope.filters[filterKey] = {};
