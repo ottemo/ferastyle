@@ -75,6 +75,12 @@ $overlay-height: 60px;
                 padding: 0;
             }
         }
+        .home-blocks {
+            .col-xs-6 {
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
         .home-block {
             position: relative;
             & > div {
@@ -173,10 +179,16 @@ $overlay-height: 60px;
     .simple_is {
         padding: 25px 5px 10px;
         p {
+            text-align: center;
             font-size: 18px;
-            font-family: AvenirNextLTPro;
-            color: rgba(0, 0, 0, 0.74902);
-            padding: 5px 10px 10px;
+            padding: 5px 10px 10px 10px;
+            font-family: 'AvenirNextLTPro';
+            color: rgba(0,0,0,0.75);
+            line-height: 1.7;
+            @media (max-width: $screen-xs-max) {
+                font-size: 14px;
+                padding: 8px;
+            }
         }
         b {
             color: rgb(0, 0, 0);
