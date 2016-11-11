@@ -2,14 +2,16 @@ angular.module('pdpModule')
 
     .controller('pdpViewController', [
         '$controller',
+        '$q',
         '$scope',
         '$location',
         'pdpApiService',
         'pdpProductService',
-        "categoryApiService",
-        "commonRewriteService",
-        "$rootScope",
-        function ($controller, $scope, $location, pdpApiService, pdpProductService, categoryApiService, commonRewriteService, $rootScope) {
+        'categoryApiService',
+        'commonRewriteService',
+        'mediaService',
+        '$rootScope',
+        function ($controller, $q, $scope, $location, pdpApiService, pdpProductService, categoryApiService, commonRewriteService, mediaService, $rootScope) {
 
             // Inherit from default pdpViewController
             $controller('_pdpViewController', { $scope: $scope });
@@ -21,6 +23,7 @@ angular.module('pdpModule')
                 // options on page change
                 pdpProductService.setOptions({});
                 $scope.ratingInfo = $scope._getDefaultRatingInfo();
+                $scope.productScope = $scope;
 
                 $scope._getProduct();
                 $scope._getReviews();
@@ -38,11 +41,17 @@ angular.module('pdpModule')
             };
 
             $scope._getProduct = function () {
-                pdpApiService.getProduct({'productID': $scope.productId}).$promise.then(function (response) {
-                    if (response.error === null) {
-                        var result = response.result || $scope.defaultProduct;
+                var productPromise = pdpApiService.getProduct({'productID': $scope.productId}).$promise;
+                var mediaConfigPromise = mediaService.getMediaConfig();
 
-                        pdpProductService.setProduct(result);
+                $q.all([productPromise, mediaConfigPromise]).then(function(responses) {
+                    var productResponse = responses[0];
+                    var mediaConfig = responses[1];
+
+                    if (productResponse.error === null) {
+                        var product = productResponse.result || $scope.defaultProduct;
+
+                        pdpProductService.setProduct(product);
                         $scope.product = pdpProductService.getProduct();
                         $scope.$broadcast('product.loaded');
 
@@ -55,6 +64,8 @@ angular.module('pdpModule')
                         if (angular.isArray($scope.product.images) &&  $scope.product.images[0]) {
                             $scope.activeImg = $scope.product.images[0].large;
                         }
+
+                        $scope.swatches = getSwatches(product, mediaConfig);
                     } else {
                         $location.path('/');
                     }
@@ -93,25 +104,59 @@ angular.module('pdpModule')
                         }
                     }
                     if (currentPosition < $scope.productsList.length - 1) {
-                        $scope.nextPositionId = $scope.productsList[currentPosition + 1]["_id"];
-                        $scope.nextPositionImg = $scope.productsList[currentPosition + 1]["image"]["thumb"];
+                        $scope.nextPositionId = $scope.productsList[currentPosition + 1]['_id'];
+                        $scope.nextPositionImg = $scope.productsList[currentPosition + 1]['image']['thumb'];
                     }
                     if (currentPosition === $scope.productsList.length - 1) {
-                        $scope.nextPositionId = $scope.productsList[0]["_id"];
-                        $scope.nextPositionImg = $scope.productsList[0]["image"]["thumb"];
+                        $scope.nextPositionId = $scope.productsList[0]['_id'];
+                        $scope.nextPositionImg = $scope.productsList[0]['image']['thumb'];
                     }
                     if (currentPosition > 0) {
-                        $scope.previousPositionId = $scope.productsList[currentPosition - 1]["_id"];
-                        $scope.previousPositionImg = $scope.productsList[currentPosition - 1]["image"]["thumb"];
+                        $scope.previousPositionId = $scope.productsList[currentPosition - 1]['_id'];
+                        $scope.previousPositionImg = $scope.productsList[currentPosition - 1]['image']['thumb'];
                     }
                     if (currentPosition === 0) {
-                        $scope.previousPositionId = $scope.productsList[$scope.productsList.length - 1]["_id"];
-                        $scope.previousPositionImg = $scope.productsList[$scope.productsList.length - 1]["image"]["thumb"];
+                        $scope.previousPositionId = $scope.productsList[$scope.productsList.length - 1]['_id'];
+                        $scope.previousPositionImg = $scope.productsList[$scope.productsList.length - 1]['image']['thumb'];
                     }
                     $scope.productButtonsAvailable = true;
                 }
             }
 
+            function getSwatches(product, mediaParams) {
+                var swatches = {};
+                var size = 'medium';
+                _.forEach(product.options, function(option) {
+                    if (option.type === 'swatch' || option.type === 'text-swatch') {
+                        var swatchSet = {};
+                        var subOptions = option.options;
+                        _.forEach(subOptions, function(selection) {
+                            var swatch = {};
+                            swatch.label = selection.label;
+                            swatch.selected = false;
+                            if (option.type === 'swatch') {
+                                swatch.swatchImageUrl = mediaService
+                                    .getSwatchImage(option.key, selection.key, mediaParams);
+                            }
+                            if (option.controls_image === true) {
+                                swatch.imageUrl = mediaService
+                                    .getProductImage(product._id, selection.image_name, size, mediaParams);
+                            }
+                            if (option.has_associated_products === true) {
+                                swatch._ids = selection._ids;
+                            }
+
+                            swatchSet[selection.key] = swatch;
+                        });
+
+                        if (!_.isEmpty(swatchSet)) {
+                            swatches[option.key] = swatchSet;
+                        }
+                    }
+                });
+
+                return swatches;
+            }
         }
     ]
 );

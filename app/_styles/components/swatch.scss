@@ -89,3 +89,7 @@ $swatch-color: #636363;
         }
     }
 }
+
+.swatch.disabled {
+    outline: 3px solid #000;
+}
