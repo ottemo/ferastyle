@@ -87,14 +87,12 @@
                             <hr/>
                         </div>
 
-                        <!-- Swatch -->
-                        <div ng-switch-when="swatch"
+                        <!-- select_image -->
+                        <div ng-switch-when="select_image"
                              class="form-group"
                              ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
                             <label class="option-set-label">
                                 {{option.label}}
-                                <span class="asterisk"
-                                      ng-if="option.required">*</span>
                                 : {{getOptionValueLabel(option, parent.options[option.key])}}
                             </label>
                             <input type="text" disabled
@@ -105,7 +103,7 @@
 
                             <span ng-repeat="optionItem in option.options" ot-swatch="parent.swatches[option.key][optionItem.key]"
                                   ng-click="swatchClick(option.key, optionItem.key, product.options)"
-                                  class="category-product-swatch">
+                                  class="pdp-swatch pdp-swatch-image">
                             </span>
                             <div ng-show="parent.submitted && customOptionsFormIn[option.key].$error.required"
                                  class="help-block">
@@ -113,14 +111,12 @@
                             </div>
                         </div>
 
-                        <!-- Text-swatch -->
-                        <div ng-switch-when="text-swatch"
+                        <!-- select_text -->
+                        <div ng-switch-when="select_text"
                              class="form-group"
                              ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
                             <label class="option-set-label">
                                 {{option.label}}
-                                <span class="asterisk"
-                                      ng-if="option.required">*</span>
                                 : {{getOptionValueLabel(option, parent.options[option.key])}}
                             </label>
                             <input type="text" disabled
@@ -130,7 +126,8 @@
                                    ng-required="option.required">
 
                             <span ng-repeat="optionItem in option.options" ot-swatch="parent.swatches[option.key][optionItem.key]"
-                                  ng-click="swatchClick(option.key, optionItem.key, product.options)" class="category-product-swatch">
+                                  ng-click="swatchClick(option.key, optionItem.key, product.options)"
+                                  class="pdp-swatch pdp-swatch-text">
                             </span>
                             <div ng-show="parent.submitted && customOptionsFormIn[option.key].$error.required"
                                  class="help-block">

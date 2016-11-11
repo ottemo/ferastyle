@@ -93,3 +93,23 @@ $swatch-color: #636363;
 .swatch.disabled {
     outline: 3px solid #000;
 }
+
+.pdp-swatch {
+    margin: 0 4px 4px 0;
+    .swatch {
+        padding: 1px;
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    &.pdp-swatch-text {
+        .swatch-label {
+            height: 30px;
+            line-height: 30px;
+            min-width: 30px;
+        }
+    }
+}

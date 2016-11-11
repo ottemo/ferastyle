@@ -127,14 +127,14 @@ angular.module('pdpModule')
                 var swatches = {};
                 var size = 'medium';
                 _.forEach(product.options, function(option) {
-                    if (option.type === 'swatch' || option.type === 'text-swatch') {
+                    if (option.type === 'select_image' || option.type === 'select_text') {
                         var swatchSet = {};
                         var subOptions = option.options;
                         _.forEach(subOptions, function(selection) {
                             var swatch = {};
                             swatch.label = selection.label;
                             swatch.selected = false;
-                            if (option.type === 'swatch') {
+                            if (option.type === 'select_image') {
                                 swatch.swatchImageUrl = mediaService
                                     .getSwatchImage(option.key, selection.key, mediaParams);
                             }
@@ -155,6 +155,7 @@ angular.module('pdpModule')
                     }
                 });
 
+                console.log(swatches);
                 return swatches;
             }
         }
