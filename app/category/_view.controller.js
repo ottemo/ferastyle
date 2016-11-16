@@ -87,7 +87,6 @@ angular.module('categoryModule')
                     });
                     $scope._setFilters();
                     selectSwatches($scope.filters, $scope.layeredSwatches);
-                    console.log($scope.filters);
                 });
         };
 

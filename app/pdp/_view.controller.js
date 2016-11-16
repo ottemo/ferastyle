@@ -106,19 +106,15 @@ angular.module('pdpModule')
                     }
                     if (currentPosition < $scope.productsList.length - 1) {
                         $scope.nextPositionId = $scope.productsList[currentPosition + 1]['_id'];
-                        $scope.nextPositionImg = $scope.productsList[currentPosition + 1]['image']['thumb'];
                     }
                     if (currentPosition === $scope.productsList.length - 1) {
                         $scope.nextPositionId = $scope.productsList[0]['_id'];
-                        $scope.nextPositionImg = $scope.productsList[0]['image']['thumb'];
                     }
                     if (currentPosition > 0) {
                         $scope.previousPositionId = $scope.productsList[currentPosition - 1]['_id'];
-                        $scope.previousPositionImg = $scope.productsList[currentPosition - 1]['image']['thumb'];
                     }
                     if (currentPosition === 0) {
                         $scope.previousPositionId = $scope.productsList[$scope.productsList.length - 1]['_id'];
-                        $scope.previousPositionImg = $scope.productsList[$scope.productsList.length - 1]['image']['thumb'];
                     }
                     $scope.productButtonsAvailable = true;
                 }
