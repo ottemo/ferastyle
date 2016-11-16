@@ -2,4 +2,5 @@
    ng-class="{selected: swatch.selected, disabled: swatch.disabled, 'swatch-text': !hasImage}">
     <img ng-src="{{::swatch.swatchImageUrl}}" ng-show="hasImage">
     <span ng-show="!hasImage" class="swatch-label">{{::swatch.label}}</span>
+    <span class="disabled-bg"></span>
 </a>

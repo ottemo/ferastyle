@@ -141,11 +141,11 @@
                     {{product.sale_prices[0].amount | currency}}
                 </span>
                 <a class="btn btn-primary btn-md disabled pull-right"
-                   ng-show="product.qty === 0 && product.type !== 'configurable'">
+                   ng-show="!inStock">
                     Sold Out
                 </a>
                 <a class="btn btn-success btn-md disabled pull-right"
-                   ng-show="product.qty > 0 || product.type === 'configurable'">
+                   ng-show="inStock">
                     In Stock
                 </a>
             </div>
@@ -157,7 +157,7 @@
                 <hr/>
             </div>
 
-            <div ng-if="product.qty !== 0 || product.type === 'configurable'">
+            <div ng-if="product.qty !== 0">
                 <!-- custom options -->
                 <ot-custom-options item="product"
                                    object="productScope">
@@ -179,11 +179,12 @@
                 <!-- add to cart button -->
                 <div class="form-group">
                     <a class="btn btn-primary btn-lg btn-add-to-cart"
-                       ng-class="{disabled: isAddingToCart}"
+                       ng-class="{disabled: isAddingToCart || !inStock}"
                        ng-click="addToCart($event)">
                         <i class="fa fa-shopping-cart"></i>
                         <span class="separator"></span>
-                        Add to cart
+                        <span ng-if="inStock">Add to cart</span>
+                        <span ng-if="!inStock">Sold out</span>
                         <i class="fa fa-circle-o-notch fa-spin"
                            ng-show="isAddingToCart"></i>
                     </a>
@@ -247,34 +248,7 @@
     <div ot-related-products product-id="{{product._id}}"></div>
 </div>
 
-<!-- adult size charts modal -->
-<div class="modal fade"
-     id="modal_adult_chart"
-     tabindex="-1"
-     role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button data-dismiss="modal"
-                        class="close"
-                        type="button">
-                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                </button>
-                <h4 class="modal-title">Adult size charts</h4>
-            </div>
-            <div class="modal-body">
-                <img src="/images/chart-mens-size-chart.jpeg" alt="adult size charts"/>
-            </div>
-            <div class="modal-footer">
-                <button type="button"
-                        data-dismiss="modal"
-                        class="btn btn-default">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <hr/>
 <!-- TODO: move out -->

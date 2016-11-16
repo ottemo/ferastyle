@@ -64,9 +64,8 @@ angular.module('pdpModule')
                     return (selection.length > 0) ? selection[0].label : '';
                 };
 
-                $scope.swatchClick = function(optionKey, selectionKey, options) {
+                $scope.swatchClick = function(optionKey, selectionKey) {
                     var swatch = $scope.parent.swatches[optionKey][selectionKey];
-                    if (swatch.disabled) return;
 
                     _.forEach($scope.parent.swatches[optionKey], function(swatch) {
                         swatch.selected = false;
@@ -82,7 +81,17 @@ angular.module('pdpModule')
                     }
                     $scope.parent.options[optionKey] = selectionKey;
 
-
+                    if ($scope.parent.qty !== undefined && $scope.parent.qty !== 0) {
+                        var isInStock = true;
+                        _.forEach($scope.parent.swatches, function(swatchSet) {
+                            _.forEach(swatchSet, function(swatch) {
+                                if (swatch.selected && swatch.disabled) {
+                                    isInStock = false;
+                                }
+                            });
+                        });
+                        $scope.parent.inStock = isInStock;
+                    }
                 };
 
                 function setOptionsAvailability(swatches) {

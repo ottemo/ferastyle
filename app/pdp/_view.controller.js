@@ -53,6 +53,7 @@ angular.module('pdpModule')
 
                         pdpProductService.setProduct(product);
                         $scope.product = pdpProductService.getProduct();
+                        $scope.inStock = product.qty !== 0;
                         $scope.$broadcast('product.loaded');
 
                         // BREADCRUMBS
@@ -138,7 +139,7 @@ angular.module('pdpModule')
                                 swatch.swatchImageUrl = mediaService
                                     .getSwatchImage(option.key, selection.key, mediaParams);
                             }
-                            if (option.controls_image === true) {
+                            if (option.controls_image === true && selection.image_name) {
                                 swatch.imageUrl = mediaService
                                     .getProductImage(product._id, selection.image_name, size, mediaParams);
                             }
@@ -155,8 +156,40 @@ angular.module('pdpModule')
                     }
                 });
 
-                console.log(swatches);
+                if (!_.isEmpty(swatches)) {
+                    removeSoldOutProductIds(product, swatches);
+                }
                 return swatches;
+            }
+
+            function removeSoldOutProductIds(product, swatches) {
+                var inventory = product.inventory;
+                _.forEach(inventory, function(inventoryItem) {
+                    var inventoryOptions = inventoryItem.options;
+                    if (_.isEmpty(inventoryOptions) || inventoryItem.qty !== 0) return;
+
+                    var _ids = [];
+                    _.forEach(inventoryOptions, function(optionValue, optionKey) {
+                        var productOption = _.find(product.options, { key: optionKey });
+                        if (productOption && productOption.options) {
+                            var selection = _.find(productOption.options, { key: optionValue });
+
+                            if (selection && selection._ids && selection._ids.length > 0) {
+                                _ids.push(selection._ids);
+                            }
+                        }
+                    });
+
+                    var soldOutIds = _.intersection.apply(this, _ids);
+                    if (soldOutIds.length > 0) {
+                        _.forEach(inventoryOptions, function(optionValue, optionKey) {
+                            if (swatches[optionKey] && swatches[optionKey][optionValue]) {
+                                var swatch = swatches[optionKey][optionValue];
+                                swatch._ids = _.difference(swatch._ids, soldOutIds);
+                            }
+                        })
+                    }
+                });
             }
         }
     ]
