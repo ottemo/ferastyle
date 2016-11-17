@@ -120,6 +120,26 @@ angular.module('pdpModule')
                 }
             }
 
+            /**
+             * Builds product swatches from options
+             * result example {
+             *      colors: {
+             *          black: {
+             *              swatchImageUrl: 'demo.ottemo.io/media/swatch/colors_black.png',
+             *              imageUrl: 'demo.ottemo.io/media/image/Product/123/black.jpg',
+             *              label: 'Black",
+             *              selected: false,
+             *              _ids: [1, 2, 7, 10]
+             *          },
+             *          red: {
+             *            ...
+             *          }
+             *      },
+             *      sizes: {
+             *          ...
+             *      }
+             * }
+             */
             function getSwatches(product, mediaParams) {
                 var swatches = {};
                 var size = 'medium';
@@ -158,6 +178,9 @@ angular.module('pdpModule')
                 return swatches;
             }
 
+            /**
+             *  Removes sold out product ids from the swatches
+             */
             function removeSoldOutProductIds(product, swatches) {
                 var inventory = product.inventory;
                 _.forEach(inventory, function(inventoryItem) {
@@ -166,9 +189,10 @@ angular.module('pdpModule')
 
                     var _ids = [];
                     _.forEach(inventoryOptions, function(optionValue, optionKey) {
-                        var productOption = _.find(product.options, { key: optionKey });
+                        var productOption = _.find(product.options, { key: optionKey.toString() });
+
                         if (productOption && productOption.options) {
-                            var selection = _.find(productOption.options, { key: optionValue });
+                            var selection = _.find(productOption.options, { key: optionValue.toString() });
 
                             if (selection && selection._ids && selection._ids.length > 0) {
                                 _ids.push(selection._ids);
