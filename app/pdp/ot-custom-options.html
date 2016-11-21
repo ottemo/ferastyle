@@ -129,7 +129,8 @@
                                   ng-click="swatchClick(option.key, optionItem.key, product.options)"
                                   class="pdp-swatch pdp-swatch-text">
                             </span>
-                            <a href="" ng-if="option.key === 'size' && product.size_chart_name" ng-click="showChart()">
+                            <a href="" ng-if="option.key === 'size' && product.size_chart_name" ng-click="showChart()"
+                               class="size-chart-button">
                                 <img src="/images/size_chart.png" alt="">
                             </a>
                             <div ng-show="parent.submitted && customOptionsFormIn[option.key].$error.required"

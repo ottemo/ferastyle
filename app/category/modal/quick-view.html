@@ -16,7 +16,7 @@
                     <div class="col-sm-6">
                         <div class="thumbnail thumbnail-quick-view">
                             <img alt="{{popupProduct.name}}"
-                                 ng-src="{{ popupProduct.image.medium }}"
+                                 ng-src="{{ popupProduct.image[0].medium }}"
                                  err-src="placeholder.png">
                             <span ng-show="popupProduct.sale_prices || popupProduct.strikethrough_price" class="sale-image"></span>
                         </div>
@@ -39,12 +39,13 @@
                                     {{popupProduct.sale_prices[0].amount | currency}}
                                 </span>
                             </p>
+
                             <a class="btn btn-primary btn-md disabled pull-right"
-                               ng-show="popupProduct.qty === 0">
+                               ng-show="!inStock">
                                 Sold Out
                             </a>
                             <a class="btn btn-success btn-md disabled pull-right"
-                               ng-show="popupProduct.qty > 0">
+                               ng-show="inStock">
                                 In Stock
                             </a>
                             <hr/>
@@ -77,19 +78,20 @@
                             <hr/>
                             <br/>
                         </form>
+
                         <!-- add to cart button -->
-                        <button type="submit"
-                                class="btn btn-primary btn-lg btn-add-to-cart"
-                                ng-class="{disabled: isAddingToCart}"
-                                ng-click="addToCart(popupProduct)">
-                            <i class="fa fa-shopping-cart">
-                            </i>
-                            <span class="separator"></span>
-                            Add to cart
-                            <i class="fa fa-circle-o-notch fa-spin"
-                               ng-show="isAddingToCart">
-                            </i>
-                        </button>
+                        <div class="form-group">
+                            <a class="btn btn-primary btn-lg btn-add-to-cart"
+                               ng-class="{disabled: isAddingToCart || !inStock}"
+                               ng-click="addToCart(popupProduct)">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span class="separator"></span>
+                                <span ng-if="inStock">Add to cart</span>
+                                <span ng-if="!inStock">Sold out</span>
+                                <i class="fa fa-circle-o-notch fa-spin"
+                                   ng-show="isAddingToCart"></i>
+                            </a>
+                        </div>
                         <!-- view details -->
                         <a id="details_pdp"
                            class="btn btn-default btn-lg"
