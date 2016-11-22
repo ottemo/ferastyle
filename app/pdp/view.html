@@ -1,11 +1,8 @@
 <i class="init-controller" ng-init="activate()"></i>
+
 <div class="breadcrumb-bg">
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <ot-breadcrumbs></ot-breadcrumbs>
-            </div>
-        </div>
+        <ot-breadcrumbs></ot-breadcrumbs>
     </div>
 </div>
 
@@ -26,8 +23,10 @@
             </button>
 
             <h4>Disabled Product!</h4>
+
             <p>
-                This product is currently disabled. Customers trying to reach this product will be redirected back to the homepage.
+                This product is currently disabled. Customers trying to reach this product will be redirected back to
+                the homepage.
             </p>
         </div>
     </div>
@@ -46,48 +45,48 @@
                     </a>
                 </div>
                 <div class="col-xs-12">
-                    <ul class="bg-block" ot-slider init-on-event="product.loaded" config="{
-                                                        infinite: true,
-                                                        slidesToShow: 3,
-                                                        slidesToScroll: 2,
-                                                        responsive: [
-                                                                {
-                                                                  breakpoint: 1024,
-                                                                  settings: {
-                                                                    slidesToShow: 3,
-                                                                    slidesToScroll: 2,
-                                                                    infinite: true,
-                                                                    dots: true
-                                                                  }
-                                                                },
-                                                                {
-                                                                  breakpoint: 850,
-                                                                  settings: {
-                                                                    slidesToShow: 2,
-                                                                    slidesToScroll: 1
-                                                                  }
-                                                                },
-                                                                {
-                                                                  breakpoint: 767,
-                                                                  settings: {
-                                                                    slidesToShow: 3,
-                                                                    slidesToScroll: 2
-                                                                  }
-                                                                },
-                                                                {
-                                                                  breakpoint: 480,
-                                                                  settings: {
-                                                                    slidesToShow: 2,
-                                                                    slidesToScroll: 1
-                                                                  }
-                                                                },
-                                                             ]
-                                                        }">
-                        <li class="img-small" ng-repeat="img in product.images">
-                            <img ng-src="{{img.small}}"
-                                 itemprop="image"
-                                 ng-click="selectImage(img.large)"/>
-                        </li>
+                    <ul class="bg-block" ot-slider init-on-event="product.loaded"
+                        config="{
+                            infinite: true,
+                            slidesToShow: 3,
+                            slidesToScroll: 2,
+                            responsive: [
+                                    {
+                                      breakpoint: 1024,
+                                      settings: {
+                                        slidesToShow: 3,
+                                        slidesToScroll: 2,
+                                        infinite: true,
+                                        dots: true
+                                      }
+                                    },
+                                    {
+                                      breakpoint: 850,
+                                      settings: {
+                                        slidesToShow: 2,
+                                        slidesToScroll: 1
+                                      }
+                                    },
+                                    {
+                                      breakpoint: 767,
+                                      settings: {
+                                        slidesToShow: 3,
+                                        slidesToScroll: 2
+                                      }
+                                    },
+                                    {
+                                      breakpoint: 480,
+                                      settings: {
+                                        slidesToShow: 2,
+                                        slidesToScroll: 1
+                                      }
+                                    },
+                                 ]}">
+                            <li class="img-small" ng-repeat="img in product.images">
+                                <img ng-src="{{img.small}}"
+                                     itemprop="image"
+                                     ng-click="selectImage(img.large)"/>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -97,6 +96,7 @@
         <div class="col-xs-12 col-sm-6">
             <div class="page-header ">
                 <h1 class="col-xs-6 text-left p-l-0" itemprop="name">{{product.name}}</h1>
+
                 <div class="col-xs-6 p-r-0" ng-if="productButtonsAvailable">
                     <div class="btn-toolbar">
                         <div class="btn-group pull-right text-right ">
@@ -120,7 +120,7 @@
                       itemscope
                       itemtype="http://schema.org/Offer">
 
-                    <meta itemprop="priceCurrency" content="USD" />
+                    <meta itemprop="priceCurrency" content="USD"/>
                     <meta ng-if="product.sale_prices"
                           class="pdp-price-value"
                           itemprop="price"
@@ -141,11 +141,11 @@
                     {{product.sale_prices[0].amount | currency}}
                 </span>
                 <a class="btn btn-primary btn-md disabled pull-right"
-                   ng-show="product.qty === 0">
+                   ng-show="!inStock">
                     Sold Out
                 </a>
                 <a class="btn btn-success btn-md disabled pull-right"
-                   ng-show="product.qty > 0">
+                   ng-show="inStock">
                     In Stock
                 </a>
             </div>
@@ -157,32 +157,34 @@
                 <hr/>
             </div>
 
-            <div ng-show="product.qty !== 0">
+            <div ng-if="product.qty !== 0">
                 <!-- custom options -->
                 <ot-custom-options item="product"
-                                   object="this"></ot-custom-options>
+                                   object="productScope">
+                </ot-custom-options>
 
                 <!-- Quantity -->
                 <div class="form-group pdp-qty">
                     <label for="qty"
                            class="control-label">Quantity</label>
-                    <input type="number"
+                    <input type="text"
                            id="qty"
                            class="form-control"
                            placeholder="1"
-                           value="{{qty}}"
-                           ng-model="qty"
+                           value="{{productScope.qty}}"
+                           ng-model="productScope.qty"
                            ng-change="update(idx, qty)">
                 </div>
 
                 <!-- add to cart button -->
                 <div class="form-group">
                     <a class="btn btn-primary btn-lg btn-add-to-cart"
-                       ng-class="{disabled: isAddingToCart}"
+                       ng-class="{disabled: isAddingToCart || !inStock}"
                        ng-click="addToCart($event)">
                         <i class="fa fa-shopping-cart"></i>
                         <span class="separator"></span>
-                        Add to cart
+                        <span ng-if="inStock">Add to cart</span>
+                        <span ng-if="!inStock">Sold out</span>
                         <i class="fa fa-circle-o-notch fa-spin"
                            ng-show="isAddingToCart"></i>
                     </a>
@@ -208,6 +210,7 @@
             <div class="alert alert-success text-center"
                  ng-show="isAddToCartSuccessful">
                 <p>{{product.name}} was added to your cart</p>
+
                 <p>
                     <a href="/cart"
                        class="btn btn-default">view my cart</a>
@@ -220,8 +223,10 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                                              data-toggle="tab">Description</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a>
+                    </li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -242,6 +247,9 @@
     <!-- related products -->
     <div ot-related-products product-id="{{product._id}}"></div>
 </div>
+
+
+
 <hr/>
 <!-- TODO: move out -->
 <script>
@@ -249,7 +257,7 @@
         e.preventDefault()
         $(this).tab('show')
     })
-    $(function() {
+    $(function () {
 
         // click to zoom on images
         monitorZoomImage();
@@ -261,7 +269,7 @@
         ////////////////////////
 
         function monitorZoomImage() {
-            $(document).on('click', '.active-img', function(e) {
+            $(document).on('click', '.active-img', function (e) {
                 // Toss it in a data attribute because the event
                 // doesn't always get prevented
                 var href = $(this).data('href-lg');
@@ -272,7 +280,7 @@
         }
 
         function scaleImagesOnResize() {
-            $(window).resize(function() {
+            $(window).resize(function () {
                 if (typeof _ === "undefined") {
                     scaleImages();
                 } else {

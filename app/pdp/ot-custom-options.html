@@ -87,6 +87,59 @@
                             <hr/>
                         </div>
 
+                        <!-- select_image -->
+                        <div ng-switch-when="select_image"
+                             class="form-group"
+                             ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
+                            <label class="option-set-label">
+                                {{option.label}}
+                                : {{getOptionValueLabel(option, parent.options[option.key])}}
+                            </label>
+                            <input type="text" disabled
+                                   ng-model="parent.options[option.key]"
+                                   name="{{option.key}}"
+                                   ng-hide="true"
+                                   ng-required="option.required">
+
+                            <span ng-repeat="optionItem in option.options" ot-swatch="parent.swatches[option.key][optionItem.key]"
+                                  ng-click="swatchClick(option.key, optionItem.key, product.options)"
+                                  class="pdp-swatch pdp-swatch-image">
+                            </span>
+                            <div ng-show="parent.submitted && customOptionsFormIn[option.key].$error.required"
+                                 class="help-block">
+                                This field is required.
+                            </div>
+                        </div>
+
+                        <!-- select_text -->
+                        <div ng-switch-when="select_text"
+                             class="form-group"
+                             ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
+                            <label class="option-set-label">
+                                {{option.label}}
+                                : {{getOptionValueLabel(option, parent.options[option.key])}}
+                            </label>
+                            <input type="text" disabled
+                                   ng-model="parent.options[option.key]"
+                                   name="{{option.key}}"
+                                   ng-hide="true"
+                                   ng-required="option.required">
+
+                            <span ng-repeat="optionItem in option.options" ot-swatch="parent.swatches[option.key][optionItem.key]"
+                                  ng-click="swatchClick(option.key, optionItem.key, product.options)"
+                                  class="pdp-swatch pdp-swatch-text">
+                            </span>
+                            <a href="" ng-if="option.key === 'size' && product.size_chart_name" ng-click="showChart()"
+                               class="size-chart-button">
+                                <img src="/images/size_chart.png" alt="">
+                            </a>
+                            <div ng-show="parent.submitted && customOptionsFormIn[option.key].$error.required"
+                                 class="help-block">
+                                This field is required.
+                            </div>
+                        </div>
+
+
                         <!-- Radio -->
                         <div ng-switch-when="radio"
                              ng-init="selectFirstRadio(option)"
@@ -140,15 +193,14 @@
                                 </label>
 
                             </div>
-                            <a ng-show="option.key === 'size'" id="option-chart">
-                                <img src="images/size_chart.png" alt="size chart"/>
-                            </a>
                             <div ng-show="parent.submitted && customOptionsFormIn[option.key].$error.required"
                                 class="help-block">
                                 This field is required.
                             </div>
                             <hr/>
                         </div>
+
+
                     </div>
                 </div>
             </ng-form>
@@ -172,7 +224,7 @@
                 <h4 class="modal-title">Adult size charts</h4>
             </div>
             <div class="modal-body">
-                <img src="/images/chart-mens-size-chart.jpeg" alt="adult size charts"/>
+                <ot-cms-block name="product.size_chart_name" ng-if="product.size_chart_name"></ot-cms-block>
             </div>
             <div class="modal-footer">
                 <button type="button"
@@ -184,3 +236,5 @@
         </div>
     </div>
 </div>
+
+
