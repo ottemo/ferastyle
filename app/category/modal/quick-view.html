@@ -16,7 +16,7 @@
                     <div class="col-sm-6">
                         <div class="thumbnail thumbnail-quick-view">
                             <img alt="{{popupProduct.name}}"
-                                 ng-src="{{ popupProduct.image[0].medium }}"
+                                 ng-src="{{activeImg}}"
                                  err-src="placeholder.png">
                             <span ng-show="popupProduct.sale_prices || popupProduct.strikethrough_price" class="sale-image"></span>
                         </div>
