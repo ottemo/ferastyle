@@ -1,0 +1,136 @@
+$swatch-border-radius: 3px;
+$swatch-border-color: #ccc;
+$swatch-border-color-selected: $red-dark;
+$swatch-border-color-hover: #3399cc;
+$swatch-background-color: #f4f4f4;
+$swatch-color: #636363;
+
+.swatch {
+    cursor: pointer;
+    background-color: $swatch-background-color;
+    border: 1px solid $swatch-border-color;
+    border-radius: $swatch-border-radius;
+    color: $swatch-color;
+    padding: 1px;
+    display: inline-block;
+    position: relative;
+
+    &.disabled {
+        border-color: #ddd;
+        color: #aaa;
+
+        img {
+            opacity: .4;
+        }
+
+        .disabled-bg {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(/images/option_x.png) no-repeat 50% 50%;
+            background-size: 100% 100%;
+        }
+    }
+
+    &:hover {
+        text-decoration: none;
+        color: $swatch-color;
+        border-color: $swatch-border-color-hover;
+    }
+
+    &.selected {
+        border-color: $swatch-border-color-selected;
+    }
+
+    .swatch-label {
+        display: block;
+        padding: 1px 5px;
+        white-space: nowrap;
+        font-size: 10px;
+        font-weight: bold;
+    }
+
+    img {
+        border-radius: $swatch-border-radius;
+        display: inline-block;
+        vertical-align: top;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .disabled-bg {
+        display: none;
+    }
+}
+
+.category-product-swatch-set {
+    padding: 0;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.category-product-swatch {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px 2px 0;
+
+    .swatch {
+        .swatch-label {
+            height: 25px;
+            line-height: 25px;
+        }
+
+        img {
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+
+.nav .category-filter-swatch {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px 2px 0;
+
+    .swatch {
+        padding: 1px;
+        &.selected {
+            border-width: 2px;
+            border-color: $red-dark;
+        }
+
+        img {
+            width: 17px;
+            height: 17px;
+        }
+
+        .swatch-label {
+            height: 17px;
+            line-height: 17px;
+        }
+    }
+}
+
+.pdp-swatch {
+    margin: 0 4px 4px 0;
+    .swatch {
+        padding: 1px;
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    &.pdp-swatch-text {
+        .swatch-label {
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            min-width: 30px;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<a class="product-box-img r-container r-container-square"
+   ng-href="{{::productService.getUrl(product._id)}}">
+    <img class="r-target"
+         ng-src="{{imageUrl}}"
+         itemprop="image">
+    <span ng-show="product.sale_prices || product.strikethrough_price" class="sale-image"></span>
+</a>
+
+<ul ng-repeat="swatchSet in swatches"
+     class="swatch-set category-product-swatch-set">
+    <li ng-repeat="swatch in swatchSet" ot-swatch="swatch" ng-click="swatchClick(swatch)" class="category-product-swatch">
+    </li>
+</ul>

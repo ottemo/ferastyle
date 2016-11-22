@@ -64,7 +64,6 @@
     .product-box-name,
     .product-box-price {
         text-align: left;
-        display: block;
         display: inline-block;
     }
     .product-box-name {
@@ -102,8 +101,6 @@
         margin-left: -64px;
         top: 30%;
         height: 42px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
         border-radius: 3px;
         line-height: 42px;
         padding: 0 16px;
@@ -128,9 +125,7 @@
         border-top-color: #f3f3f3;
         border-bottom-color: $red-dark;
         border-radius: $border-radius-small;
-        -webkit-border-top-left-radius: 0;
         border-top-left-radius: 0;
-        -webkit-border-top-right-radius: 0;
         border-top-right-radius: 0;
         padding: 15px 0 16px;
         margin: -16px;
@@ -178,9 +173,6 @@
                 font-family: $font-family-base;
                 font-size: $font-size-middle;
                 transition: color 600ms ease-in-out;
-                -webkit-transition: color 600ms ease-in-out;
-                -moz-transition: color 600ms ease-in-out;
-                -o-transition: color 600ms ease-in-out;
                 padding-left: 14px;
                 span:first-child {
                     position: absolute;
@@ -189,16 +181,9 @@
                     color: $red-dark;
                     display: inline-block;
                     transition: all 400ms ease-in-out;
-                    -webkit-transition: all 400ms ease-in-out;
-                    -moz-transition: all 400ms ease-in-out;
-                    -o-transition: all 400ms ease-in-out;
                 }
                 &:hover span:first-child  {
                     top: 1px;
-                    -moz-transform: rotate(180deg);
-                    -ms-transform: rotate(180deg);
-                    -webkit-transform: rotate(180deg);
-                    -o-transform: rotate(180deg);
                     transform: rotate(180deg);
                 }
             }
@@ -282,7 +267,6 @@
             flex-direction: column;
             position: relative;
             .product-box-img {
-                position: inherit;
                 overflow: inherit;
                 .sale-image {
                     top: -19px;
