@@ -18,11 +18,9 @@ branch:
         - develop
     
 after_failure:
-    - python slack_notifier.py --org $SLACK_ORG --project $PROJECT --token $SLACK_TOKEN
 
 after_success:
     - REMOTE_HOST=fs.staging.ottemo.io bash deploy.sh
-    - python slack_notifier.py --org $SLACK_ORG --project $PROJECT --token $SLACK_TOKEN -s
-    
+
 notifications:
     email: false
