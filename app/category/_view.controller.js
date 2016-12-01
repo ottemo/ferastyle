@@ -93,7 +93,7 @@ angular.module('categoryModule')
         };
 
         function getLayeredSwatches(layered, mediaConfig, productAttrs) {
-            var swatchAttrs = ['colors', 'size', 'length'];
+            var swatchAttrs = ['colors', 'size', 'size_length'];
             var swatches = {};
 
             _.forEach(layered, function(values, attrKey) {
