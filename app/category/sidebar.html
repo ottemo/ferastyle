@@ -1,12 +1,12 @@
 <div class="sidebar-offcanvas hidden-xs">
 
     <!-- categories block -->
-    <div class="row">
+    <div class="row" ng-show="categories.length">
         <div class="col-xs-12">
             <ul class="nav nav--categories filter-block">
                 <li class="nav__header">FILTER BY</li>
 
-                <li class="nav-divider" role="separator" ng-show="categories.length">--</li>
+                <li class="nav-divider" role="separator" >--</li>
 
                 <li ng-repeat="item in categories">
                     <a href="{{item.url}}">
@@ -35,7 +35,7 @@
 
                 <ul class="nav nav--cat-layers">
                     <li class="nav__header">{{filter}}</li>
-                    <li class="nav-divider" role="separator" ng-show="categories.length">--</li>
+                    <li class="nav-divider" role="separator">--</li>
 
                     <li ng-repeat="item in items" class="category-filter-swatch"
                         ng-if="layeredSwatches[filter] !== undefined"
