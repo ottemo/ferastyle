@@ -311,3 +311,35 @@
     background-position: -272px 0px;
     position: absolute;
 }
+
+.best-seller-image {
+    padding: 0;
+    img {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+.bestSeller {
+    margin: 0 0 12px;
+    padding: 0 0 12px;
+}
+
+a.best-seller-name {
+    color: #d12d1e;
+    font-size: 1em;
+    margin-bottom: 5px;
+    display: block;
+
+    &:hover {
+        text-decoration: none;
+        color: #fc5959;
+    }
+}
+
+.best-seller-price {
+    color: #9f2014;
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+}
