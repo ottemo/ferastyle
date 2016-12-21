@@ -11,7 +11,7 @@
         <div class="col-xs-12">
             <div class="checkout-penel">
                 <p ng-if="order._id">
-                    Your order number is: <strong>{{order._id}}</strong>.
+                    Your order number is: <strong>{{order.increment_id}}</strong>.
                 </p>
 
                 <p>You will receive an order confirmation email with details of your order. <span ng-if="visitorProps.isLoggedIn">You can also view past orders from the <a ng-href="/account/orders">my account page</a></span></p>

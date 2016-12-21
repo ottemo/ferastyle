@@ -35,7 +35,7 @@
                     ng-show="ordersList.length">
                     <div ng-repeat="order in ordersList">
                         <strong class="">Order number: </strong>
-                        <a href="/account/order/{{order.ID}}">{{order.ID}}</a>
+                        <a href="/account/order/{{order.ID}}">{{order.Extra.increment_id}}</a>
 
                         <br>
 
@@ -84,7 +84,7 @@
                         <tbody>
                         <tr ng-repeat="order in ordersList">
                             <td>
-                                <a href="/account/order/{{order.ID}}">{{order.ID}}</a>
+                                <a href="/account/order/{{order.ID}}">{{order.Extra.increment_id}}</a>
                             </td>
                             <td>{{order.Extra.created_at | date:"MM/dd/yyyy h:mma"}}</td>
                             <td>{{order.Desc}}</td>
