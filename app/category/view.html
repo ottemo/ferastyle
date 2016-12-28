@@ -50,8 +50,14 @@
 
                     <div class="product-box-bg">
                         <a class="btn btn-primary btn-quick-view"
+                           ng-if="product.qty !== 0"
                            ng-click="openPopUp(product)">
                             <i class="fa fa-search-plus"></i> Quick View
+                        </a>
+
+                        <a class="btn btn-default disabled"
+                           ng-if="product.qty === 0">
+                            sold out
                         </a>
 
                         <ot-clp-swatches product="product"
