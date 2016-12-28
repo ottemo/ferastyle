@@ -93,17 +93,17 @@
         font-size: $font-size-base;
     }
 
-    .btn-quick-view {
-        display: none;
+    .btn {
         z-index: 1;
         position: absolute;
+        width: 60%;
+        left: 10%;
+
         left: 50%;
-        margin-left: -64px;
+        transform: translate(-50%, 0);
         top: 30%;
-        height: 42px;
         border-radius: 3px;
-        line-height: 42px;
-        padding: 0 16px;
+        padding: 8px 16px;
         font-size: 14px;
         font-weight: 300;
         color: #fff;
@@ -112,12 +112,17 @@
         text-transform: capitalize;
     }
 
+    .btn-quick-view {
+        display: none;
+    }
+
     // only show the quick view button if you are on lg
     @media (min-width: $screen-md-min) {
         &:hover .btn-quick-view {
             display: block;
         }
     }
+
     .hover-block {
         display: none;
         text-align: center;
@@ -160,6 +165,7 @@
                 }
             }
         }
+
         .wishlist {
             @include box-shadow(inset 0px 5px 6px -4px rgba(0, 0, 0, 0.15));
             padding-top: 15px;
