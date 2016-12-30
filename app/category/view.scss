@@ -13,6 +13,7 @@
         padding: 15px;
         border-radius: $border-radius-small;
         @include box-shadow(0 0 6px 0 rgba(0, 0, 0, 0.15));
+        border: 1px solid transparent;
     }
     @media (max-width: 480px) {
         width: 100%;
@@ -97,8 +98,6 @@
         z-index: 1;
         position: absolute;
         width: 60%;
-        left: 10%;
-
         left: 50%;
         transform: translate(-50%, 0);
         top: 30%;

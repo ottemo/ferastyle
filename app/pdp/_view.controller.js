@@ -78,26 +78,12 @@ angular.module('pdpModule')
                     $scope.productsList = $rootScope.productsListUpperLevel;
                     getPdpProductsLinks();
                 }
-                else {
-                    var categotyName = $location.absUrl().split('/')[3];
-                    var parentCategoryId = commonRewriteService.getCategoryIdByUrl(categotyName);
-                    if(parentCategoryId !== null) {
-                        categoryApiService.getProductsByCategoryId({categoryID: parentCategoryId}).$promise
-                            .then(function (response) {
-                                if(response.result !== null) {
-                                    $rootScope.productsListUpperLevel = response.result || [];
-                                    $scope.productsList = $rootScope.productsListUpperLevel;
-                                    getPdpProductsLinks();
-                                }
-                            });
-                    }
-                }
             };
 
             function getPdpProductsLinks() {
                 var currentPosition = -1;
                 if ($scope.productsList.length > 0) {
-                    for (var i=0; i < $scope.productsList.length; i++) {
+                    for (var i = 0; i < $scope.productsList.length; i++) {
                         var product = $scope.productsList[i];
                         if (product._id === $scope.productId) {
                             currentPosition = i;
