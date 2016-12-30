@@ -25,6 +25,13 @@ $address-icons-color: #dcdcdc;
 }
 
 .my-account {
+    > .page-header h1 {
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: -1px;
+        font-family: AvenirNextLTPro-Bold;
+    }
+
     .list-group {
         background: #fff;
         border: none;

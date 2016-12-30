@@ -2,36 +2,38 @@
     ng-if="related.length">
     <h3>Related Products</h3>
     <div class="row">
-        <div ot-slider config="{
-                                infinite: true,
-                                slidesToShow: 4,
-                                slidesToScroll: 4,
-                                responsive: [
-                                                {
-                                                  breakpoint: 1024,
-                                                  settings: {
-                                                    slidesToShow: 3,
-                                                    slidesToScroll: 3,
-                                                    infinite: true,
-                                                    dots: true
-                                                  }
-                                                },
-                                                {
-                                                  breakpoint: 600,
-                                                  settings: {
-                                                    slidesToShow: 2,
-                                                    slidesToScroll: 2
-                                                  }
-                                                },
-                                                {
-                                                  breakpoint: 480,
-                                                  settings: {
-                                                    slidesToShow: 1,
-                                                    slidesToScroll: 1
-                                                  }
-                                                }
-                                            ]
-                            }">
+        <div ot-slider
+             config="{
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                responsive: [
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                      }
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                      }
+                    }
+                ]
+            }">
+
             <div class="col-xs-6 col-sm-4"
                 ng-repeat="_item in related"
                 itemscope
