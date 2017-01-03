@@ -72,12 +72,12 @@
             ng-class="{in: mobileNav.isOpen}">
 
             <!-- Utility Navigation -->
-            <ul class="nav navbar-nav navbar-util hidden-xs">
+            <ul class="nav navbar-nav navbar-util">
                 <li class="search-field">
                     <input ng-click="searchProducts(searchText)" type="image" src="/images/icon-search.png" alt="Go" id="go">
                     <input type="text" ng-model="searchText" ng-enter="searchProducts(searchText)" class="form-control search_box" placeholder="Search" value="">
                 </li>
-                <li data-match-route="^/cart">
+                <li class="hidden-xs" data-match-route="^/cart">
                     <a href="/cart" class="shopping-cart">
                         <i class="fa fa-shopping-cart"></i>
                         Cart ({{getItemsInCart()}})
@@ -87,6 +87,18 @@
 
             <!-- Main Navigation -->
             <ot-cms-block name="main-menu"></ot-cms-block>
+            <ul class="nav navbar-nav navbar-main">
+                <!-- Additional mobile menu items, since the util nav is hidden -->
+                <li class="visible-xs"
+                    ng-show="!visitorProps.isLoggedIn">
+                    <a href="/login">Login</a>
+                </li>
+
+                <li class="visible-xs"
+                    ng-show="visitorProps.isLoggedIn">
+                    <a href="/account">My Account</a>
+                </li>
+            </ul>
 
         </div>
     </div>

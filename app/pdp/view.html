@@ -261,7 +261,7 @@
                 </button>
                 <h4 class="modal-title">Adult size charts</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body size-chart">
                 <ot-cms-block name="{{product.size_chart_name}}" ng-if="product.size_chart_name"></ot-cms-block>
             </div>
             <div class="modal-footer">
@@ -293,14 +293,16 @@
         ////////////////////////
 
         function monitorZoomImage() {
-            $(document).on('click', '.active-img', function (e) {
-                // Toss it in a data attribute because the event
-                // doesn't always get prevented
-                var href = $(this).data('href-lg');
+            if ($(window).width() >= 768)  {
+                $(document).on('click', '.active-img', function (e) {
+                    // Toss it in a data attribute because the event
+                    // doesn't always get prevented
+                    var href = $(this).data('href-lg');
 
-                $.fancybox({href: href});
+                    $.fancybox({href: href});
 
-            });
+                });
+            }
         }
 
         function scaleImagesOnResize() {
