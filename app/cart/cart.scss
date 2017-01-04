@@ -183,9 +183,7 @@
         font-weight: normal;
     }
     .text-right + .text-right {
-        @media (max-width: $screen-xs-max) {
-            float:right;
-        }
+        float:right;
     }
 }
 
