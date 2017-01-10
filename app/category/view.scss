@@ -247,14 +247,14 @@
     flex-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -20px;
-    @media (max-width: 480px) {
+    @media (max-width: $screen-xs-max) {
         margin-right: -15px;
     }
     .product-box {
         &.col-sm-4 {
             width: 33%;
             @media (max-width: $screen-xs-max) {
-                width: 49.5%;
+                width: 50%;
             }
             @media (max-width: 480px) {
                 width: 100%;

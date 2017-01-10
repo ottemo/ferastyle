@@ -200,8 +200,17 @@ input[type="button"] {
         height: 18px;
         margin: 0 5px 0 10px;
     }
+    @media (max-width: $screen-mobile-small) {
+        font-size: 15px;
+    }
 }
 
 .btn, i {
     transition: ease 0.4s;
+}
+
+.fa-btn-icon {
+    @media (max-width: $screen-mobile-small) {
+        width: 40px;
+    }
 }
