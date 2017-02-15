@@ -48,26 +48,6 @@ angular.module('categoryModule')
             });
         };
 
-        $scope._addItem = function(product) {
-            $scope.submitted = true;
-            if ($scope.visitorForm && $scope.visitorForm.$valid) {
-                cartService.add(product._id, $scope.qty, pdpProductService.getOptions()).then(
-                    function(response) {
-                        $scope.isAddingToCart = false;
-
-                        if (response.error !== null) {
-                            $scope.message = commonUtilService.getMessage(response);
-                        } else {
-                            pdpProductService.setOptions({});
-                            $scope.isAddToCartSuccess = true;
-                            $("#quick-view").modal('hide');
-                            $("#quick-view-success").modal('show');
-                        }
-                    }
-                );
-            }
-        };
-
         /**
          * Gets layers for category
          */
@@ -159,6 +139,7 @@ angular.module('categoryModule')
         $scope.openPopUp = function(product) {
             $scope.message = {};
             $scope.options = {};
+            $scope.submitted = false;
             pdpProductService.setProduct(product);
             var productPromise = pdpProductService.getProduct();
             var mediaConfigPromise = mediaService.getMediaConfig();
