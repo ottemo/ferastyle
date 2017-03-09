@@ -141,9 +141,10 @@ angular.module('categoryModule')
             $scope.options = {};
             $scope.submitted = false;
             pdpProductService.setProduct(product);
+            pdpProductService.setOptions($scope.options);
             var productPromise = pdpProductService.getProduct();
             var mediaConfigPromise = mediaService.getMediaConfig();
-            $scope.inStock = product.qty !== 0;
+            $scope.inStock = product.qty == undefined || product.qty > 0;
 
             $q.all([productPromise, mediaConfigPromise]).then(function(responses) {
                 $scope.popupProduct = responses[0];
