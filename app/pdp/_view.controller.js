@@ -28,7 +28,6 @@ angular.module('pdpModule')
                 $scope._getProduct();
                 $scope._getReviews();
                 $scope._getRatingInfo();
-                $scope._initWatchers();
                 $scope.getPdpProductsList();
             };
 
@@ -53,7 +52,7 @@ angular.module('pdpModule')
 
                         pdpProductService.setProduct(product);
                         $scope.product = pdpProductService.getProduct();
-                        $scope.inStock = product.qty !== 0;
+                        $scope.inStock = $scope.product.qty === undefined || $scope.product.qty > 0;
                         $scope.$broadcast('product.loaded');
 
                         // BREADCRUMBS
@@ -67,6 +66,7 @@ angular.module('pdpModule')
                         }
 
                         $scope.swatches = getSwatches(product, mediaConfig);
+                        $scope._initWatchers();
                     } else {
                         $location.path('/');
                     }
