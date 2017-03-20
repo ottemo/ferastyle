@@ -133,6 +133,23 @@ angular.module('pdpModule')
 
                 $scope.showChart = function () {
                     $("#modal_adult_chart").modal('show');
+                };
+
+                /**
+                 * FeraStyle specific
+                 * Hack to fix product option labels on frontend
+                 */
+                $scope.getOptionLabel = function(option) {
+                    switch (option.key) {
+                        case 'colors':
+                            return 'Colors';
+                        case 'size':
+                            return 'Sizes';
+                        case 'size_length':
+                            return 'Length';
+                        default:
+                            return option.label;
+                    }
                 }
             }
         };
