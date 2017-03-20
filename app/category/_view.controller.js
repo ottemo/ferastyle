@@ -68,6 +68,9 @@ angular.module('categoryModule')
                     _.forEach(layered, function(filterValue, filterKey){
                         $scope.filters[filterKey] = {};
                         $scope.filterLabels[filterKey] = _.find(productAttrs, { 'Attribute': filterKey }).Label;
+                        if (filterKey === 'size') {
+                            layered[filterKey] = commonUtilService.sortSizesAttributeValues(filterValue);
+                        }
                     });
 
                     $scope._setFilters();
