@@ -18,6 +18,12 @@ angular.module("commonModule")
             $location.path('/search');
         };
 
+        $scope.$on('$viewContentLoaded', function(){
+            if($('.navbar-main .dropdown-nav').hasClass('open')){
+                $('.navbar-main .dropdown-nav').removeClass('open');
+            }
+        });
+
     }
 ]);
 

@@ -26,6 +26,7 @@ $(document).ready(function () {
         // Tablet and Mobile main menu
         $(document).on('touchend','.navbar-main li i',function(event) {
             event.preventDefault();
+            event.stopPropagation();
             $(this).closest("li").siblings().removeClass('open');
             $(this).closest("li").toggleClass('open');
         });
