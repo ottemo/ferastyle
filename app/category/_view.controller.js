@@ -64,9 +64,12 @@ angular.module('categoryModule')
 
                     $scope.layeredSwatches = getLayeredSwatches(layered, mediaConfig, productAttrs);
                     $scope.layered = layered;
-                    _.forEach(layered, function(filterName){
-                        $scope.filters[filterName] = {};
+                    $scope.filterLabels = {};
+                    _.forEach(layered, function(filterValue, filterKey){
+                        $scope.filters[filterKey] = {};
+                        $scope.filterLabels[filterKey] = _.find(productAttrs, { 'Attribute': filterKey }).Label;
                     });
+
                     $scope._setFilters();
                     selectSwatches($scope.filters, $scope.layeredSwatches);
                 });
@@ -163,7 +166,5 @@ angular.module('categoryModule')
                 }, 300);
             });
         };
-
-
     }
 ]);
