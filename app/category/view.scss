@@ -231,6 +231,15 @@
         }
     }
 
+    .swatch-set {
+        margin-bottom: 0;
+        height: 60px;
+        overflow: hidden;
+
+        a {
+            transition: ease .4s;
+        }
+    }
 }
 
 .sort-block {
@@ -353,14 +362,4 @@ a.best-seller-name {
     display: block;
     font-weight: 400;
     font-size: 12px;
-}
-
-.swatch-set {
-    margin-bottom: 0;
-    height: 60px;
-    overflow: hidden;
-
-    a {
-        transition: ease .4s;
-    }
 }
