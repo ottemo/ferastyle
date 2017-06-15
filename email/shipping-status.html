@@ -7,6 +7,7 @@
   .Url - has trailing slash
 .Order
   ._id
+  .increment_id
   .billing_address
     .first_name
     .last_name
@@ -100,10 +101,10 @@
                                                             Order
                                                             {{ if .Order.visitor_id }}
                                                             <a href="{{ .Site.Url }}/account/order/{{ .Order._id }}">
-                                                                #{{ .Order._id }}
+                                                                #{{ .Order.increment_id }}
                                                             </a>
                                                             {{ else }}
-                                                            #{{ .Order._id }}
+                                                            #{{ .Order.increment_id }}
                                                             {{ end }}
                                                         </li>
                                                         <li>Placed On: {{ .Order.created_at.Format $dateFormat }}</li>
@@ -186,7 +187,7 @@
                                             <tr>
                                                 <td class="center">
                                                     <center>
-                                                        <div>©2016 Ferastyle, All Rights Reserved.</div>
+                                                        <div>©2017 Ferastyle, All Rights Reserved.</div>
                                                     </center>
                                                 </td>
                                                 <td class="expander"></td>

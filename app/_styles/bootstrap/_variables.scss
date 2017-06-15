@@ -286,6 +286,8 @@ $zindex-modal: 1050 !default;
 //== Media queries breakpoints
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+$screen-mobile-small: 480px !default;
+
 $screen-sm-min: 768px !default;
 //  >= sm : @media (min-width: $screen-sm-min)
 $screen-md-min: 992px !default;

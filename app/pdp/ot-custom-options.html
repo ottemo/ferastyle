@@ -13,7 +13,7 @@
                             ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
 
                             <label class="option-set-label">
-                                {{option.label}}<span class="asterisk"
+                                {{getOptionLabel(option)}}<span class="asterisk"
                                     ng-if="option.required">*</span>
                             </label>
                             <input type="text"
@@ -37,7 +37,7 @@
                             ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
 
                             <label class="option-set-label">
-                                {{option.label}}
+                                {{getOptionLabel(option)}}
                                 <span class="asterisk" ng-if="option.required">*</span>
                                 <div class="small">(Select today’s date to send immediately)</div>
                             </label>
@@ -66,7 +66,7 @@
                              class="form-group"
                              ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
                             <label class="option-set-label">
-                                {{option.label}}
+                                {{getOptionLabel(option)}}
                                 <span class="asterisk"
                                     ng-if="option.required">*</span>
                             </label>
@@ -92,7 +92,7 @@
                              class="form-group"
                              ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
                             <label class="option-set-label">
-                                {{option.label}}
+                                {{getOptionLabel(option)}}
                                 : {{getOptionValueLabel(option, parent.options[option.key])}}
                             </label>
                             <input type="text" disabled
@@ -116,7 +116,7 @@
                              class="form-group"
                              ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
                             <label class="option-set-label">
-                                {{option.label}}
+                                {{getOptionLabel(option)}}
                                 : {{getOptionValueLabel(option, parent.options[option.key])}}
                             </label>
                             <input type="text" disabled
@@ -147,7 +147,7 @@
                              ng-class="{'has-error':parent.submitted && customOptionsFormIn[option.key].$invalid}">
 
                             <label class="option-set-label">
-                                {{option.label}}<span class="asterisk"
+                                {{getOptionLabel(option)}}<span class="asterisk"
                                     ng-if="option.required">*</span>
                             </label>
 
@@ -175,7 +175,7 @@
                              ng-class="{'has-error': parent.submitted && customOptionsFormIn[option.key].$invalid}">
 
                             <label class="option-set-label">
-                                {{option.label}}
+                                {{getOptionLabel(option)}}
                                 <span class="asterisk"
                                     ng-if="option.required">*</span>
                             </label>
@@ -208,33 +208,6 @@
     </form>
 </div>
 
-<!-- adult size charts modal -->
-<div class="modal fade"
-     id="modal_adult_chart"
-     tabindex="-1"
-     role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button data-dismiss="modal"
-                        class="close"
-                        type="button">
-                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                </button>
-                <h4 class="modal-title">Adult size charts</h4>
-            </div>
-            <div class="modal-body">
-                <ot-cms-block name="{{product.size_chart_name}}" ng-if="product.size_chart_name"></ot-cms-block>
-            </div>
-            <div class="modal-footer">
-                <button type="button"
-                        data-dismiss="modal"
-                        class="btn btn-default">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 

@@ -11,3 +11,7 @@
     <li ng-repeat="swatch in swatchSet" ot-swatch="swatch" ng-click="swatchClick(swatch)" class="category-product-swatch">
     </li>
 </ul>
+
+<ul ng-if="swatches.length === 0"
+    class="swatch-set category-product-swatch-set">
+</ul>

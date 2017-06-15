@@ -26,6 +26,7 @@ $(document).ready(function () {
         // Tablet and Mobile main menu
         $(document).on('touchend','.navbar-main li i',function(event) {
             event.preventDefault();
+            event.stopPropagation();
             $(this).closest("li").siblings().removeClass('open');
             $(this).closest("li").toggleClass('open');
         });
@@ -34,14 +35,11 @@ $(document).ready(function () {
     if($(window).width() < 1025 && $(window).width() > 767) {
         // Tablet main menu
         $(document).on('touchend','.navbar-main li a',function(event) {
-            if($(this).closest("li").hasClass("dropdown-submenu") ||
-                $(this).closest("li").hasClass("dropdown-nav")){
-            }else{
-                setTimeout(function(){
-                    $(".dropdown-submenu").removeClass('open');
-                    $(".dropdown-nav").removeClass("open");
-                }, 200);
-            }
+            setTimeout(function(){
+                $(".dropdown-submenu").removeClass('open');
+                $(".dropdown-nav").removeClass("open");
+            }, 200);
+
         });
     }
 
@@ -65,14 +63,10 @@ $(document).ready(function () {
     // youth size charts modal for "product-info" cms page
     $(document).on('click','#yourchar',function(event){
         $('#popup_youth_chart').modal('show');
-    })
+    });
 
     // size charts modal for "product-info" cms page
     $(document).on('click', '#option-chart', function(e) {
         $('#modal_adult_chart').modal('show');
     });
-
-
-
-
 });

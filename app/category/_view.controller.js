@@ -48,26 +48,6 @@ angular.module('categoryModule')
             });
         };
 
-        $scope._addItem = function(product) {
-            $scope.submitted = true;
-            if ($scope.visitorForm && $scope.visitorForm.$valid) {
-                cartService.add(product._id, $scope.qty, pdpProductService.getOptions()).then(
-                    function(response) {
-                        $scope.isAddingToCart = false;
-
-                        if (response.error !== null) {
-                            $scope.message = commonUtilService.getMessage(response);
-                        } else {
-                            pdpProductService.setOptions({});
-                            $scope.isAddToCartSuccess = true;
-                            $("#quick-view").modal('hide');
-                            $("#quick-view-success").modal('show');
-                        }
-                    }
-                );
-            }
-        };
-
         /**
          * Gets layers for category
          */
@@ -84,9 +64,15 @@ angular.module('categoryModule')
 
                     $scope.layeredSwatches = getLayeredSwatches(layered, mediaConfig, productAttrs);
                     $scope.layered = layered;
-                    _.forEach(layered, function(filterName){
-                        $scope.filters[filterName] = {};
+                    $scope.filterLabels = {};
+                    _.forEach(layered, function(filterValue, filterKey){
+                        $scope.filters[filterKey] = {};
+                        $scope.filterLabels[filterKey] = _.find(productAttrs, { 'Attribute': filterKey }).Label;
+                        if (filterKey === 'size') {
+                            layered[filterKey] = commonUtilService.sortSizesAttributeValues(filterValue);
+                        }
                     });
+
                     $scope._setFilters();
                     selectSwatches($scope.filters, $scope.layeredSwatches);
                 });
@@ -159,10 +145,12 @@ angular.module('categoryModule')
         $scope.openPopUp = function(product) {
             $scope.message = {};
             $scope.options = {};
+            $scope.submitted = false;
             pdpProductService.setProduct(product);
+            pdpProductService.setOptions($scope.options);
             var productPromise = pdpProductService.getProduct();
             var mediaConfigPromise = mediaService.getMediaConfig();
-            $scope.inStock = product.qty !== 0;
+            $scope.inStock = product.qty == undefined || product.qty > 0;
 
             $q.all([productPromise, mediaConfigPromise]).then(function(responses) {
                 $scope.popupProduct = responses[0];
@@ -181,7 +169,5 @@ angular.module('categoryModule')
                 }, 300);
             });
         };
-
-
     }
 ]);

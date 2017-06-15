@@ -3,6 +3,10 @@
  */
 .cart-item__img {
     display: block;
+    padding-top: 10px;
+    @media (max-width: $screen-xs-max) {
+        padding-top: 15px;
+    }
 }
 .cart-item__product-subtotal {
     text-align: center;
@@ -178,10 +182,8 @@
         font-size: 22px;
         font-weight: normal;
     }
-    .text-right {
-        @media (max-width: $screen-xs-max) {
-            float: none;
-        }
+    .text-right + .text-right {
+        float:right;
     }
 }
 

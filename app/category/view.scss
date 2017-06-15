@@ -2,9 +2,14 @@
     .form-group--search {
         margin: 6px 0 20px 0;
     }
+    .nav {
+        > li > a {
+            transition: ease .4s;
+        }
+    }
 }
 
-//col-xs-6 col-sm-4 col-lg-3
+    //col-xs-6 col-sm-4 col-lg-3
 .product-box {
     position: relative;
     margin-bottom: 20px;
@@ -13,6 +18,7 @@
         padding: 15px;
         border-radius: $border-radius-small;
         @include box-shadow(0 0 6px 0 rgba(0, 0, 0, 0.15));
+        border: 1px solid transparent;
     }
     @media (max-width: 480px) {
         width: 100%;
@@ -47,7 +53,7 @@
         .fa-shopping-cart {
             position: absolute;
             right:10px;
-            top: 21px;
+            top: 5px;
             width: 35px;
             height: 35px;
             font-size: 20px;
@@ -70,7 +76,7 @@
         font-size: 15px;
         font-weight: normal;
         margin: 0 0 5px 0;
-        padding-top: 21px;
+        padding-top: 5px;
         width: 100%;
         a {
             position: relative;
@@ -97,8 +103,6 @@
         z-index: 1;
         position: absolute;
         width: 60%;
-        left: 10%;
-
         left: 50%;
         transform: translate(-50%, 0);
         top: 30%;
@@ -227,6 +231,15 @@
         }
     }
 
+    .swatch-set {
+        margin-bottom: 0;
+        height: 60px;
+        overflow: hidden;
+
+        a {
+            transition: ease .4s;
+        }
+    }
 }
 
 .sort-block {
@@ -248,14 +261,14 @@
     flex-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -20px;
-    @media (max-width: 480px) {
+    @media (max-width: $screen-xs-max) {
         margin-right: -15px;
     }
     .product-box {
         &.col-sm-4 {
             width: 33%;
             @media (max-width: $screen-xs-max) {
-                width: 49.5%;
+                width: 50%;
             }
             @media (max-width: 480px) {
                 width: 100%;
@@ -272,6 +285,7 @@
             -ms-flex-direction: column;
             flex-direction: column;
             position: relative;
+            transition: ease .4s;
             .product-box-img {
                 overflow: inherit;
                 .sale-image {

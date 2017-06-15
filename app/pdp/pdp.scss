@@ -103,8 +103,6 @@
         }
     }
 
-
-
     .pdp-qty {
         .form-control {
             width: 60px;
@@ -165,6 +163,7 @@
             }
         }
     }
+
     img:hover {
         cursor: pointer;
         opacity: .8;
@@ -181,10 +180,14 @@
         }
     }
     hr {
-        margin: 5px 0;
+        margin: 15px 0;
     }
     .std {
-        line-height: 24px;
+        line-height: normal;
+
+        p {
+            padding: 5px 0;
+        }
     }
     .btn-md.disabled.pull-right {
         margin-top: 7px;
@@ -193,6 +196,15 @@
         padding: 8px 16px;
     }
 
+    .list-social {
+        font-size: 14px;
+        li {
+            padding: 0 3px;
+        }
+        i {
+            font-size: 16px;
+        }
+    }
 }
 
 .pdp-tabs {
@@ -236,12 +248,8 @@
         margin: 0 0 15px;
         border-collapse: separate;
         border-top: 6px solid #575757;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
         border-radius: 2px;
-        -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
         width: 100%;
         border-spacing: 0;
 
@@ -249,8 +257,6 @@
             background: #fafafa;
         }
         thead th {
-            -webkit-box-shadow: inset 0px -4px 6px -4px rgba(0, 0, 0, 0.15);
-            -moz-box-shadow: inset 0px -4px 6px -4px rgba(0, 0, 0, 0.15);
             box-shadow: inset 0px -4px 6px -4px rgba(0, 0, 0, 0.15);
         }
         th {
@@ -305,15 +311,44 @@
             padding: 4px;
             border: 1px solid #e0e0e0;
             height: 34px;
-            -webkit-box-shadow: inset 0px 0px 5px 0px #eaeaea;
-            -moz-box-shadow: inset 0px 0px 5px 0px #eaeaea;
-            box-shadow: inset 0px 0px 5px 0px #eaeaea;
+            box-shadow: inset 0 0 5px 0 #eaeaea;
             border-radius: 2px;
-            -webkit-border-radius: 2px;
-            -moz-border-radius: 2px;
         }
         textarea {
             height: 10em;
         }
     }
 }
+
+.size-chart {
+    p {
+        overflow: auto;
+    }
+}
+
+// showing of a scrollbar for the size chart on mobile and tablet view-ports
+@media (max-width: $screen-sm-max) {
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
+    ::-webkit-scrollbar:vertical {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar:horizontal {
+        height: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, .2);
+        border-radius: 10px;
+        border: 2px solid #ffffff;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: #ffffff;
+    }
+}
+

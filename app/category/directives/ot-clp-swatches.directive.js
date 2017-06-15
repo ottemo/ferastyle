@@ -43,7 +43,7 @@ angular.module('categoryModule')
                 }
 
                 function getSwatches(mediaParams) {
-                    var swatches = {};
+                    var swatches = [];
                     _.forEach($scope.product.options, function(option) {
                         if (option.controls_image) {
                             var swatchSet = [];
@@ -62,7 +62,7 @@ angular.module('categoryModule')
                             });
 
                             if (swatchSet.length > 0) {
-                                swatches[option.key] = swatchSet;
+                                swatches.push(swatchSet);
                             }
                         }
                     });

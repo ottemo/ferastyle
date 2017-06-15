@@ -28,7 +28,6 @@ angular.module('pdpModule')
                 $scope._getProduct();
                 $scope._getReviews();
                 $scope._getRatingInfo();
-                $scope._initWatchers();
                 $scope.getPdpProductsList();
             };
 
@@ -53,7 +52,7 @@ angular.module('pdpModule')
 
                         pdpProductService.setProduct(product);
                         $scope.product = pdpProductService.getProduct();
-                        $scope.inStock = product.qty !== 0;
+                        $scope.inStock = $scope.product.qty === undefined || $scope.product.qty > 0;
                         $scope.$broadcast('product.loaded');
 
                         // BREADCRUMBS
@@ -67,6 +66,7 @@ angular.module('pdpModule')
                         }
 
                         $scope.swatches = getSwatches(product, mediaConfig);
+                        $scope._initWatchers();
                     } else {
                         $location.path('/');
                     }
@@ -78,26 +78,12 @@ angular.module('pdpModule')
                     $scope.productsList = $rootScope.productsListUpperLevel;
                     getPdpProductsLinks();
                 }
-                else {
-                    var categotyName = $location.absUrl().split('/')[3];
-                    var parentCategoryId = commonRewriteService.getCategoryIdByUrl(categotyName);
-                    if(parentCategoryId !== null) {
-                        categoryApiService.getProductsByCategoryId({categoryID: parentCategoryId}).$promise
-                            .then(function (response) {
-                                if(response.result !== null) {
-                                    $rootScope.productsListUpperLevel = response.result || [];
-                                    $scope.productsList = $rootScope.productsListUpperLevel;
-                                    getPdpProductsLinks();
-                                }
-                            });
-                    }
-                }
             };
 
             function getPdpProductsLinks() {
                 var currentPosition = -1;
                 if ($scope.productsList.length > 0) {
-                    for (var i=0; i < $scope.productsList.length; i++) {
+                    for (var i = 0; i < $scope.productsList.length; i++) {
                         var product = $scope.productsList[i];
                         if (product._id === $scope.productId) {
                             currentPosition = i;
