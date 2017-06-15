@@ -138,7 +138,7 @@
                 </span>
                 <a class="btn btn-primary btn-md disabled pull-right"
                    ng-show="!inStock">
-                    Sold Out
+                    Not In Stock
                 </a>
                 <a class="btn btn-success btn-md disabled pull-right"
                    ng-show="inStock">
@@ -180,7 +180,7 @@
                         <i class="fa fa-shopping-cart"></i>
                         <span class="separator"></span>
                         <span ng-if="inStock">Add to cart</span>
-                        <span ng-if="!inStock">Sold out</span>
+                        <span ng-if="!inStock">Not In Stock</span>
                         <i class="fa fa-circle-o-notch fa-spin"
                            ng-show="isAddingToCart"></i>
                     </a>
