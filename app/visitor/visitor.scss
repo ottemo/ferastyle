@@ -102,8 +102,17 @@ $address-icons-color: #dcdcdc;
     }
     .product-info {
         width: 25%;
+
         @media (min-width: $screen-sm-min) {
             width: 20%;
+        }
+
+        img {
+            width: 100%;
+
+            @media (min-width: $screen-sm-min) {
+                width: auto;
+            }
         }
     }
 }
