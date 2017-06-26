@@ -176,7 +176,7 @@ angular.module("coreModule")
         // { "Code": "PN", "Name": "Pitcairn Islands" },
         // { "Code": "PL", "Name": "Poland" },
         // { "Code": "PT", "Name": "Portugal" },
-        // { "Code": "PR", "Name": "Puerto Rico" },
+         { "Code": "PR", "Name": "Puerto Rico" },
         // { "Code": "RE", "Name": "Reunion" },
         // { "Code": "RO", "Name": "Romania" },
         // { "Code": "RU", "Name": "Russia" },
