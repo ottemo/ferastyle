@@ -214,7 +214,7 @@
                         <form novalidate>
 
                             <div class="radio"
-                                ng-repeat="method in shippingMethods">
+                                ng-repeat="method in shippingMethods | orderObjectBy:'Price':'asc'">
                                 <label>
                                     <input type="radio"
                                         name="shipping_method"
