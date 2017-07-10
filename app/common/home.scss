@@ -80,24 +80,120 @@ $overlay-height: 60px;
                 padding-right: 0;
                 padding-left: 0;
             }
+            .outfits-row {
+                margin-top: 3rem;
+                h1 {
+                    margin-bottom: 2rem;
+                }
+            }
+            .theme-box-row {
+                margin-top: 3rem;
+                .theme-box {
+                    position: relative;
+                    overflow: hidden;
+                    img {
+                        transition: ease .3s;
+                        &:hover {
+                            transform: scale(1.15);
+                        }
+                    }
+                }
+                &.dual-box {
+                    .theme-box {
+                        display: inline-block;
+                        height: 475px;
+                        &.left {
+                            float: left;
+                        }
+                        &.right {
+                            float: right;
+                        }
+                        img {
+                            width: auto;
+                            height: 100%;
+                        }
+                    }
+                    @media (max-width: $screen-md-max) {
+                        .theme-box {
+                            height: 390px;
+                        }
+                    }
+                    @media (max-width: $screen-sm-max) {
+                        .theme-box {
+                            height: 295px;
+                        }
+                    }
+                    @media (max-width: $screen-xs-max) {
+                        .theme-box {
+                            display: block;
+                            height: auto;
+                            &.right {
+                                float: none;
+                            }
+                            &.left {
+                                float: none;
+                                margin-bottom: 2rem;
+                            }
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+                    }
+
+                }
+                &.single-box {
+                    .theme-box {
+                        display: block;
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+
+                .text-content {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    span {
+                        display: block;
+                        text-align: center;
+                        font-size: 18px;
+                        color: #ffffff;
+                        &.accent {
+                            font-size: 24px;
+                            font-weight: bold;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
         }
         .home-block {
             position: relative;
+            float: none;
+
             & > div {
                 position: absolute;
-                left: 25%;
+                left: 10%;
+                top: 50%;
+                transform: translateY(-50%);
+                max-width: 40%;
+                text-align: center;
                 p, h2, a {
                     color: #fff;
                 }
                 p {
                     text-transform: capitalize;
-                    font-size: 40px;
+                    font-size: 28px;
                     font-family: 'AvenirNextLTPro-Bold';
                     letter-spacing: 4px;
-                    margin: 0 0 45px;
                 }
                 h2 {
-                    font-size: 70px;
+                    font-size: 40px;
                     letter-spacing: 6px;
                     font-family: 'AvenirNextLTPro-Bold';
                 }
@@ -119,13 +215,10 @@ $overlay-height: 60px;
                     font-family: 'AvenirNextLTPro';
                 }
                 @media (max-width: $screen-md-max) {
-                    top: 10%;
                     p {
-                        font-size: 28px;
                         margin: 0 0 25px;
                     }
                     h2 {
-                        font-size: 45px;
                         font-family: 'AvenirNextLTPro-Bold';
                     }
                     p:nth-child(3) {
@@ -170,7 +263,6 @@ $overlay-height: 60px;
                 }
 
                 @media (min-width: $screen-lg-min) {
-                    top: 10%;
                 }
             }
         }
