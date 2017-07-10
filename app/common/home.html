@@ -4,70 +4,36 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 text-center instagram-block">
-                <h6>LATEST FROM FERA</h6>
-                <a href="https://www.instagram.com/ferastyle/">FOLLOW ALONG ON INSTAGRAM</a>
-
-                <div>
-                    <ul ot-slider
-                        class="responsive"
-                        init-on-event="instagramPics.loaded"
-                        config="{
-                                infinite: true,
-                                slidesToShow: 4,
-                                slidesToScroll: 4,
-                                responsive: [
-                                                {
-                                                  breakpoint: 992,
-                                                  settings: {
-                                                    slidesToShow: 3,
-                                                    slidesToScroll: 3
-                                                  }
-                                                }
-                                            ]
-                            }">
-                        <li ng-repeat="instagramPic in instagramPics">
-                            <a href="{{instagramPic.link}}" target="_blank">
-                                <i class="neklo-instagram-over"></i>
-                                <img ng-src="{{instagramPic.images.low_resolution.url}}"
-                                     alt="{{instagramPic.caption.text}}"
-                                     title="{{instagramPic.caption.text}}"
-                                     itemprop="image"/>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
             <div class="col-xs-12 text-center">
-                    <form action="//ferastyle.us6.list-manage.com/subscribe/post?u=5b353193e9b1b4d6493b11cb3&amp;id=3a3a7c6595"
-                          method="post"
-                          name="mc-embedded-subscribe-form"
-                          class="validate block-newsletter"
-                          target="_blank"
-                          novalidate>
-                        <div class="input-box">
-                            <input type="email"
-                                   value=""
-                                   name="EMAIL"
-                                   class="email"
-                                   id="mce-EMAIL"
-                                   placeholder="Enter your email for FERA special offers"
-                                   required>
-                        </div>
-                        <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                            <input type="text"
-                                   name="b_5b353193e9b1b4d6493b11cb3_3a3a7c6595"
-                                   tabindex="-1"
-                                   value="">
-                        </div>
-                        <div class="actions">
-                            <button type="submit" title="Subscribe">
+                <form action="//ferastyle.us6.list-manage.com/subscribe/post?u=5b353193e9b1b4d6493b11cb3&amp;id=3a3a7c6595"
+                      method="post"
+                      name="mc-embedded-subscribe-form"
+                      class="validate block-newsletter"
+                      target="_blank"
+                      novalidate>
+                    <div class="input-box">
+                        <input type="email"
+                               value=""
+                               name="EMAIL"
+                               class="email"
+                               id="mce-EMAIL"
+                               placeholder="Enter your email for FERA special offers"
+                               required>
+                    </div>
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                        <input type="text"
+                               name="b_5b353193e9b1b4d6493b11cb3_3a3a7c6595"
+                               tabindex="-1"
+                               value="">
+                    </div>
+                    <div class="actions">
+                        <button type="submit" title="Subscribe">
                                 <span>
                                     <img src="/images/next.png">
                                 </span>
-                            </button>
-                        </div>
-                    </form>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
