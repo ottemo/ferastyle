@@ -91,17 +91,12 @@ $overlay-height: 60px;
                 .theme-box {
                     position: relative;
                     overflow: hidden;
-                    img {
-                        transition: ease .3s;
-                        &:hover {
-                            transform: scale(1.15);
-                        }
-                    }
                 }
                 &.dual-box {
                     .theme-box {
                         display: inline-block;
-                        height: 475px;
+                        width: 48%;
+                        height: auto;
                         &.left {
                             float: left;
                         }
@@ -109,23 +104,15 @@ $overlay-height: 60px;
                             float: right;
                         }
                         img {
-                            width: auto;
-                            height: 100%;
+                            width: 100%;
+                            height: auto;
                         }
                     }
-                    @media (max-width: $screen-md-max) {
-                        .theme-box {
-                            height: 390px;
-                        }
-                    }
-                    @media (max-width: $screen-sm-max) {
-                        .theme-box {
-                            height: 295px;
-                        }
-                    }
+
                     @media (max-width: $screen-xs-max) {
                         .theme-box {
                             display: block;
+                            width: 100%;
                             height: auto;
                             &.right {
                                 float: none;
