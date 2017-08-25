@@ -417,6 +417,10 @@ $overlay-height: 60px;
             margin: 0;
             padding: 0;
             text-align: center;
+            border-color: #ADFFF9;
+        }
+        & > p {
+            color: #ADFFF9;
         }
 
         button {
