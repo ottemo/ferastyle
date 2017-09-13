@@ -68,6 +68,47 @@ $overlay-height: 60px;
 }
 .home {
     margin-top: -10px;
+         .home-left-block, .home-right-block {
+         background: $white;
+         padding-bottom: 30px;
+         border-bottom: 2px solid #ececec;
+         p {
+             margin: 28px 0 0;
+             padding: 0 30px;
+             font-size: $font-size-h4;
+             line-height: 22px;
+             font-family: Montserrat, sans-serif;
+             @media (max-width: $screen-sm-max) {
+                 font-size: $font-size-h5;
+             }
+             @media (max-width: $screen-xs-max) {
+                 font-size: $font-size-base;
+             }
+         }
+         h3 {
+             margin: 0 0 15px;
+             text-transform: uppercase;
+             font-family: MontserratBold, sans-serif;
+             text-align: center;
+             font-size: $font-size-h3;
+             border-bottom: 2px solid #ececec;
+             padding: 16px 0;
+             @media (max-width: $screen-sm-max) {
+                 font-size: $font-size-h4;
+             }
+             @media (max-width: $screen-xs-max) {
+                 font-size: $font-size-base;
+             }
+         }
+         .btn-block {
+             margin: 40px 0 20px;
+         }
+     }
+     .home-left-block {
+         @media (max-width: $screen-xs-max) {
+             margin-bottom: 0;
+         }
+     }
     .custom-block {
         .row {
             margin: 0;
@@ -159,6 +200,93 @@ $overlay-height: 60px;
             }
 
         }
+        .home-headline {
+         background-color: $white;
+         margin: 14px 0 32px;
+         border-bottom: 2px solid #ececec;
+         @media (max-width: $screen-sm-max) {
+             margin: 14px 0 14px;;
+         }
+         h6 {
+             font-size: $font-size-h2;
+             margin: 0px;
+             color: $blue-dark;
+             padding: 19px 0;
+             line-height: 1em;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+             font-family: MontserratBold, sans-serif;
+             @media (max-width: $screen-sm-max) {
+                 font-size: $font-size-h3;
+             }
+             @media (max-width: $screen-xs-max) {
+                 font-size: $font-size-h4;
+             }
+         }
+         + .container {
+             .row {
+                 @media (max-width: $screen-sm-max) {
+                     .col-xs-12 {
+                         padding-left: 10px;
+                         padding-right: 10px;
+                     }
+                 }
+                 .col-xs-12:first-child {
+                     padding-left: 0;
+                 }
+                 .col-xs-12:nth-child(2) {
+                     padding-right: 0;
+                 }
+                 .col-xs-12:last-child {
+                    margin: 33px 0;
+                 }
+                 @media (max-width: $screen-xs-max) {
+                     .col-xs-12,
+                     .col-xs-12:first-child,
+                     .col-xs-12:nth-child(2) {
+                         padding: 0;
+                     }
+                 }
+             }
+         }
+     }
+     .btn-lg {
+        text-transform: capitalize;
+        font-family: montserrat;
+        font-size: 16px;
+        padding: 15px 50px;
+    }
+    .static-bg {
+        @media (max-width: $screen-xs-max) {
+            padding: 0 15px;
+        }
+    }
+    .brands {
+        border-bottom: 2px solid #ececec;
+        background: #ffffff;
+        margin-bottom: 64px;
+        @media (max-width: $screen-sm-max) {
+            margin-bottom: 31px;
+        }
+        @media (max-width: $screen-xs-max) {
+            margin: 0 0 20px;
+        }
+        .home-headline {
+            margin: 0;
+            border-bottom: 1px solid #F9F9F9;
+        }
+        .col-xs-12 {
+            padding: 30px 0;
+            min-height: 112px;
+            border-right: 1px solid #F9F9F9;
+            @media (max-width: $screen-sm-max) {
+                border: 1px solid #F9F9F9;
+            }
+            @media (max-width: $screen-xs-max) {
+                border-bottom: 1px solid #F9F9F9;
+            }
+        }
+    }
         .home-block {
             position: relative;
             float: none;
@@ -552,3 +680,4 @@ $overlay-height: 60px;
         @extend .fa-light-angle-right;
     }
 }
+
