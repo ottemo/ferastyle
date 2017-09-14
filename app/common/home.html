@@ -1,7 +1,55 @@
 <div class="home">
-
     <ot-cms-block name="home-blocks"></ot-cms-block>
+    <div class="shop-now">
+    <h3>Shop now :</h3>
+    </div>
+        <div class="home-blocks container">
 
+    <div class="home-slider row" ot-cms-slider name="home-slider" config="{
+                                            slidesToScroll: 1,
+                                            autoplay: false,
+                                            autoplaySpeed: 3000,
+                                            speed: 1000,
+                                            dots: true,
+                                            slidesToShow: 3,
+                                            responsive: [
+                                                {
+                                                    breakpoint: 1400,
+                                                    settings: {
+                                                        centerMode: false
+                                                    },
+                                                    breakpoint: 767,
+                                                    settings: {
+                                                        arrows: false
+                                                    }
+                                                }
+                                            ]
+                                        }"></div>
+                  
+                                        <div class="home-blocks container">                 
+                                    </div>
+        <div class="home-slider row" ot-cms-slider name="picture-slider" config="{
+                                           slidesToScroll: 1,
+                                           autoplay: false,
+                                           autoplaySpeed: 3000,
+                                           speed: 1000,
+                                           dots: false,
+                                           slidesToShow: 1,
+                                           responsive: [
+                                                {
+                                                     breakpoint: 1400,
+                                                     settings: {
+                                                        centerMode: false
+                                                    },
+                                                    breakpoint: 767,
+                                                    settings: {
+                                                        arrows: false
+                                                    }
+                                                }
+                                            ]
+                                        }"></div>
+                                    </div>
+    <ot-cms-block name="final-home-block"></ot-cms-block>
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center">
