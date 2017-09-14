@@ -407,6 +407,8 @@ $overlay-height: 60px;
     }
     img {
         width: 100%;
+        padding: 5px 10px;
+        
     }
     .instagram-block {
         & > h6 {
@@ -430,6 +432,7 @@ $overlay-height: 60px;
         }
         .slick-slider {
             padding: 0;
+            
 
             li {
                 display: inline-block;
@@ -439,6 +442,7 @@ $overlay-height: 60px;
                 -webkit-transition: all 0.2s ease;
                 transition: all 0.2s ease;
                 margin: 0 2px 2px 0;
+                
             }
             li:hover .neklo-instagram-over {
                 -moz-border-radius: 50%;
@@ -459,6 +463,7 @@ $overlay-height: 60px;
                 position: relative;
                 overflow: hidden;
                 display: block;
+                
             }
             img {
                 -moz-transition: all 0.2s ease;
@@ -469,6 +474,7 @@ $overlay-height: 60px;
                 -ms-transform: scale(1);
                 -webkit-transform: scale(1);
                 transform: scale(1);
+
             }
 
             .neklo-instagram-over {
@@ -578,10 +584,10 @@ $overlay-height: 60px;
     .slick-slide.slick-current, .slick-slide {
         position: relative;
         .banner {
-            background: rgba(22, 132, 193, 0.7);
+            background: #72160D;
             color: white;
-            display: block;
-            padding: 5px 32px 4px 24px;
+            display: inline;
+            padding: 5px 13px 5px 12px;
             position: absolute;
             right: 52px;
             top: 33px;
@@ -614,7 +620,8 @@ $overlay-height: 60px;
         bottom: 0;
         width: 34px;
         height: 100%;
-        background: rgba(22, 132, 193, 0.3);
+        padding-left: 10px;
+
         li {
             width: 16px;
             @media (max-width: $screen-xs-max) {
@@ -661,10 +668,12 @@ $overlay-height: 60px;
     .slick-prev,
     .slick-next{
         &:before {
+            color: rgba(22, 132, 193, 0.7);
             font-size: 25px;
-            opacity: 1;
+            opacity: .3;
             text-shadow: none;
             @extend .fa-light;
+            padding-left: 10px;
         }
         &:hover {
             &:before {
@@ -674,10 +683,17 @@ $overlay-height: 60px;
         }
     }
     .slick-prev:before{
-        @extend .fa-light-angle-left;
+        content: "<";
     }
     .slick-next:before{
-        @extend .fa-light-angle-right;
+        content: ">";
     }
 }
 
+.shop-now {
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-family: AvenirNextLTPro-Bold;
+}
